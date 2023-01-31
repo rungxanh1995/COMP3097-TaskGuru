@@ -12,6 +12,7 @@ SwiftUI
 ## Members
 Sorted alphabetically by first name
 * Joe Pham
+* Marco Stevanella
 * Ostap Sulyk
 * Rauf Anata
 
