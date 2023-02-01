@@ -16,6 +16,7 @@ enum SFSymbols {
 	static let graduationCapFilled: Image = .init(systemName: "graduationcap.fill")
 	static let listFilled: Image = .init(systemName: "list.bullet.rectangle.portrait.fill")
 	static let plusCircled: Image = .init(systemName: "plus.circle")
+	static let calendarWithClock: Image = .init(systemName: "calendar.badge.clock")
 	static let circleFilled: Image = .init(systemName: "circle.fill")
 	static let gridFilled: Image = .init(systemName: "square.fill.text.grid.1x2")
 	static let pencilDrawing: Image = .init(systemName: "pencil.and.outline")
