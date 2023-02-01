@@ -13,6 +13,7 @@
 		2C262B15298A1A0E004C622C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B14298A1A0E004C622C /* Date.swift */; };
 		2C262B18298A1A4A004C622C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B17298A1A4A004C622C /* Constants.swift */; };
 		2C262B1A298A1A54004C622C /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B19298A1A54004C622C /* SFSymbols.swift */; };
+		2C262B1D298A1AAC004C622C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B1C298A1AAC004C622C /* SettingsView.swift */; };
 		2C8C35ED2984934E00DCEA67 /* TaskGuruApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */; };
 		2C8C35EF2984934E00DCEA67 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EE2984934E00DCEA67 /* HomeView.swift */; };
 		2C8C35F12984934E00DCEA67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C35F02984934E00DCEA67 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		2C262B14298A1A0E004C622C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		2C262B17298A1A4A004C622C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2C262B19298A1A54004C622C /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
+		2C262B1C298A1AAC004C622C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2C8C35E92984934E00DCEA67 /* TaskGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGuruApp.swift; sourceTree = "<group>"; };
 		2C8C35EE2984934E00DCEA67 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		2C262B1B298A1A89004C622C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2C262B1C298A1AAC004C622C /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		2C8C35E02984934E00DCEA67 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				2C8C35FB2984950E00DCEA67 /* Home */,
+				2C262B1B298A1A89004C622C /* Settings */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -206,6 +217,7 @@
 				2C8C35EF2984934E00DCEA67 /* HomeView.swift in Sources */,
 				2C262B15298A1A0E004C622C /* Date.swift in Sources */,
 				2C262B12298A19EC004C622C /* TaskItem.swift in Sources */,
+				2C262B1D298A1AAC004C622C /* SettingsView.swift in Sources */,
 				2C262B0E298A19CB004C622C /* TaskType.swift in Sources */,
 				2C262B1A298A1A54004C622C /* SFSymbols.swift in Sources */,
 				2C262B18298A1A4A004C622C /* Constants.swift in Sources */,
