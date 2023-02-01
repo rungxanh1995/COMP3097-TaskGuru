@@ -25,7 +25,7 @@ extension Date {
 	var isInYesterday: Bool { calendar.isDateInYesterday(self) }
 	
 	/// Check if date is already past today, aka overdue (regarding a task)
-	var isPastToday: Bool { isInYesterday && isInThePast }
+	var isPastToday: Bool { !isWithinToday && !isInTheFuture }
 	
 	/// Check if date is in the future.
 	///
