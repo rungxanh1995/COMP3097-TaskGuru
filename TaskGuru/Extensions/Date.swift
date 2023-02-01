@@ -9,9 +9,27 @@ import Foundation
 
 extension Date {
 	
-	/// Returns true if the date is both within today but not passed today yet
-	var isWithinToday: Bool {
-		let oneDayInAdvanceInSeconds: TimeInterval = -(60*60*24)
-		return self < Date.now && self > Date(timeIntervalSinceNow: oneDayInAdvanceInSeconds)
-	}
+	/// User’s current calendar.
+	private var calendar: Calendar { Calendar.current }
+	
+	/// Check if date is within today
+	var isWithinToday: Bool { calendar.isDateInToday(self) }
+	
+	/// Check if date is already in the past
+	///
+	/// 	Date(timeInterval: -100, since: Date()).isInPast -> true
+	///
+	var isInThePast: Bool { self < Date() }
+	
+	/// Check if date is within yesterday
+	var isInYesterday: Bool { calendar.isDateInYesterday(self) }
+	
+	/// Check if date is already past today, aka overdue (regarding a task)
+	var isPastToday: Bool { isInYesterday && isInThePast }
+	
+	/// Check if date is in the future.
+	///
+	/// 	Date(timeInterval: 100, since: Date()).isInFuture -> true
+	///
+	var isInTheFuture: Bool { self > Date() }
 }
