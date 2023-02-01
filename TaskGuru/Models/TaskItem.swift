@@ -47,6 +47,10 @@ struct TaskItem: Identifiable {
 
 extension TaskItem {
 	static let mockData: [TaskItem] = [
+		TaskItem(name: "Register schedule 🎓", dueDate: Date(timeIntervalSinceNow: -60*60*24),
+				 lastUpdated: .now, type: .school, status: .done, notes: ""),
+		TaskItem(name: "Check tax account 💸", dueDate: Date(timeIntervalSinceNow: -60*60*2),
+				 lastUpdated: .now, type: .other, status: .inProgress, notes: ""),
 		TaskItem(name: "Buy vacation ticket 🎟️", dueDate: Date(timeIntervalSinceNow: 60*60*24*135),
 				 lastUpdated: .now, type: .personal, status: .inProgress, notes: "Look for affordable options"),
 		TaskItem(name: "Design document 🎨", dueDate: Date(timeIntervalSinceNow: 60*60*24*15),
