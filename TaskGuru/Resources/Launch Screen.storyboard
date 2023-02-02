@@ -27,16 +27,70 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-logo" translatesAutoresizingMaskIntoConstraints="NO" id="I25-gn-Hpw">
+                                <rect key="frame" x="132.66666666666666" y="226" width="127.99999999999997" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="T8u-xS-MrR"/>
+                                    <constraint firstAttribute="height" constant="128" id="iel-YT-RuR"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Joe Pham 101276573" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjA-8e-VEb">
+                                <rect key="frame" x="36.666666666666657" y="410" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="2LI-ry-Gls"/>
+                                    <constraint firstAttribute="width" constant="320" id="YXN-ES-A3o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marco Stevanella 101307949" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJg-ua-jOn">
+                                <rect key="frame" x="36.666666666666657" y="462" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="S2r-4C-wua"/>
+                                    <constraint firstAttribute="width" constant="320" id="gOe-EJ-OBa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ostap Sulyk 101186901" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkx-b1-Wt1">
+                                <rect key="frame" x="36.666666666666657" y="514" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Jed-QV-fMu"/>
+                                    <constraint firstAttribute="height" constant="44" id="UJ3-na-nyt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rauf Anata 101220889" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZm-m1-A31">
+                                <rect key="frame" x="36.666666666666657" y="566" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="D5p-yd-7vi"/>
+                                    <constraint firstAttribute="width" constant="320" id="rrO-Qr-QxT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="CZm-m1-A31" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="0Y3-EA-LuD"/>
+                            <constraint firstItem="dkx-b1-Wt1" firstAttribute="top" secondItem="qJg-ua-jOn" secondAttribute="bottom" constant="8" symbolic="YES" id="1ak-lI-gjN"/>
+                            <constraint firstItem="I25-gn-Hpw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4We-jW-uaz"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
+                            <constraint firstItem="qJg-ua-jOn" firstAttribute="leading" secondItem="tjA-8e-VEb" secondAttribute="leading" id="9nJ-fU-a3e"/>
+                            <constraint firstItem="qJg-ua-jOn" firstAttribute="trailing" secondItem="tjA-8e-VEb" secondAttribute="trailing" id="LIJ-wt-7CY"/>
+                            <constraint firstItem="qJg-ua-jOn" firstAttribute="top" secondItem="tjA-8e-VEb" secondAttribute="bottom" constant="8" symbolic="YES" id="LRM-I7-Ukj"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="Q3B-4B-g5h"/>
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="80" id="Teg-JS-F4a"/>
                             <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
+                            <constraint firstItem="CZm-m1-A31" firstAttribute="top" secondItem="dkx-b1-Wt1" secondAttribute="bottom" constant="8" symbolic="YES" id="fwK-Wb-V4e"/>
+                            <constraint firstItem="tjA-8e-VEb" firstAttribute="top" secondItem="I25-gn-Hpw" secondAttribute="bottom" constant="56" id="pBi-TF-AFj"/>
+                            <constraint firstItem="tjA-8e-VEb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="x13-A1-WFe"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="x7j-FC-K8j"/>
+                            <constraint firstItem="dkx-b1-Wt1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xCy-cc-9S4"/>
+                            <constraint firstItem="I25-gn-Hpw" firstAttribute="top" secondItem="GJd-Yh-RWb" secondAttribute="bottom" constant="44" id="zg6-lo-j9k"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -46,6 +100,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="app-logo" width="341.33334350585938" height="341.33334350585938"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
