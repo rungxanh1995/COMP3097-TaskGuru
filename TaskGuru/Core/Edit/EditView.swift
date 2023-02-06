@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct EditView: View {
+	internal enum FocusField { case name, notes }
+	@FocusState private var focusField: FocusField?
+
 	@Environment(\.dismiss) var dismissThisView
 	
 	@State private var taskName: String = ""
@@ -21,6 +24,7 @@ struct EditView: View {
 			Form {
 				Section {
 					TextField("Name", text: $taskName)
+						.focused($focusField, equals: .name)
 					
 					DatePicker("Due Date", selection: $taskDueDate,
 										 in: TaskConstants.dateRangeFromToday,
@@ -39,21 +43,24 @@ struct EditView: View {
 						}
 					}
 				} header: {
-					HStack {
-						SFSymbols.gridFilled
+					Label {
 						Text("General")
+					} icon: {
+						SFSymbols.gridFilled
 					}
 				}
 				
 				Section {
 					TextField("Notes", text: $taskNotes, prompt: Text("Any extra notes..."), axis: .vertical)
 				} header: {
-					HStack {
-						SFSymbols.pencilDrawing
+					Label {
 						Text("Notes")
+					} icon: {
+						SFSymbols.pencilDrawing
 					}
 				}
 			}
+			.onSubmit { focusField = nil }
 			.navigationTitle("Edit Task")
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
@@ -65,14 +72,20 @@ struct EditView: View {
 				
 				ToolbarItem(placement: .navigationBarTrailing) {
 					Button("Save") {
-						// add task then dismiss view
-						dismissThisView()
+						didTapSaveButton()
 					}
 					.font(.headline)
 				}
 			}
 		}
 		.interactiveDismissDisabled()
+	}
+}
+
+extension EditView {
+	private func didTapSaveButton() {
+		// add task here...
+		dismissThisView()
 	}
 }
 
