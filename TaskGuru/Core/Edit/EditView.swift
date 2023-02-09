@@ -64,17 +64,16 @@ struct EditView: View {
 			.navigationTitle("Edit Task")
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
-				ToolbarItem(placement: .navigationBarLeading) {
+				ToolbarItem(placement: .cancellationAction) {
 					Button("Cancel") {
 						dismissThisView()
 					}
 				}
 				
-				ToolbarItem(placement: .navigationBarTrailing) {
+				ToolbarItem(placement: .confirmationAction) {
 					Button("Save") {
 						didTapSaveButton()
 					}
-					.font(.headline)
 				}
 			}
 		}
