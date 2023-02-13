@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct SettingsView: View {
-	@State private var isHapticEnabled = true
+	@State private var isHapticReduced = true
 	
 	private let colorThemes = ["System", "Light", "Dark"]
 	@State private var selectedColorTheme = "System"
 	
-	@State private var isConfirmingResetData = false
+	@State private var isShowingOnboarding: Bool = false
+	
+	@AppStorage(UserDefaultsKey.isShowingTabBadge)
+	var isShowingTabBadge: Bool = true
+	
+	@State private var isConfirmingResetSettings = false
+	@State private var isConfirmingResetUserData = false
 	
 	var body: some View {
 		NavigationView {
@@ -24,8 +30,16 @@ struct SettingsView: View {
 			}
 			.navigationTitle("Settings")
 			.confirmationDialog(
-				"You're about to reset all data.\nThis action cannot be undone",
-				isPresented: $isConfirmingResetData,
+				"App settings would reset.\nThis action cannot be undone",
+				isPresented: $isConfirmingResetSettings,
+				titleVisibility: .visible
+			) {
+				Button("Delete", role: .destructive) {}
+				Button("Cancel", role: .cancel) {}
+			}
+			.confirmationDialog(
+				"All your tasks would be deleted.\nThis action cannot be undone",
+				isPresented: $isConfirmingResetUserData,
 				titleVisibility: .visible
 			) {
 				Button("Delete", role: .destructive) {}
@@ -38,6 +52,8 @@ struct SettingsView: View {
 private extension SettingsView {
 	private var generalSection: some View {
 		Section {
+			onboarding
+			tabBadge
 			haptics
 			appTheme
 		} header: {
@@ -48,10 +64,22 @@ private extension SettingsView {
 		}
 	}
 	
+	private var onboarding: some View {
+		Button {
+			isShowingOnboarding.toggle()
+		} label: {
+			Text("Show Onboarding screen")
+		}
+	}
+	
+	private var tabBadge: some View {
+		Toggle("Show Tab Badge", isOn: $isShowingTabBadge)
+			.tint(.accentColor)
+	}
 	
 	private var haptics: some View {
-		Toggle("Enable Haptics", isOn: $isHapticEnabled)
-			.tint(Color.accentColor)
+		Toggle("Reduce Haptics", isOn: $isHapticReduced)
+			.tint(.accentColor)
 	}
 	
 	private var appTheme: some View {
@@ -65,7 +93,8 @@ private extension SettingsView {
 	
 	private var advancedSection: some View {
 		Section {
-			resetAppButton
+			resetAppSettingsButton
+			resetAppDataButton
 		} header: {
 			HStack {
 				SFSymbols.magicWand
@@ -76,12 +105,30 @@ private extension SettingsView {
 		}
 	}
 	
-	private var resetAppButton: some View {
-		Button("Reset to Original", role: .destructive) {
-			isConfirmingResetData.toggle()
+	private var resetAppSettingsButton: some View {
+		Button(role: .destructive) {
+			isConfirmingResetSettings.toggle()
+		} label: {
+			Label {
+				Text("Reset App Settings")
+			} icon: {
+				SFSymbols.gear.foregroundColor(.red)
+			}
 		}
 	}
-	
+
+	private var resetAppDataButton: some View {
+		Button(role: .destructive) {
+			isConfirmingResetUserData.toggle()
+		} label: {
+			Label {
+				Text("Reset Your Data")
+			} icon: {
+				SFSymbols.personFolder.foregroundColor(.red)
+			}
+		}
+	}
+
 	private var devTeamSection: some View {
 		Section {
 			HStack {
