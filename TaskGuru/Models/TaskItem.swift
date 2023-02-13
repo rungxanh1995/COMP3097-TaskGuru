@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TaskItem: Identifiable {
+struct TaskItem: Identifiable, Hashable {
 	var id: UUID = UUID()
 	
 	var name: String {
@@ -39,6 +39,8 @@ struct TaskItem: Identifiable {
 	var status: TaskStatus  {
 		didSet { lastUpdated = .now }
 	}
+	
+	var isNotDone: Bool { status != .done }
 	
 	var notes: String  {
 		didSet { lastUpdated = .now }

@@ -17,6 +17,8 @@
 		2C2AED322991AF28000C5399 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2AED312991AF28000C5399 /* View.swift */; };
 		2C74150B298B2579006CECDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C74150A298B2579006CECDA /* Launch Screen.storyboard */; };
 		2C7AC3D3299AE94300BC9D10 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7AC3D2299AE94300BC9D10 /* UserDefaultsKey.swift */; };
+		2C7AC3D6299AEE0E00BC9D10 /* PendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7AC3D5299AEE0E00BC9D10 /* PendingView.swift */; };
+		2C7AC3D8299AEE4C00BC9D10 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7AC3D7299AEE4C00BC9D10 /* AppState.swift */; };
 		2C8C35ED2984934E00DCEA67 /* TaskGuruApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */; };
 		2C8C35EF2984934E00DCEA67 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EE2984934E00DCEA67 /* HomeView.swift */; };
 		2C8C35F12984934E00DCEA67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C35F02984934E00DCEA67 /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 		2C2AED312991AF28000C5399 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		2C74150A298B2579006CECDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2C7AC3D2299AE94300BC9D10 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		2C7AC3D5299AEE0E00BC9D10 /* PendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingView.swift; sourceTree = "<group>"; };
+		2C7AC3D7299AEE4C00BC9D10 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2C8C35E92984934E00DCEA67 /* TaskGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGuruApp.swift; sourceTree = "<group>"; };
 		2C8C35EE2984934E00DCEA67 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 				2C262B17298A1A4A004C622C /* Constants.swift */,
 				2C262B19298A1A54004C622C /* SFSymbols.swift */,
 				2C7AC3D2299AE94300BC9D10 /* UserDefaultsKey.swift */,
+				2C7AC3D7299AEE4C00BC9D10 /* AppState.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -93,6 +98,14 @@
 				2C262B1C298A1AAC004C622C /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		2C7AC3D4299AECB800BC9D10 /* Pending */ = {
+			isa = PBXGroup;
+			children = (
+				2C7AC3D5299AEE0E00BC9D10 /* PendingView.swift */,
+			);
+			path = Pending;
 			sourceTree = "<group>";
 		};
 		2C8C35E02984934E00DCEA67 = {
@@ -139,6 +152,7 @@
 				2C8C35FB2984950E00DCEA67 /* Home */,
 				D033E52429913E4B00F9AF2A /* Detail */,
 				D033E52929913F0000F9AF2A /* Edit */,
+				2C7AC3D4299AECB800BC9D10 /* Pending */,
 				2C262B1B298A1A89004C622C /* Settings */,
 			);
 			path = Core;
@@ -260,8 +274,10 @@
 				2C262B0E298A19CB004C622C /* TaskType.swift in Sources */,
 				2C262B1A298A1A54004C622C /* SFSymbols.swift in Sources */,
 				2C7AC3D3299AE94300BC9D10 /* UserDefaultsKey.swift in Sources */,
+				2C7AC3D8299AEE4C00BC9D10 /* AppState.swift in Sources */,
 				2C262B18298A1A4A004C622C /* Constants.swift in Sources */,
 				2C262B10298A19D4004C622C /* TaskStatus.swift in Sources */,
+				2C7AC3D6299AEE0E00BC9D10 /* PendingView.swift in Sources */,
 				2C8C35ED2984934E00DCEA67 /* TaskGuruApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
