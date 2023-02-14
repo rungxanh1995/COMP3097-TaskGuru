@@ -27,10 +27,8 @@ struct EditView: View {
 						.focused($focusField, equals: .name)
 					
 					DatePicker("Due Date", selection: $taskDueDate,
-										 in: TaskConstants.dateRangeFromToday,
-										 displayedComponents: .date
-					)
-					
+										 displayedComponents: .date)
+
 					Picker("Type", selection: $taskTypeSelected) {
 						ForEach(TaskConstants.allTypes, id: \.self) {
 							Text($0.rawValue)
