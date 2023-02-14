@@ -18,6 +18,14 @@ struct SettingsView: View {
 	@AppStorage(UserDefaultsKey.isShowingTabBadge)
 	var isShowingTabBadge: Bool = true
 	
+	var appVersionNumber: String {
+		Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+	}
+	
+	var appBuildNumber: String {
+		Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
+	}
+	
 	@State private var isConfirmingResetSettings = false
 	@State private var isConfirmingResetUserData = false
 	
@@ -61,6 +69,8 @@ private extension SettingsView {
 				SFSymbols.gearFilled
 				Text("General")
 			}
+		} footer: {
+			Text("App Version: \(appVersionNumber) (\(appBuildNumber))")
 		}
 	}
 	
