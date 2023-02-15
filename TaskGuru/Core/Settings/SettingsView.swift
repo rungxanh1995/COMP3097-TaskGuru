@@ -71,10 +71,7 @@ private extension SettingsView {
 			haptics
 			appTheme
 		} header: {
-			HStack {
-				SFSymbols.gearFilled
-				Text("General")
-			}
+			Label { Text("General") } icon: { SFSymbols.gearFilled }
 		} footer: {
 			Text("App Version: \(appVersionNumber) (\(appBuildNumber))")
 		}
@@ -106,8 +103,7 @@ private extension SettingsView {
 	private var appTheme: some View {
 		Picker("Color Theme", selection: $selectedColorTheme) {
 			ForEach(colorThemes, id: \.self) { (theme) in
-				Text(theme)
-					.tag(theme)
+				Text(theme).tag(theme)
 			}
 		}
 	}
@@ -117,10 +113,7 @@ private extension SettingsView {
 			resetAppSettingsButton
 			resetAppDataButton
 		} header: {
-			HStack {
-				SFSymbols.magicWand
-				Text("Advanced")
-			}
+			Label { Text("Advanced") } icon: { SFSymbols.magicWand }
 		} footer: {
 			Text("Be careful, this removes all your data! Restart the app to see all changes")
 		}
@@ -152,30 +145,23 @@ private extension SettingsView {
 
 	private var devTeamSection: some View {
 		Section {
-			HStack {
-				SFSymbols.link
-				Link("Joe Pham", destination: URL(string: "https://twitter.com/rungxanh1995")!)
-			}
-			
-			HStack {
-				SFSymbols.link
+			Label {
+				Link("Joe Pham", destination: URL(string: "https://github.com/rungxanh1995")!)
+			} icon: { SFSymbols.link }
+
+			Label {
 				Link("Marco Stevanella", destination: URL(string: "https://github.com/floydcoder")!)
-			}
-			
-			HStack {
-				SFSymbols.link
+			} icon: { SFSymbols.link }
+
+			Label {
 				Link("Ostap Sulyk", destination: URL(string: "https://github.com/ostap-sulyk")!)
-			}
-			
-			HStack {
-				SFSymbols.link
+			} icon: { SFSymbols.link }
+
+			Label {
 				Link("Rauf Anata", destination: URL(string: "https://github.com/drrauf")!)
-			}
+			} icon: { SFSymbols.link }
 		} header: {
-			HStack {
-				SFSymbols.handsSparklesFilled
-				Text("Meet The Team")
-			}
+			Label { Text("Meet The Team") } icon: { SFSymbols.handsSparklesFilled }
 		}
 	}
 }
