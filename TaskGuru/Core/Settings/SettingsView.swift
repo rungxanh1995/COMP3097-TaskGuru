@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SettingsView: View {
-	@State private var isHapticReduced = true
 	
 	private let colorThemes = ["System", "Light", "Dark"]
 	@State private var selectedColorTheme = "System"
@@ -16,7 +15,13 @@ struct SettingsView: View {
 	@State private var isShowingOnboarding: Bool = false
 	
 	@AppStorage(UserDefaultsKey.isShowingTabBadge)
-	var isShowingTabBadge: Bool = true
+	private var isShowingTabBadge: Bool = true
+	
+	@AppStorage(UserDefaultsKey.isLockedInPortrait)
+	private var isLockedInPortrait: Bool = false
+	
+	@AppStorage(UserDefaultsKey.hapticsReduced)
+	private var isHapticReduced = false
 	
 	var appVersionNumber: String {
 		Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
@@ -33,8 +38,8 @@ struct SettingsView: View {
 		NavigationView {
 			Form {
 				generalSection
-				advancedSection
 				devTeamSection
+				advancedSection
 			}
 			.navigationTitle("Settings")
 			.confirmationDialog(
@@ -62,6 +67,7 @@ private extension SettingsView {
 		Section {
 			onboarding
 			tabBadge
+			portraitLock
 			haptics
 			appTheme
 		} header: {
@@ -84,6 +90,11 @@ private extension SettingsView {
 	
 	private var tabBadge: some View {
 		Toggle("Show Tab Badge", isOn: $isShowingTabBadge)
+			.tint(.accentColor)
+	}
+	
+	private var portraitLock: some View {
+		Toggle("Portrait Lock", isOn: $isLockedInPortrait)
 			.tint(.accentColor)
 	}
 	

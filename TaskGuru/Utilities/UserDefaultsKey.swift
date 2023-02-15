@@ -12,5 +12,6 @@ enum UserDefaultsKey {
 	static let systemTheme: String = "systemTheme"
 	static let isOnboarding: String = "isOnboarding"
 	static let isShowingTabBadge: String = "isShowingTabBadge"
+	static let isLockedInPortrait: String = "isLockedInPortrait"
 }
 
