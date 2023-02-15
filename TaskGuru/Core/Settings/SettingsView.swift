@@ -42,6 +42,9 @@ struct SettingsView: View {
 				advancedSection
 			}
 			.navigationTitle("Settings")
+			.sheet(isPresented: $isShowingOnboarding) {
+				OnboardingContainerView()
+			}
 			.confirmationDialog(
 				"App settings would reset.\nThis action cannot be undone",
 				isPresented: $isConfirmingResetSettings,

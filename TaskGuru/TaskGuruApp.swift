@@ -11,6 +11,7 @@ import SwiftUI
 struct TaskGuruApp: App {
 	@UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 	
+	@AppStorage(UserDefaultsKey.isOnboarding) private var isOnboarding: Bool = true
 	@AppStorage(UserDefaultsKey.isShowingTabBadge) private var isShowingTabBadge: Bool?
 	@AppStorage(UserDefaultsKey.isLockedInPortrait) private var isLockedInPortrait: Bool?
 	
@@ -19,32 +20,37 @@ struct TaskGuruApp: App {
 	
 	var body: some Scene {
 		WindowGroup {
-			TabView {
-				HomeView()
-					.tabItem {
-						SFSymbols.house
-						Text("Home")
-					}
-				PendingView()
-					.tabItem {
-						SFSymbols.clock
-						Text("Pending")
-					}
-					.badge((isShowingTabBadge ?? true) ? pendingTasksCount : 0)
-				SettingsView()
-					.tabItem {
-						SFSymbols.gear
-						Text("Settings")
-					}
+			if isOnboarding {
+				OnboardingContainerView()
+					.transition(.asymmetric(insertion: .opacity.animation(.default), removal: .opacity))
+			} else {
+				TabView {
+					HomeView()
+						.tabItem {
+							SFSymbols.house
+							Text("Home")
+						}
+					PendingView()
+						.tabItem {
+							SFSymbols.clock
+							Text("Pending")
+						}
+						.badge((isShowingTabBadge ?? true) ? pendingTasksCount : 0)
+					SettingsView()
+						.tabItem {
+							SFSymbols.gear
+							Text("Settings")
+						}
+				}
+				.onAppear {
+					pendingTasksCount = TaskItem.mockData.filter { $0.isNotDone }.count
+					(isLockedInPortrait ?? false) ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
+				}
+				.onChange(of: isLockedInPortrait) { _ in
+					(isLockedInPortrait ?? false) ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
+				}
+				.environmentObject(appState)
 			}
-			.onAppear {
-				pendingTasksCount = TaskItem.mockData.filter { $0.isNotDone }.count
-				(isLockedInPortrait ?? false) ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
-			}
-			.onChange(of: isLockedInPortrait) { _ in
-				(isLockedInPortrait ?? false) ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
-			}
-			.environmentObject(appState)
 		}
 	}
 }
