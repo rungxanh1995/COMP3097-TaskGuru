@@ -40,6 +40,9 @@ struct SettingsView: View {
 				generalSection
 				devTeamSection
 				advancedSection
+
+				appNameAndLogo
+					.listRowBackground(Color.clear)
 			}
 			.navigationTitle("Settings")
 			.sheet(isPresented: $isShowingOnboarding) {
@@ -75,8 +78,6 @@ private extension SettingsView {
 			appTheme
 		} header: {
 			Label { Text("General") } icon: { SFSymbols.gearFilled }
-		} footer: {
-			Text("App Version: \(appVersionNumber) (\(appBuildNumber))")
 		}
 	}
 	
@@ -165,6 +166,24 @@ private extension SettingsView {
 			} icon: { SFSymbols.link }
 		} header: {
 			Label { Text("Meet The Team") } icon: { SFSymbols.handsSparklesFilled }
+		}
+	}
+	
+	private var appNameAndLogo: some View {
+		VStack(spacing: 8) {
+			HStack {
+				Spacer()
+				Text("TaskGuru \(appVersionNumber) (\(appBuildNumber))")
+					.font(.system(.callout))
+					.foregroundColor(.secondary)
+				Spacer()
+			}
+			
+			Image("app-logo")
+				.resizable()
+				.scaledToFit()
+				.frame(width: 44, height: 44)
+				.clipShape(RoundedRectangle(cornerRadius: 10))
 		}
 	}
 }
