@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
+import UIKit
 
 @main
 struct TaskGuruApp: App {
 	@UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 	
 	@AppStorage(UserDefaultsKey.isOnboarding) private var isOnboarding: Bool = true
-	@AppStorage(UserDefaultsKey.isShowingTabBadge) private var isShowingTabBadge: Bool?
-	@AppStorage(UserDefaultsKey.isLockedInPortrait) private var isLockedInPortrait: Bool?
+	@Preference(\.isShowingAppBadge) private var isShowingAppBadge
+	@Preference(\.isShowingTabBadge) private var isShowingTabBadge
+	@Preference(\.isLockedInPortrait) private var isLockedInPortrait
 	
-	private var appState: AppState = .init()
 	@State private var pendingTasksCount: Int = 0
 	
 	var body: some Scene {
@@ -23,6 +24,7 @@ struct TaskGuruApp: App {
 			if isOnboarding {
 				OnboardingContainerView()
 					.transition(.asymmetric(insertion: .opacity.animation(.default), removal: .opacity))
+					.setUpColorTheme()
 			} else {
 				TabView {
 					HomeView()
@@ -35,7 +37,7 @@ struct TaskGuruApp: App {
 							SFSymbols.clock
 							Text("Pending")
 						}
-						.badge((isShowingTabBadge ?? true) ? pendingTasksCount : 0)
+						.badge(isShowingTabBadge ? pendingTasksCount : 0)
 					SettingsView()
 						.tabItem {
 							SFSymbols.gear
@@ -44,13 +46,39 @@ struct TaskGuruApp: App {
 				}
 				.onAppear {
 					pendingTasksCount = TaskItem.mockData.filter { $0.isNotDone }.count
-					(isLockedInPortrait ?? false) ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
+					isLockedInPortrait ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
+					if isShowingAppBadge { setAppBadgeOfPendingTasks() }
 				}
 				.onChange(of: isLockedInPortrait) { _ in
-					(isLockedInPortrait ?? false) ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
+					isLockedInPortrait ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
 				}
-				.environmentObject(appState)
+				.onChange(of: isShowingAppBadge) { _ in
+					setAppBadgeOfPendingTasks()
+				}
+				.setUpColorTheme()
 			}
 		}
 	}
 }
+
+import UserNotifications
+
+extension TaskGuruApp {
+	private func setAppBadgeOfPendingTasks() {
+		UNUserNotificationCenter.current().requestAuthorization(options: [.badge]) { success, error in
+			if success {
+				Task {
+					await MainActor.run {
+						switch isShowingAppBadge {
+						case true:	UIApplication.shared.applicationIconBadgeNumber = TaskItem.mockData.filter { $0.isNotDone }.count
+						case false: UIApplication.shared.applicationIconBadgeNumber = 0
+						}
+					}
+				}
+			} else if let error = error {
+				print(error.localizedDescription)
+			}
+		}
+	}
+}
+

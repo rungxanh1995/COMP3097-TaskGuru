@@ -8,6 +8,7 @@
 import SwiftUI
 
 enum SFSymbols {
+	static let appBadge: Image = .init(systemName: "app.badge")
 	static let house: Image = .init(systemName: "house")
 	static let clock: Image = .init(systemName: "clock")
 	static let clockBadge: Image = .init(systemName: "clock.badge").symbolRenderingMode(.multicolor)
@@ -16,6 +17,7 @@ enum SFSymbols {
 	static let personFilled: Image = .init(systemName: "person.fill")
 	static let buildingFilled: Image = .init(systemName: "building.2.fill")
 	static let graduationCapFilled: Image = .init(systemName: "graduationcap.fill")
+	static let computer: Image = .init(systemName: "desktopcomputer")
 	static let menu: Image = .init(systemName: "filemenu.and.selection")
 	static let listFilled: Image = .init(systemName: "list.bullet.rectangle.portrait.fill")
 	static let plus: Image = .init(systemName: "plus")

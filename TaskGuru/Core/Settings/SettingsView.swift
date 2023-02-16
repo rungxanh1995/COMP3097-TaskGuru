@@ -8,20 +8,15 @@
 import SwiftUI
 
 struct SettingsView: View {
-	
-	private let colorThemes = ["System", "Light", "Dark"]
-	@State private var selectedColorTheme = "System"
-	
+
 	@State private var isShowingOnboarding: Bool = false
 	
-	@AppStorage(UserDefaultsKey.isShowingTabBadge)
-	private var isShowingTabBadge: Bool = true
-	
-	@AppStorage(UserDefaultsKey.isLockedInPortrait)
-	private var isLockedInPortrait: Bool = false
-	
-	@AppStorage(UserDefaultsKey.hapticsReduced)
-	private var isHapticReduced = false
+	@Preference(\.isShowingAppBadge) private var isShowingAppBadge
+	@Preference(\.isShowingTabBadge) private var isShowingTabBadge
+	@Preference(\.isPreviewEnabled) private var isPreviewEnabled
+	@Preference(\.isLockedInPortrait) private var isLockedInPortrait
+	@Preference(\.isHapticsReduced) private var isHapticsReduced
+	@Preference(\.systemTheme) private var systemTheme
 	
 	var appVersionNumber: String {
 		Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
@@ -38,9 +33,11 @@ struct SettingsView: View {
 		NavigationView {
 			Form {
 				generalSection
+				badgeSection
+				previewSection
 				devTeamSection
 				advancedSection
-
+				
 				appNameAndLogo
 					.listRowBackground(Color.clear)
 			}
@@ -72,12 +69,30 @@ private extension SettingsView {
 	private var generalSection: some View {
 		Section {
 			onboarding
-			tabBadge
 			portraitLock
 			haptics
 			appTheme
 		} header: {
 			Label { Text("General") } icon: { SFSymbols.gearFilled }
+		}
+	}
+	
+	private var portraitLock: some View {
+		Toggle("Portrait Lock", isOn: $isLockedInPortrait)
+			.tint(.accentColor)
+	}
+	
+	private var haptics: some View {
+		Toggle("Reduce Haptics", isOn: $isHapticsReduced)
+			.tint(.accentColor)
+	}
+	
+	private var appTheme: some View {
+		Picker("Color Theme", selection: $systemTheme) {
+			ForEach(SchemeType.allCases) { (theme) in
+				Text(LocalizedStringKey(theme.title))
+					.tag(theme.rawValue)
+			}
 		}
 	}
 	
@@ -89,27 +104,38 @@ private extension SettingsView {
 		}
 	}
 	
+	private var badgeSection: some View {
+		Section {
+			appBadge
+			tabBadge
+		} header: {
+			Label { Text("Badge") } icon: { SFSymbols.appBadge }
+		} footer: {
+			Text("Icon badge shows the number of pending tasks on Home screen. Review your Notification settings if no badge shown.")
+		}
+	}
+	
+	private var appBadge: some View {
+		Toggle("Show App Icon Badge", isOn: $isShowingAppBadge)
+			.tint(.accentColor)
+	}
+	
 	private var tabBadge: some View {
 		Toggle("Show Tab Badge", isOn: $isShowingTabBadge)
 			.tint(.accentColor)
 	}
 	
-	private var portraitLock: some View {
-		Toggle("Portrait Lock", isOn: $isLockedInPortrait)
-			.tint(.accentColor)
-	}
-	
-	private var haptics: some View {
-		Toggle("Reduce Haptics", isOn: $isHapticReduced)
-			.tint(.accentColor)
-	}
-	
-	private var appTheme: some View {
-		Picker("Color Theme", selection: $selectedColorTheme) {
-			ForEach(colorThemes, id: \.self) { (theme) in
-				Text(theme).tag(theme)
-			}
+	private var previewSection: some View {
+		Section {
+			preview
+		} footer: {
+			Text("When this is on, long pressing a task from a list reveals a detail preview of the task.")
 		}
+	}
+	
+	private var preview: some View {
+		Toggle("Preview on Haptic Touch", isOn: $isPreviewEnabled)
+			.tint(.accentColor)
 	}
 	
 	private var advancedSection: some View {
@@ -119,7 +145,7 @@ private extension SettingsView {
 		} header: {
 			Label { Text("Advanced") } icon: { SFSymbols.magicWand }
 		} footer: {
-			Text("Be careful, this removes all your data! Restart the app to see all changes")
+			Text("Be careful, these remove all your data! Restart the app to see all changes")
 		}
 	}
 	

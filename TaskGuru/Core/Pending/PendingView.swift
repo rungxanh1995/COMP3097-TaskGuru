@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct PendingView: View {
-	@EnvironmentObject private var appState: AppState
+	@StateObject private var tabState: AppState = .init()
 	@State private var selectedTask: TaskItem?
+	
+	@Preference(\.isPreviewEnabled) private var isPreviewEnabled
 	
 	private var noPendingTasksLeft: Bool {
 		TaskItem.mockData.filter { $0.isNotDone }.isEmpty
 	}
 	
 	var body: some View {
-		NavigationStack(path: $appState.navPath) {
+		NavigationStack(path: $tabState.navPath) {
 			ZStack {
 				if noPendingTasksLeft {
 					emptyStateImage.padding()
@@ -32,6 +34,7 @@ struct PendingView: View {
 				EditView()
 			}
 		}
+		.environmentObject(tabState)
 	}
 }
 
@@ -55,7 +58,14 @@ extension PendingView {
 				}
 				.contextMenu {
 					makeContextMenu(for: task)
-				} preview: { DetailView(task: task) }
+				} preview: {
+					if isPreviewEnabled {
+						DetailView(task: task)
+					} else {
+						// TODO: Replace by home list cell later
+						Text(task.name).padding()
+					}
+				}
 			}
 		} footer: {
 			Text("Don't stress yourself too much. You got it 💪")
@@ -95,6 +105,5 @@ extension PendingView {
 struct PendingView_Previews: PreviewProvider {
 	static var previews: some View {
 		PendingView()
-			.environmentObject(AppState())
 	}
 }

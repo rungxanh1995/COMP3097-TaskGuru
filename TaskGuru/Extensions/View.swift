@@ -8,6 +8,11 @@
 import SwiftUI
 
 extension View {
+	/// Configure the color theme of this application.
+	func setUpColorTheme() -> some View {
+		modifier(SchemeModifier())
+	}
+	
 	func makeCheerfulDecorativeImage() -> some View {
 		HStack {
 			Spacer()
