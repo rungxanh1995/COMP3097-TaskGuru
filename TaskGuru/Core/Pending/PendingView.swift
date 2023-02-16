@@ -7,10 +7,13 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct PendingView: View {
 	@StateObject private var tabState: AppState = .init()
 	@State private var selectedTask: TaskItem?
+	
+	@State private var confettiCounter: Int = 0
 	
 	@Preference(\.isPreviewEnabled) private var isPreviewEnabled
 	
@@ -27,6 +30,7 @@ struct PendingView: View {
 					List { pendingSection }
 				}
 			}
+			.confettiCannon(counter: $confettiCounter)
 			.navigationDestination(for: TaskItem.self) { task in
 				DetailView(task: task)
 			}
@@ -79,6 +83,7 @@ extension PendingView {
 		if task.isNotDone {
 			Button {
 				// mark task done
+				confettiCounter += 1
 			} label: {
 				Label { Text("Mark as Done") } icon: { SFSymbols.checkmark }
 			}
