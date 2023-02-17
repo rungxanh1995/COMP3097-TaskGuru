@@ -12,5 +12,6 @@ enum TaskType: String, Codable, CaseIterable {
 	case personal = "Personal"
 	case work = "Work"
 	case school = "School"
+	case coding = "Coding"
 	case other = "Other"
 }
