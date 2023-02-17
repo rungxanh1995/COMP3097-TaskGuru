@@ -40,6 +40,8 @@
 		D033E52629913E8B00F9AF2A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52529913E8B00F9AF2A /* DetailView.swift */; };
 		D033E52829913ECA00F9AF2A /* DetailGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52729913ECA00F9AF2A /* DetailGridCell.swift */; };
 		D033E52B29913F1A00F9AF2A /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52A29913F1A00F9AF2A /* EditView.swift */; };
+		EC60753929A00CD5008A1CD4 /* GradientNavigationTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC60753829A00CD5008A1CD4 /* GradientNavigationTitle.swift */; };
+		EC60754029A02910008A1CD4 /* HomeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC60753F29A02910008A1CD4 /* HomeListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		D033E52529913E8B00F9AF2A /* DetailView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
 		D033E52729913ECA00F9AF2A /* DetailGridCell.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DetailGridCell.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
 		D033E52A29913F1A00F9AF2A /* EditView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
+		EC60753829A00CD5008A1CD4 /* GradientNavigationTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNavigationTitle.swift; sourceTree = "<group>"; };
+		EC60753F29A02910008A1CD4 /* HomeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 				2CB63A35299F23F400271BD8 /* Pending */,
 				2CB63A2D299F233C00271BD8 /* Onboard */,
 				2C262B1B298A1A89004C622C /* Settings */,
+				EC60753729A00CA0008A1CD4 /* Other */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				2C8C35EE2984934E00DCEA67 /* HomeView.swift */,
+				EC60753F29A02910008A1CD4 /* HomeListCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -273,6 +279,14 @@
 			path = Edit;
 			sourceTree = "<group>";
 		};
+		EC60753729A00CA0008A1CD4 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				EC60753829A00CD5008A1CD4 /* GradientNavigationTitle.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -351,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CB63A20299F214500271BD8 /* SchemeType.swift in Sources */,
+				EC60754029A02910008A1CD4 /* HomeListCell.swift in Sources */,
 				2C2AED322991AF28000C5399 /* View.swift in Sources */,
 				2C8C35EF2984934E00DCEA67 /* HomeView.swift in Sources */,
 				2CB63A1C299F20FD00271BD8 /* HapticManager.swift in Sources */,
@@ -370,6 +385,7 @@
 				2C262B1D298A1AAC004C622C /* SettingsView.swift in Sources */,
 				2C262B0E298A19CB004C622C /* TaskType.swift in Sources */,
 				2CB63A30299F235100271BD8 /* OnboardFeature.swift in Sources */,
+				EC60753929A00CD5008A1CD4 /* GradientNavigationTitle.swift in Sources */,
 				2C262B1A298A1A54004C622C /* SFSymbols.swift in Sources */,
 				2C262B18298A1A4A004C622C /* Constants.swift in Sources */,
 				2CB63A3B299F253100271BD8 /* UIApplication.swift in Sources */,
