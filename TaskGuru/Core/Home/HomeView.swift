@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct HomeView: View {
 	
@@ -17,6 +18,9 @@ struct HomeView: View {
 	
 	@State private var searchText: String = ""
 	
+	@Preference(\.isConfettiEnabled) private var isConfettiEnabled
+	@State private var confettiCounter: Int = 0
+
 	// This is more of a computed property that gets update anytime
 	// the view rerender. Like useEffect() in react.
 	var noPendingTasksLeft: Bool {
@@ -31,6 +35,7 @@ struct HomeView: View {
 				dueTodaySection
 				upcomingSection
 			}
+			.confettiCannon(counter: $confettiCounter)
 			// pass the navigation value (TaskItem.self). This
 			// may allow to have the component reusable
 			.navigationDestination(for: TaskItem.self) { taskItem in
@@ -131,6 +136,7 @@ extension HomeView {
 		if task.isNotDone {
 			Button {
 				// mark task as done here...
+				if isConfettiEnabled { confettiCounter += 1 }
 			} label: {
 				Label { Text("Mark as Done") } icon: { SFSymbols.checkmark }
 			}
@@ -156,6 +162,7 @@ extension HomeView {
 			Label { Text("Delete") } icon: { SFSymbols.trash }
 		}
 	}
+
 	// Because we have usually used UIKit/Storyboard this is  similar to
 	// IBAction func addTaskButtonTapped(), but in swift UI it is done by the following
 	private var addTaskButton: some View {
