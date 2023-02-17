@@ -20,6 +20,22 @@
 		2C8C35EF2984934E00DCEA67 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EE2984934E00DCEA67 /* HomeView.swift */; };
 		2C8C35F12984934E00DCEA67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C35F02984934E00DCEA67 /* Assets.xcassets */; };
 		2C8C35F42984934E00DCEA67 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C35F32984934E00DCEA67 /* Preview Assets.xcassets */; };
+		2CB63A18299F205B00271BD8 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2CB63A17299F205B00271BD8 /* ConfettiSwiftUI */; };
+		2CB63A1A299F20A500271BD8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A19299F20A500271BD8 /* AppState.swift */; };
+		2CB63A1C299F20FD00271BD8 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A1B299F20FD00271BD8 /* HapticManager.swift */; };
+		2CB63A1E299F212000271BD8 /* SchemeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A1D299F212000271BD8 /* SchemeModifier.swift */; };
+		2CB63A20299F214500271BD8 /* SchemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A1F299F214500271BD8 /* SchemeType.swift */; };
+		2CB63A23299F216500271BD8 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A22299F216500271BD8 /* UserDefaultsKey.swift */; };
+		2CB63A25299F218400271BD8 /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A24299F218400271BD8 /* UserDefaultWrapper.swift */; };
+		2CB63A28299F21BA00271BD8 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A27299F21BA00271BD8 /* Preferences.swift */; };
+		2CB63A2A299F21E200271BD8 /* PreferenceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A29299F21E200271BD8 /* PreferenceWrapper.swift */; };
+		2CB63A2C299F21EE00271BD8 /* PublisherObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A2B299F21EE00271BD8 /* PublisherObservableObject.swift */; };
+		2CB63A30299F235100271BD8 /* OnboardFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A2F299F235100271BD8 /* OnboardFeature.swift */; };
+		2CB63A32299F236B00271BD8 /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A31299F236B00271BD8 /* OnboardView.swift */; };
+		2CB63A34299F239200271BD8 /* OnboardContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A33299F239200271BD8 /* OnboardContainerView.swift */; };
+		2CB63A37299F23FF00271BD8 /* PendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A36299F23FF00271BD8 /* PendingView.swift */; };
+		2CB63A39299F250200271BD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A38299F250200271BD8 /* AppDelegate.swift */; };
+		2CB63A3B299F253100271BD8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A3A299F253100271BD8 /* UIApplication.swift */; };
 		41299E89299EA9F000666A48 /* AddTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41299E88299EA9F000666A48 /* AddTask.swift */; };
 		D033E52629913E8B00F9AF2A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52529913E8B00F9AF2A /* DetailView.swift */; };
 		D033E52829913ECA00F9AF2A /* DetailGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52729913ECA00F9AF2A /* DetailGridCell.swift */; };
@@ -41,6 +57,21 @@
 		2C8C35EE2984934E00DCEA67 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2C8C35F02984934E00DCEA67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C8C35F32984934E00DCEA67 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2CB63A19299F20A500271BD8 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		2CB63A1B299F20FD00271BD8 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		2CB63A1D299F212000271BD8 /* SchemeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeModifier.swift; sourceTree = "<group>"; };
+		2CB63A1F299F214500271BD8 /* SchemeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeType.swift; sourceTree = "<group>"; };
+		2CB63A22299F216500271BD8 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		2CB63A24299F218400271BD8 /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
+		2CB63A27299F21BA00271BD8 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		2CB63A29299F21E200271BD8 /* PreferenceWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWrapper.swift; sourceTree = "<group>"; };
+		2CB63A2B299F21EE00271BD8 /* PublisherObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherObservableObject.swift; sourceTree = "<group>"; };
+		2CB63A2F299F235100271BD8 /* OnboardFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardFeature.swift; sourceTree = "<group>"; };
+		2CB63A31299F236B00271BD8 /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
+		2CB63A33299F239200271BD8 /* OnboardContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardContainerView.swift; sourceTree = "<group>"; };
+		2CB63A36299F23FF00271BD8 /* PendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingView.swift; sourceTree = "<group>"; };
+		2CB63A38299F250200271BD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2CB63A3A299F253100271BD8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		41299E88299EA9F000666A48 /* AddTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTask.swift; sourceTree = "<group>"; };
 		D033E52529913E8B00F9AF2A /* DetailView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
 		D033E52729913ECA00F9AF2A /* DetailGridCell.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DetailGridCell.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
@@ -52,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CB63A18299F205B00271BD8 /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +105,7 @@
 			children = (
 				2C262B14298A1A0E004C622C /* Date.swift */,
 				2C2AED312991AF28000C5399 /* View.swift */,
+				2CB63A3A299F253100271BD8 /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -80,8 +113,14 @@
 		2C262B16298A1A39004C622C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				2CB63A19299F20A500271BD8 /* AppState.swift */,
 				2C262B17298A1A4A004C622C /* Constants.swift */,
+				2CB63A1B299F20FD00271BD8 /* HapticManager.swift */,
 				2C262B19298A1A54004C622C /* SFSymbols.swift */,
+				2CB63A1D299F212000271BD8 /* SchemeModifier.swift */,
+				2CB63A1F299F214500271BD8 /* SchemeType.swift */,
+				2CB63A26299F21A700271BD8 /* Preferences */,
+				2CB63A21299F215E00271BD8 /* UserDefaults */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -139,6 +178,8 @@
 				41299E87299EA95200666A48 /* Add */,
 				D033E52429913E4B00F9AF2A /* Detail */,
 				D033E52929913F0000F9AF2A /* Edit */,
+				2CB63A35299F23F400271BD8 /* Pending */,
+				2CB63A2D299F233C00271BD8 /* Onboard */,
 				2C262B1B298A1A89004C622C /* Settings */,
 			);
 			path = Core;
@@ -155,10 +196,56 @@
 		2C8C35FC2984951F00DCEA67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CB63A38299F250200271BD8 /* AppDelegate.swift */,
 				2C8C35F02984934E00DCEA67 /* Assets.xcassets */,
 				2C74150A298B2579006CECDA /* Launch Screen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		2CB63A21299F215E00271BD8 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				2CB63A22299F216500271BD8 /* UserDefaultsKey.swift */,
+				2CB63A24299F218400271BD8 /* UserDefaultWrapper.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		2CB63A26299F21A700271BD8 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				2CB63A27299F21BA00271BD8 /* Preferences.swift */,
+				2CB63A29299F21E200271BD8 /* PreferenceWrapper.swift */,
+				2CB63A2B299F21EE00271BD8 /* PublisherObservableObject.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		2CB63A2D299F233C00271BD8 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				2CB63A33299F239200271BD8 /* OnboardContainerView.swift */,
+				2CB63A31299F236B00271BD8 /* OnboardView.swift */,
+				2CB63A2E299F234A00271BD8 /* Model */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
+		2CB63A2E299F234A00271BD8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2CB63A2F299F235100271BD8 /* OnboardFeature.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2CB63A35299F23F400271BD8 /* Pending */ = {
+			isa = PBXGroup;
+			children = (
+				2CB63A36299F23FF00271BD8 /* PendingView.swift */,
+			);
+			path = Pending;
 			sourceTree = "<group>";
 		};
 		41299E87299EA95200666A48 /* Add */ = {
@@ -202,6 +289,9 @@
 			dependencies = (
 			);
 			name = TaskGuru;
+			packageProductDependencies = (
+				2CB63A17299F205B00271BD8 /* ConfettiSwiftUI */,
+			);
 			productName = TaskGuru;
 			productReference = 2C8C35E92984934E00DCEA67 /* TaskGuru.app */;
 			productType = "com.apple.product-type.application";
@@ -230,6 +320,9 @@
 				Base,
 			);
 			mainGroup = 2C8C35E02984934E00DCEA67;
+			packageReferences = (
+				2CB63A16299F205B00271BD8 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+			);
 			productRefGroup = 2C8C35EA2984934E00DCEA67 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,20 +350,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CB63A20299F214500271BD8 /* SchemeType.swift in Sources */,
 				2C2AED322991AF28000C5399 /* View.swift in Sources */,
 				2C8C35EF2984934E00DCEA67 /* HomeView.swift in Sources */,
+				2CB63A1C299F20FD00271BD8 /* HapticManager.swift in Sources */,
+				2CB63A39299F250200271BD8 /* AppDelegate.swift in Sources */,
+				2CB63A2A299F21E200271BD8 /* PreferenceWrapper.swift in Sources */,
 				2C262B15298A1A0E004C622C /* Date.swift in Sources */,
+				2CB63A32299F236B00271BD8 /* OnboardView.swift in Sources */,
+				2CB63A37299F23FF00271BD8 /* PendingView.swift in Sources */,
+				2CB63A2C299F21EE00271BD8 /* PublisherObservableObject.swift in Sources */,
+				2CB63A1E299F212000271BD8 /* SchemeModifier.swift in Sources */,
 				D033E52B29913F1A00F9AF2A /* EditView.swift in Sources */,
 				D033E52829913ECA00F9AF2A /* DetailGridCell.swift in Sources */,
+				2CB63A28299F21BA00271BD8 /* Preferences.swift in Sources */,
 				2C262B12298A19EC004C622C /* TaskItem.swift in Sources */,
+				2CB63A1A299F20A500271BD8 /* AppState.swift in Sources */,
 				D033E52629913E8B00F9AF2A /* DetailView.swift in Sources */,
 				2C262B1D298A1AAC004C622C /* SettingsView.swift in Sources */,
 				2C262B0E298A19CB004C622C /* TaskType.swift in Sources */,
+				2CB63A30299F235100271BD8 /* OnboardFeature.swift in Sources */,
 				2C262B1A298A1A54004C622C /* SFSymbols.swift in Sources */,
 				2C262B18298A1A4A004C622C /* Constants.swift in Sources */,
+				2CB63A3B299F253100271BD8 /* UIApplication.swift in Sources */,
+				2CB63A34299F239200271BD8 /* OnboardContainerView.swift in Sources */,
 				2C262B10298A19D4004C622C /* TaskStatus.swift in Sources */,
+				2CB63A25299F218400271BD8 /* UserDefaultWrapper.swift in Sources */,
 				41299E89299EA9F000666A48 /* AddTask.swift in Sources */,
 				2C8C35ED2984934E00DCEA67 /* TaskGuruApp.swift in Sources */,
+				2CB63A23299F216500271BD8 /* UserDefaultsKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +591,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2CB63A16299F205B00271BD8 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2CB63A17299F205B00271BD8 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CB63A16299F205B00271BD8 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2C8C35E12984934E00DCEA67 /* Project object */;
 }
