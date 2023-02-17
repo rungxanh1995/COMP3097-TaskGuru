@@ -28,30 +28,24 @@ struct AddTask: View {
 					)
 					
 					Picker("Type", selection: $taskTypeSelected) {
-						ForEach(TaskConstants.allTypes, id: \.self) {
+						ForEach(TaskType.allCases, id: \.self) {
 							Text($0.rawValue)
 						}
 					}
 					
 					Picker("Status", selection: $statusSelected) {
-						ForEach(TaskConstants.allStatuses, id: \.self) {
+						ForEach(TaskStatus.allCases, id: \.self) {
 							Text($0.rawValue)
 						}
 					}
 				} header: {
-					HStack {
-						SFSymbols.gridFilled
-						Text("General")
-					}
+					Label { Text("General") } icon: { SFSymbols.gridFilled }
 				}
 				
 				Section {
 					TextField("Notes", text: $taskNotes, prompt: Text("Any extra notes..."), axis: .vertical)
 				} header: {
-					HStack {
-						SFSymbols.pencilDrawing
-						Text("Notes")
-					}
+					Label { Text("Notes") } icon: { SFSymbols.pencilDrawing }
 				}
 			}
 			.navigationTitle("Add Task")

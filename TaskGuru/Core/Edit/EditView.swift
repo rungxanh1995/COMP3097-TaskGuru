@@ -28,37 +28,28 @@ struct EditView: View {
 						.focused($focusField, equals: .name)
 					
 					DatePicker("Due Date", selection: $taskDueDate,
-										 in: TaskConstants.dateRangeFromToday,
 										 displayedComponents: .date
 					)
 					
 					Picker("Type", selection: $taskTypeSelected) {
-						ForEach(TaskConstants.allTypes, id: \.self) {
+						ForEach(TaskType.allCases, id: \.self) {
 							Text($0.rawValue)
 						}
 					}
 					
 					Picker("Status", selection: $taskStatusSelected) {
-						ForEach(TaskConstants.allStatuses, id: \.self) {
+						ForEach(TaskStatus.allCases, id: \.self) {
 							Text($0.rawValue)
 						}
 					}
 				} header: {
-					Label {
-						Text("General")
-					} icon: {
-						SFSymbols.gridFilled
-					}
+					Label { Text("General") } icon: { SFSymbols.gridFilled }
 				}
 				
 				Section {
 					TextField("Notes", text: $taskNotes, prompt: Text("Any extra notes..."), axis: .vertical)
 				} header: {
-					Label {
-						Text("Notes")
-					} icon: {
-						SFSymbols.pencilDrawing
-					}
+					Label { Text("Notes") } icon: { SFSymbols.pencilDrawing }
 				}
 			}
 			.onSubmit { focusField = nil }
