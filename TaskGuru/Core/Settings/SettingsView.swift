@@ -44,7 +44,7 @@ struct SettingsView: View {
 			}
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
-					GradientNavigationTitle(text: "Pending Tasks")
+					GradientNavigationTitle(text: "Settings")
 				}
 			}
 			.sheet(isPresented: $isShowingOnboarding, content: {
