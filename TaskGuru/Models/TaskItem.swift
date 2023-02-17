@@ -3,11 +3,12 @@
 //  TaskGuru
 //
 //  Created by Joe Pham on 2023-01-31.
+//	Student ID: 101276573
 //
 
 import SwiftUI
 
-struct TaskItem: Identifiable {
+struct TaskItem: Identifiable, Hashable {
 	var id: UUID = UUID()
 	
 	var name: String {
@@ -39,6 +40,8 @@ struct TaskItem: Identifiable {
 	var status: TaskStatus  {
 		didSet { lastUpdated = .now }
 	}
+	
+	var isNotDone: Bool { status != .done }
 	
 	var notes: String  {
 		didSet { lastUpdated = .now }
