@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1E6A39299E95C300489534 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2C1E6A38299E95C300489534 /* ConfettiSwiftUI */; };
 		2C262B0E298A19CB004C622C /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B0D298A19CB004C622C /* TaskType.swift */; };
 		2C262B10298A19D4004C622C /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B0F298A19D4004C622C /* TaskStatus.swift */; };
 		2C262B12298A19EC004C622C /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B11298A19EC004C622C /* TaskItem.swift */; };
@@ -15,12 +16,27 @@
 		2C262B1A298A1A54004C622C /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B19298A1A54004C622C /* SFSymbols.swift */; };
 		2C262B1D298A1AAC004C622C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B1C298A1AAC004C622C /* SettingsView.swift */; };
 		2C2AED322991AF28000C5399 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2AED312991AF28000C5399 /* View.swift */; };
+		2C5F7A07299DC0390008BADB /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F7A06299DC0390008BADB /* UserDefaultWrapper.swift */; };
+		2C5F7A0B299DC0B60008BADB /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F7A0A299DC0B60008BADB /* Preferences.swift */; };
+		2C5F7A0D299DC0F40008BADB /* PublisherObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F7A0C299DC0F40008BADB /* PublisherObservableObject.swift */; };
+		2C5F7A0F299DC1180008BADB /* PreferenceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F7A0E299DC1180008BADB /* PreferenceWrapper.swift */; };
+		2C5F7A11299DC1310008BADB /* SchemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F7A10299DC1310008BADB /* SchemeType.swift */; };
+		2C5F7A13299DC1480008BADB /* SchemeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F7A12299DC1480008BADB /* SchemeModifier.swift */; };
+		2C5F7A15299DCBA40008BADB /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F7A14299DCBA40008BADB /* HapticManager.swift */; };
 		2C74150B298B2579006CECDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C74150A298B2579006CECDA /* Launch Screen.storyboard */; };
+		2C7AC3D3299AE94300BC9D10 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7AC3D2299AE94300BC9D10 /* UserDefaultsKey.swift */; };
+		2C7AC3D6299AEE0E00BC9D10 /* PendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7AC3D5299AEE0E00BC9D10 /* PendingView.swift */; };
+		2C7AC3D8299AEE4C00BC9D10 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7AC3D7299AEE4C00BC9D10 /* AppState.swift */; };
 		2C8C35ED2984934E00DCEA67 /* TaskGuruApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */; };
 		2C8C35EF2984934E00DCEA67 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EE2984934E00DCEA67 /* HomeView.swift */; };
 		2C8C35F12984934E00DCEA67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C35F02984934E00DCEA67 /* Assets.xcassets */; };
 		2C8C35F42984934E00DCEA67 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C35F32984934E00DCEA67 /* Preview Assets.xcassets */; };
 		41299E89299EA9F000666A48 /* AddTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41299E88299EA9F000666A48 /* AddTask.swift */; };
+		2C9B44DE299C63E900EE5232 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B44DD299C63E900EE5232 /* AppDelegate.swift */; };
+		2C9B44E0299C642A00EE5232 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B44DF299C642A00EE5232 /* UIApplication.swift */; };
+		2C9B44E4299C68ED00EE5232 /* OnboardFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B44E3299C68ED00EE5232 /* OnboardFeature.swift */; };
+		2C9B44E6299C692C00EE5232 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B44E5299C692C00EE5232 /* OnboardingView.swift */; };
+		2C9B44E8299C697600EE5232 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B44E7299C697600EE5232 /* OnboardingContainerView.swift */; };
 		D033E52629913E8B00F9AF2A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52529913E8B00F9AF2A /* DetailView.swift */; };
 		D033E52829913ECA00F9AF2A /* DetailGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52729913ECA00F9AF2A /* DetailGridCell.swift */; };
 		D033E52B29913F1A00F9AF2A /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52A29913F1A00F9AF2A /* EditView.swift */; };
@@ -35,13 +51,28 @@
 		2C262B19298A1A54004C622C /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		2C262B1C298A1AAC004C622C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2C2AED312991AF28000C5399 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		2C5F7A06299DC0390008BADB /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
+		2C5F7A0A299DC0B60008BADB /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		2C5F7A0C299DC0F40008BADB /* PublisherObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherObservableObject.swift; sourceTree = "<group>"; };
+		2C5F7A0E299DC1180008BADB /* PreferenceWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWrapper.swift; sourceTree = "<group>"; };
+		2C5F7A10299DC1310008BADB /* SchemeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeType.swift; sourceTree = "<group>"; };
+		2C5F7A12299DC1480008BADB /* SchemeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeModifier.swift; sourceTree = "<group>"; };
+		2C5F7A14299DCBA40008BADB /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		2C74150A298B2579006CECDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		2C7AC3D2299AE94300BC9D10 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		2C7AC3D5299AEE0E00BC9D10 /* PendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingView.swift; sourceTree = "<group>"; };
+		2C7AC3D7299AEE4C00BC9D10 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2C8C35E92984934E00DCEA67 /* TaskGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGuruApp.swift; sourceTree = "<group>"; };
 		2C8C35EE2984934E00DCEA67 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2C8C35F02984934E00DCEA67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C8C35F32984934E00DCEA67 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		41299E88299EA9F000666A48 /* AddTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTask.swift; sourceTree = "<group>"; };
+		2C9B44DD299C63E900EE5232 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2C9B44DF299C642A00EE5232 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		2C9B44E3299C68ED00EE5232 /* OnboardFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardFeature.swift; sourceTree = "<group>"; };
+		2C9B44E5299C692C00EE5232 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		2C9B44E7299C697600EE5232 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
 		D033E52529913E8B00F9AF2A /* DetailView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
 		D033E52729913ECA00F9AF2A /* DetailGridCell.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DetailGridCell.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
 		D033E52A29913F1A00F9AF2A /* EditView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
@@ -52,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C1E6A39299E95C300489534 /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +105,7 @@
 			children = (
 				2C262B14298A1A0E004C622C /* Date.swift */,
 				2C2AED312991AF28000C5399 /* View.swift */,
+				2C9B44DF299C642A00EE5232 /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -80,8 +113,14 @@
 		2C262B16298A1A39004C622C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				2C7AC3D7299AEE4C00BC9D10 /* AppState.swift */,
 				2C262B17298A1A4A004C622C /* Constants.swift */,
+				2C5F7A14299DCBA40008BADB /* HapticManager.swift */,
+				2C5F7A10299DC1310008BADB /* SchemeType.swift */,
+				2C5F7A12299DC1480008BADB /* SchemeModifier.swift */,
 				2C262B19298A1A54004C622C /* SFSymbols.swift */,
+				2C5F7A08299DC04F0008BADB /* Preferences */,
+				2C5F7A05299DC0000008BADB /* UserDefaults */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -92,6 +131,41 @@
 				2C262B1C298A1AAC004C622C /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		2C5F7A05299DC0000008BADB /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				2C7AC3D2299AE94300BC9D10 /* UserDefaultsKey.swift */,
+				2C5F7A06299DC0390008BADB /* UserDefaultWrapper.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		2C5F7A08299DC04F0008BADB /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				2C5F7A0A299DC0B60008BADB /* Preferences.swift */,
+				2C5F7A09299DC0580008BADB /* Misc */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		2C5F7A09299DC0580008BADB /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				2C5F7A0C299DC0F40008BADB /* PublisherObservableObject.swift */,
+				2C5F7A0E299DC1180008BADB /* PreferenceWrapper.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		2C7AC3D4299AECB800BC9D10 /* Pending */ = {
+			isa = PBXGroup;
+			children = (
+				2C7AC3D5299AEE0E00BC9D10 /* PendingView.swift */,
+			);
+			path = Pending;
 			sourceTree = "<group>";
 		};
 		2C8C35E02984934E00DCEA67 = {
@@ -139,7 +213,9 @@
 				41299E87299EA95200666A48 /* Add */,
 				D033E52429913E4B00F9AF2A /* Detail */,
 				D033E52929913F0000F9AF2A /* Edit */,
+				2C7AC3D4299AECB800BC9D10 /* Pending */,
 				2C262B1B298A1A89004C622C /* Settings */,
+				2C9B44E1299C68B900EE5232 /* Onboarding */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -155,6 +231,7 @@
 		2C8C35FC2984951F00DCEA67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C9B44DD299C63E900EE5232 /* AppDelegate.swift */,
 				2C8C35F02984934E00DCEA67 /* Assets.xcassets */,
 				2C74150A298B2579006CECDA /* Launch Screen.storyboard */,
 			);
@@ -167,6 +244,22 @@
 				41299E88299EA9F000666A48 /* AddTask.swift */,
 			);
 			path = Add;
+		2C9B44E1299C68B900EE5232 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				2C9B44E7299C697600EE5232 /* OnboardingContainerView.swift */,
+				2C9B44E5299C692C00EE5232 /* OnboardingView.swift */,
+				2C9B44E2299C68DC00EE5232 /* Model */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		2C9B44E2299C68DC00EE5232 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C9B44E3299C68ED00EE5232 /* OnboardFeature.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D033E52429913E4B00F9AF2A /* Detail */ = {
@@ -202,6 +295,9 @@
 			dependencies = (
 			);
 			name = TaskGuru;
+			packageProductDependencies = (
+				2C1E6A38299E95C300489534 /* ConfettiSwiftUI */,
+			);
 			productName = TaskGuru;
 			productReference = 2C8C35E92984934E00DCEA67 /* TaskGuru.app */;
 			productType = "com.apple.product-type.application";
@@ -230,6 +326,9 @@
 				Base,
 			);
 			mainGroup = 2C8C35E02984934E00DCEA67;
+			packageReferences = (
+				2C1E6A37299E95C300489534 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+			);
 			productRefGroup = 2C8C35EA2984934E00DCEA67 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,19 +356,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C9B44E0299C642A00EE5232 /* UIApplication.swift in Sources */,
 				2C2AED322991AF28000C5399 /* View.swift in Sources */,
+				2C5F7A15299DCBA40008BADB /* HapticManager.swift in Sources */,
 				2C8C35EF2984934E00DCEA67 /* HomeView.swift in Sources */,
 				2C262B15298A1A0E004C622C /* Date.swift in Sources */,
+				2C5F7A0D299DC0F40008BADB /* PublisherObservableObject.swift in Sources */,
+				2C5F7A13299DC1480008BADB /* SchemeModifier.swift in Sources */,
 				D033E52B29913F1A00F9AF2A /* EditView.swift in Sources */,
 				D033E52829913ECA00F9AF2A /* DetailGridCell.swift in Sources */,
 				2C262B12298A19EC004C622C /* TaskItem.swift in Sources */,
 				D033E52629913E8B00F9AF2A /* DetailView.swift in Sources */,
 				2C262B1D298A1AAC004C622C /* SettingsView.swift in Sources */,
 				2C262B0E298A19CB004C622C /* TaskType.swift in Sources */,
+				2C5F7A0B299DC0B60008BADB /* Preferences.swift in Sources */,
+				2C9B44E4299C68ED00EE5232 /* OnboardFeature.swift in Sources */,
+				2C9B44E8299C697600EE5232 /* OnboardingContainerView.swift in Sources */,
 				2C262B1A298A1A54004C622C /* SFSymbols.swift in Sources */,
+				2C7AC3D3299AE94300BC9D10 /* UserDefaultsKey.swift in Sources */,
+				2C5F7A07299DC0390008BADB /* UserDefaultWrapper.swift in Sources */,
+				2C9B44E6299C692C00EE5232 /* OnboardingView.swift in Sources */,
+				2C7AC3D8299AEE4C00BC9D10 /* AppState.swift in Sources */,
+				2C5F7A0F299DC1180008BADB /* PreferenceWrapper.swift in Sources */,
 				2C262B18298A1A4A004C622C /* Constants.swift in Sources */,
 				2C262B10298A19D4004C622C /* TaskStatus.swift in Sources */,
 				41299E89299EA9F000666A48 /* AddTask.swift in Sources */,
+				2C5F7A11299DC1310008BADB /* SchemeType.swift in Sources */,
+				2C7AC3D6299AEE0E00BC9D10 /* PendingView.swift in Sources */,
+				2C9B44DE299C63E900EE5232 /* AppDelegate.swift in Sources */,
 				2C8C35ED2984934E00DCEA67 /* TaskGuruApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,7 +511,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"TaskGuru/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -414,7 +528,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = gbc.comp3097.TaskGuru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -432,7 +546,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"TaskGuru/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -449,7 +563,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = gbc.comp3097.TaskGuru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -483,6 +597,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2C1E6A37299E95C300489534 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2C1E6A38299E95C300489534 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C1E6A37299E95C300489534 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2C8C35E12984934E00DCEA67 /* Project object */;
 }
