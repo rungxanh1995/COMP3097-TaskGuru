@@ -42,7 +42,11 @@ struct SettingsView: View {
 				appNameAndLogo
 					.listRowBackground(Color.clear)
 			}
-			.navigationTitle("Settings")
+			.toolbar {
+				ToolbarItem(placement: .navigationBarLeading) {
+					GradientNavigationTitle(text: "Pending Tasks")
+				}
+			}
 			.sheet(isPresented: $isShowingOnboarding, content: {
 				OnboardContainerView()
 			})
