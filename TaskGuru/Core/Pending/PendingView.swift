@@ -36,8 +36,12 @@ struct PendingView: View {
 			.navigationDestination(for: TaskItem.self) { task in
 				DetailView(task: task)
 			}
-			.navigationTitle("Pending Tasks")
+			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
+				ToolbarItem(placement: .navigationBarLeading) {
+					GradientNavigationTitle(text: "Pending Tasks")
+				}
+
 				ToolbarItem(placement: .primaryAction) {
 					addTaskButton
 				}
@@ -68,8 +72,7 @@ extension PendingView {
 		Section {
 			ForEach(TaskItem.mockData.filter { $0.isNotDone }) { task in
 				NavigationLink(value: task) {
-					// TODO: Replace by home list cell
-					Text(task.name)
+					HomeListCell(task: task)
 				}
 				.contextMenu {
 					makeContextMenu(for: task)
@@ -77,8 +80,7 @@ extension PendingView {
 					if isPreviewEnabled {
 						DetailView(task: task)
 					} else {
-						// TODO: Replace by home list cell
-						Text(task.name).padding()
+						HomeListCell(task: task)
 					}
 				}
 			}
