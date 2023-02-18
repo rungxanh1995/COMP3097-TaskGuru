@@ -26,22 +26,31 @@ final class Preferences {
 	// INITIALIZE APP PREFERENCES HERE
 	@UserDefault(UserDefaultsKey.iShowingAppBadge)
 	var isShowingAppBadge: Bool = false
-	
+
 	@UserDefault(UserDefaultsKey.isShowingTabBadge)
 	var isShowingTabBadge: Bool = true
-	
+
 	@UserDefault(UserDefaultsKey.isPreviewEnabled)
 	var isPreviewEnabled: Bool = true
-	
+
 	@UserDefault(UserDefaultsKey.isConfettiEnabled)
 	var isConfettiEnabled: Bool = true
-	
+
 	@UserDefault(UserDefaultsKey.isLockedInPortrait)
 	var isLockedInPortrait: Bool = false
-	
+
 	@UserDefault(UserDefaultsKey.hapticsReduced)
 	var isHapticsReduced: Bool = false
-	
+
 	@UserDefault(UserDefaultsKey.systemTheme)
 	var systemTheme: Int = SchemeType.allCases.first!.rawValue
+
+	@UserDefault(UserDefaultsKey.isTabNamesEnabled)
+	var isTabNamesEnabled: Bool = true
+
+	@UserDefault(UserDefaultsKey.fontDesign)
+	var fontDesign: Int = FontDesignType.allCases.first!.rawValue
+
+	@UserDefault(UserDefaultsKey.accentColor)
+	var accentColor: Int = AccentColorType.allCases.first!.rawValue
 }

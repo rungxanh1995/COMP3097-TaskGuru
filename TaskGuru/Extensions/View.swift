@@ -24,4 +24,16 @@ extension View {
 	func setUpColorTheme() -> some View {
 		modifier(SchemeModifier())
 	}
+
+	/// Configure the font design of this application.
+	///
+	/// This app should be running on iOS 16.1+ to see effect.
+	func setUpFontDesign() -> some View {
+		modifier(FontDesignModifier())
+	}
+
+	/// Configure the tinted accent color of this application.
+	func setUpAccentColor() -> some View {
+		modifier(AccentColorModifier())
+	}
 }
