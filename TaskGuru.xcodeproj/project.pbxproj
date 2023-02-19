@@ -13,6 +13,7 @@
 		2C12599329A1987000DD96E4 /* FontDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12599229A1987000DD96E4 /* FontDesign.swift */; };
 		2C12599529A1988900DD96E4 /* FontDesignModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12599429A1988900DD96E4 /* FontDesignModifier.swift */; };
 		2C12599729A1996200DD96E4 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12599629A1996200DD96E4 /* Color.swift */; };
+		2C12599929A19D2000DD96E4 /* HomeQuickAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12599829A19D2000DD96E4 /* HomeQuickAction.swift */; };
 		2C262B0E298A19CB004C622C /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B0D298A19CB004C622C /* TaskType.swift */; };
 		2C262B10298A19D4004C622C /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B0F298A19D4004C622C /* TaskStatus.swift */; };
 		2C262B12298A19EC004C622C /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B11298A19EC004C622C /* TaskItem.swift */; };
@@ -57,6 +58,7 @@
 		2C12599229A1987000DD96E4 /* FontDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontDesign.swift; sourceTree = "<group>"; };
 		2C12599429A1988900DD96E4 /* FontDesignModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontDesignModifier.swift; sourceTree = "<group>"; };
 		2C12599629A1996200DD96E4 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		2C12599829A19D2000DD96E4 /* HomeQuickAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeQuickAction.swift; sourceTree = "<group>"; };
 		2C262B0D298A19CB004C622C /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
 		2C262B0F298A19D4004C622C /* TaskStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatus.swift; sourceTree = "<group>"; };
 		2C262B11298A19EC004C622C /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
@@ -146,10 +148,10 @@
 		2C262B13298A19FE004C622C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2C12599629A1996200DD96E4 /* Color.swift */,
 				2C262B14298A1A0E004C622C /* Date.swift */,
 				2C2AED312991AF28000C5399 /* View.swift */,
 				2CB63A3A299F253100271BD8 /* UIApplication.swift */,
-				2C12599629A1996200DD96E4 /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -160,12 +162,13 @@
 				2C12598B29A197F300DD96E4 /* Accent Color */,
 				2C12598C29A197FA00DD96E4 /* Color Scheme */,
 				2C12598D29A1981000DD96E4 /* Font Design */,
+				2CB63A26299F21A700271BD8 /* Preferences */,
+				2CB63A21299F215E00271BD8 /* UserDefaults */,
 				2CB63A19299F20A500271BD8 /* AppState.swift */,
 				2C262B17298A1A4A004C622C /* Constants.swift */,
 				2CB63A1B299F20FD00271BD8 /* HapticManager.swift */,
+				2C12599829A19D2000DD96E4 /* HomeQuickAction.swift */,
 				2C262B19298A1A54004C622C /* SFSymbols.swift */,
-				2CB63A26299F21A700271BD8 /* Preferences */,
-				2CB63A21299F215E00271BD8 /* UserDefaults */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				EC60754029A02910008A1CD4 /* HomeListCell.swift in Sources */,
 				2C2AED322991AF28000C5399 /* View.swift in Sources */,
 				2C12599529A1988900DD96E4 /* FontDesignModifier.swift in Sources */,
+				2C12599929A19D2000DD96E4 /* HomeQuickAction.swift in Sources */,
 				2C8C35EF2984934E00DCEA67 /* HomeView.swift in Sources */,
 				2CB63A1C299F20FD00271BD8 /* HapticManager.swift in Sources */,
 				2CB63A39299F250200271BD8 /* AppDelegate.swift in Sources */,
@@ -569,7 +573,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TaskGuru/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -586,7 +590,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = gbc.comp3097.TaskGuru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -604,7 +608,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TaskGuru/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -621,7 +625,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = gbc.comp3097.TaskGuru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
