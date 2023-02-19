@@ -45,7 +45,7 @@ extension OnboardContainerView {
 		.bold()
 		.buttonStyle(.bordered)
 		.buttonBorderShape(.capsule)
-		.tint(.accentColor)
+		.tint(.defaultAccentColor)
 	}
 	
 	/// Button to display when user might be seeing this view in Settings

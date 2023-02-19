@@ -26,6 +26,10 @@ extension OnboardFeature {
 			title: "Pending Tasks tab",
 			description: "Find your undone tasks here"),
 		OnboardFeature(
+			icon: SFSymbols.appBadge.symbolRenderingMode(.multicolor),
+			title: "App icon badge",
+			description: "Track all or time-based pending tasks at a glance. Find this in \(SFSymbols.gear) Settings"),
+		OnboardFeature(
 			icon: SFSymbols.menu,
 			title: "Quick Actions",
 			description: "Tap and hold each task from the list to use quick actions")
