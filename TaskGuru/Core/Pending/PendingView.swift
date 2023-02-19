@@ -80,7 +80,7 @@ extension PendingView {
 					if isPreviewEnabled {
 						DetailView(task: task)
 					} else {
-						HomeListCell(task: task)
+						HomeListCell(task: task).padding()
 					}
 				}
 			}
