@@ -43,6 +43,7 @@
 		2CB63A37299F23FF00271BD8 /* PendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A36299F23FF00271BD8 /* PendingView.swift */; };
 		2CB63A39299F250200271BD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A38299F250200271BD8 /* AppDelegate.swift */; };
 		2CB63A3B299F253100271BD8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A3A299F253100271BD8 /* UIApplication.swift */; };
+		2CD0D60C29A2CFA5009157FB /* BadgeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0D60B29A2CFA5009157FB /* BadgeType.swift */; };
 		41299E89299EA9F000666A48 /* AddTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41299E88299EA9F000666A48 /* AddTask.swift */; };
 		D033E52629913E8B00F9AF2A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52529913E8B00F9AF2A /* DetailView.swift */; };
 		D033E52829913ECA00F9AF2A /* DetailGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52729913ECA00F9AF2A /* DetailGridCell.swift */; };
@@ -88,6 +89,7 @@
 		2CB63A36299F23FF00271BD8 /* PendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingView.swift; sourceTree = "<group>"; };
 		2CB63A38299F250200271BD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB63A3A299F253100271BD8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		2CD0D60B29A2CFA5009157FB /* BadgeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeType.swift; sourceTree = "<group>"; };
 		41299E88299EA9F000666A48 /* AddTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTask.swift; sourceTree = "<group>"; };
 		D033E52529913E8B00F9AF2A /* DetailView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
 		D033E52729913ECA00F9AF2A /* DetailGridCell.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DetailGridCell.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				2C12598B29A197F300DD96E4 /* Accent Color */,
+				2CD0D60A29A2CF98009157FB /* Badge */,
 				2C12598C29A197FA00DD96E4 /* Color Scheme */,
 				2C12598D29A1981000DD96E4 /* Font Design */,
 				2CB63A26299F21A700271BD8 /* Preferences */,
@@ -299,6 +302,14 @@
 			path = Pending;
 			sourceTree = "<group>";
 		};
+		2CD0D60A29A2CF98009157FB /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				2CD0D60B29A2CFA5009157FB /* BadgeType.swift */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
 		41299E87299EA95200666A48 /* Add */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +447,7 @@
 				D033E52629913E8B00F9AF2A /* DetailView.swift in Sources */,
 				2C262B1D298A1AAC004C622C /* SettingsView.swift in Sources */,
 				2C262B0E298A19CB004C622C /* TaskType.swift in Sources */,
+				2CD0D60C29A2CFA5009157FB /* BadgeType.swift in Sources */,
 				2CB63A30299F235100271BD8 /* OnboardFeature.swift in Sources */,
 				EC60753929A00CD5008A1CD4 /* GradientNavigationTitle.swift in Sources */,
 				2C262B1A298A1A54004C622C /* SFSymbols.swift in Sources */,

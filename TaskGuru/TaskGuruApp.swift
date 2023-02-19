@@ -15,6 +15,7 @@ struct TaskGuruApp: App {
 
 	@AppStorage(UserDefaultsKey.isOnboarding) private var isOnboarding: Bool = true
 	@Preference(\.accentColor) private var accentColor
+	@Preference(\.badgeType) private var badgeType
 	@Preference(\.isShowingAppBadge) private var isShowingAppBadge
 	@Preference(\.isShowingTabBadge) private var isShowingTabBadge
 	@Preference(\.isLockedInPortrait) private var isLockedInPortrait
@@ -65,7 +66,10 @@ struct TaskGuruApp: App {
 					isLockedInPortrait ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
 				}
 				.onChange(of: isShowingAppBadge) { _ in
-					setAppBadgeOfPendingTasks()
+					setUpAppIconBadge()
+				}
+				.onChange(of: badgeType) { _ in
+					setUpAppIconBadge()
 				}
 				.onChange(of: scenePhase) { newPhase in
 					switch newPhase {
@@ -133,13 +137,13 @@ extension TaskGuruApp {
 import UserNotifications
 
 extension TaskGuruApp {
-	private func setAppBadgeOfPendingTasks() {
+	private func setUpAppIconBadge() {
 		UNUserNotificationCenter.current().requestAuthorization(options: [.badge]) { success, error in
 			if success {
 				Task {
 					await MainActor.run {
 						switch isShowingAppBadge {
-						case true:	UIApplication.shared.applicationIconBadgeNumber = TaskItem.mockData.filter{ $0.isNotDone }.count
+						case true:	UIApplication.shared.applicationIconBadgeNumber = badgeNumberForAppIcon()
 						case false: UIApplication.shared.applicationIconBadgeNumber = 0
 						}
 					}
@@ -147,6 +151,18 @@ extension TaskGuruApp {
 			} else if let error = error {
 				print(error.localizedDescription)
 			}
+		}
+	}
+
+	private func badgeNumberForAppIcon() -> Int {
+		guard let badge = BadgeType(rawValue: badgeType) else { return 0 }
+		switch badge {
+		// TODO: Update these cases when HomeViewModel is implemented.
+		// No need to depend on mockData anymore.
+		case .allPending: return TaskItem.mockData.filter { $0.isNotDone }.count
+		case .overdue: return TaskItem.mockData.filter { $0.dueDate.isPastToday && $0.isNotDone }.count
+		case .dueToday: return TaskItem.mockData.filter { $0.dueDate.isWithinToday && $0.isNotDone }.count
+		case .upcoming: return TaskItem.mockData.filter { $0.dueDate.isInTheFuture && $0.isNotDone }.count
 		}
 	}
 }

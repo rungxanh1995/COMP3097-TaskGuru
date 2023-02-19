@@ -20,4 +20,5 @@ enum UserDefaultsKey {
 	static let isTabNamesEnabled: String = "isTabNamesEnabled"
 	static let fontDesign: String = "fontDesign"
 	static let accentColor: String = "accentColor"
+	static let badgeType: String = "badgeType"
 }
