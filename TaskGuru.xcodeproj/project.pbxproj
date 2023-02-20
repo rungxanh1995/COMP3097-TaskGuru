@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C114C2F29A3B6FA0003F7E1 /* ContextPreviewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C114C2E29A3B6FA0003F7E1 /* ContextPreviewType.swift */; };
 		2C12598A29A196AD00DD96E4 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12598929A196AD00DD96E4 /* SettingsViewModel.swift */; };
 		2C12598F29A1982D00DD96E4 /* AccentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12598E29A1982D00DD96E4 /* AccentColor.swift */; };
 		2C12599129A1984800DD96E4 /* AccentColorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12599029A1984800DD96E4 /* AccentColorModifier.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C114C2E29A3B6FA0003F7E1 /* ContextPreviewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextPreviewType.swift; sourceTree = "<group>"; };
 		2C12598929A196AD00DD96E4 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		2C12598E29A1982D00DD96E4 /* AccentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentColor.swift; sourceTree = "<group>"; };
 		2C12599029A1984800DD96E4 /* AccentColorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentColorModifier.swift; sourceTree = "<group>"; };
@@ -112,6 +114,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C114C2D29A3B6EB0003F7E1 /* Context Menu */ = {
+			isa = PBXGroup;
+			children = (
+				2C114C2E29A3B6FA0003F7E1 /* ContextPreviewType.swift */,
+			);
+			path = "Context Menu";
+			sourceTree = "<group>";
+		};
 		2C12598B29A197F300DD96E4 /* Accent Color */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 				2C12598B29A197F300DD96E4 /* Accent Color */,
 				2CD0D60A29A2CF98009157FB /* Badge */,
 				2C12598C29A197FA00DD96E4 /* Color Scheme */,
+				2C114C2D29A3B6EB0003F7E1 /* Context Menu */,
 				2C12598D29A1981000DD96E4 /* Font Design */,
 				2CB63A26299F21A700271BD8 /* Preferences */,
 				2CB63A21299F215E00271BD8 /* UserDefaults */,
@@ -444,6 +455,7 @@
 				2C12599129A1984800DD96E4 /* AccentColorModifier.swift in Sources */,
 				2CD0D60F29A2D50C009157FB /* AcknowledgmentsView.swift in Sources */,
 				2C12599729A1996200DD96E4 /* Color.swift in Sources */,
+				2C114C2F29A3B6FA0003F7E1 /* ContextPreviewType.swift in Sources */,
 				2CB63A32299F236B00271BD8 /* OnboardView.swift in Sources */,
 				2C12599329A1987000DD96E4 /* FontDesign.swift in Sources */,
 				2CB63A37299F23FF00271BD8 /* PendingView.swift in Sources */,

@@ -56,4 +56,7 @@ final class Preferences {
 
 	@UserDefault(UserDefaultsKey.badgeType)
 	var badgeType: Int = BadgeType.allCases.first!.rawValue
+
+	@UserDefault(UserDefaultsKey.contextPreviewType)
+	var contextPreviewType: Int = ContextPreviewType.allCases.first!.rawValue
 }

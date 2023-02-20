@@ -23,6 +23,7 @@ struct SettingsView: View {
 	@Preference(\.fontDesign) private var fontDesign
 	@Preference(\.systemTheme) private var systemTheme
 	@Preference(\.badgeType) private var badgeType
+	@Preference(\.contextPreviewType) private var previewType
 
 	init(vm: SettingsView.ViewModel = .init()) {
 		_vm = StateObject(wrappedValue: vm)
@@ -178,10 +179,11 @@ private extension SettingsView {
 			tabNames
 			confetti
 			preview
+			contextPreviewType
 		} header: {
 			Label { Text("Miscellaneous") } icon: { SFSymbols.bubbleSparkles }
 		} footer: {
-			Text("Long pressing a task from a list reveals a detail preview of the task when enabled.")
+			Text("Long pressing a task from a list reveals a context menu for the task when enabled.")
 		}
 	}
 
@@ -198,6 +200,17 @@ private extension SettingsView {
 	private var preview: some View {
 		Toggle("Preview on Haptic Touch", isOn: $isPreviewEnabled)
 			.tint(.accentColor)
+	}
+
+	private var contextPreviewType: some View {
+		Picker("Preview Type on Haptic Touch", selection: $previewType) {
+			ForEach(ContextPreviewType.allCases) { (type) in
+				Text(LocalizedStringKey(type.title))
+					.tag(type.rawValue)
+			}
+		}
+		.pickerStyle(.segmented)
+		.disabled(!isPreviewEnabled)
 	}
 
 	private var advancedSection: some View {
