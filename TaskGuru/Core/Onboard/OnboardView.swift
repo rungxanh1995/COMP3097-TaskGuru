@@ -19,7 +19,7 @@ struct OnboardView: View {
 				.resizable()
 				.scaledToFit()
 				.frame(width: 100, height: 100)
-				.foregroundColor(.accentColor)
+				.foregroundColor(.defaultAccentColor)
 			
 			Text(title)
 				.font(.title)

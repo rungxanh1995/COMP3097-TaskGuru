@@ -9,39 +9,38 @@
 import SwiftUI
 
 struct SettingsView: View {
+	@StateObject private var vm: ViewModel
 	@State private var isShowingOnboarding: Bool = false
-	
+
 	@Preference(\.isShowingAppBadge) private var isShowingAppBadge
 	@Preference(\.isShowingTabBadge) private var isShowingTabBadge
 	@Preference(\.isConfettiEnabled) private var isConfettiEnabled
 	@Preference(\.isPreviewEnabled) private var isPreviewEnabled
 	@Preference(\.isLockedInPortrait) private var isLockedInPortrait
 	@Preference(\.isHapticsReduced) private var isHapticsReduced
+	@Preference(\.isTabNamesEnabled) private var isTabNamesEnabled
+	@Preference(\.accentColor) private var accentColor
+	@Preference(\.fontDesign) private var fontDesign
 	@Preference(\.systemTheme) private var systemTheme
-	
-	@State private var isConfirmingResetSettings: Bool = false
-	@State private var isConfirmingResetUserData: Bool = false
-	
-	var appVersionNumber: String {
-		Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+	@Preference(\.badgeType) private var badgeType
+	@Preference(\.contextPreviewType) private var previewType
+
+	init(vm: SettingsView.ViewModel = .init()) {
+		_vm = StateObject(wrappedValue: vm)
 	}
-	
-	var appBuildNumber: String {
-		Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
-	}
-	
+
 	var body: some View {
 		NavigationView {
 			Form {
 				generalSection
 				badgeSection
 				miscSection
-				devTeamSection
 				advancedSection
-				
-				appNameAndLogo
-					.listRowBackground(Color.clear)
+				devTeamSection
+				acknowledgments
+				appNameAndLogo.listRowBackground(Color.clear)
 			}
+			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
 					GradientNavigationTitle(text: "Settings")
@@ -52,22 +51,22 @@ struct SettingsView: View {
 			})
 			.confirmationDialog(
 				"App settings would reset.\nThis action cannot be undone",
-				isPresented: $isConfirmingResetSettings,
+				isPresented: $vm.isConfirmingResetSettings,
 				titleVisibility: .visible
 			) {
 				Button("Delete", role: .destructive) {
-					// delete app settings here
+					vm.resetDefaults()
 					haptic(.success)
 				}
 				Button("Cancel", role: .cancel) { }
 			}
 			.confirmationDialog(
 				"All your tasks would be deleted.\nThis action cannot be undone",
-				isPresented: $isConfirmingResetUserData,
+				isPresented: $vm.isConfirmingResetUserData,
 				titleVisibility: .visible
 			) {
 				Button("Delete", role: .destructive) {
-					// delete user data here
+					vm.resetAllTasks()
 					haptic(.success)
 				}
 				Button("Cancel", role: .cancel) { }
@@ -83,22 +82,49 @@ private extension SettingsView {
 			onboarding
 			portraitLock
 			haptics
+			appAccentColor
+			fontDesignStyle
 			appTheme
 		} header: {
 			Label { Text("General") } icon: { SFSymbols.gearFilled }
 		}
 	}
-	
+
 	private var portraitLock: some View {
 		Toggle("Portrait Lock", isOn: $isLockedInPortrait)
 			.tint(.accentColor)
 	}
-	
+
 	private var haptics: some View {
 		Toggle("Reduce Haptics", isOn: $isHapticsReduced)
 			.tint(.accentColor)
 	}
-	
+
+	private var appAccentColor: some View {
+		Picker("Accent Color", selection: $accentColor) {
+			ForEach(AccentColorType.allCases) { (accent) in
+				Label {
+					Text(LocalizedStringKey(accent.title))
+				} icon: {
+					SFSymbols.circleFilled
+						.foregroundColor(accent.inbuiltColor)
+				}
+				.labelStyle(.titleAndIcon)
+				.tag(accent.rawValue)
+			}
+		}
+		.pickerStyle(.navigationLink)
+	}
+
+	private var fontDesignStyle: some View {
+		Picker("Font Style", selection: $fontDesign) {
+			ForEach(FontDesignType.allCases) { (design) in
+				Text(LocalizedStringKey(design.title))
+					.tag(design.rawValue)
+			}
+		}
+	}
+
 	private var appTheme: some View {
 		Picker("Color Theme", selection: $systemTheme) {
 			ForEach(SchemeType.allCases) { (theme) in
@@ -107,7 +133,7 @@ private extension SettingsView {
 			}
 		}
 	}
-	
+
 	private var onboarding: some View {
 		Button {
 			isShowingOnboarding.toggle()
@@ -115,49 +141,78 @@ private extension SettingsView {
 			Text("Show Onboarding screen")
 		}
 	}
-	
+
 	private var badgeSection: some View {
 		Section {
 			appBadge
+			appBadgeType
 			tabBadge
 		} header: {
 			Label { Text("Badge") } icon: { SFSymbols.appBadge }
 		} footer: {
-			Text("Display a number of your pending tasks on Home screen. Review your Notification settings if no badge shown.")
+			Text("Icon badge shows a number of tasks on Home screen. Review your Notification settings if no badge shown.")
 		}
 	}
-	
+
 	private var appBadge: some View {
 		Toggle("Show App Icon Badge", isOn: $isShowingAppBadge)
 			.tint(.accentColor)
 	}
-	
+
+	private var appBadgeType: some View {
+		Picker("App Icon Badge Type", selection: $badgeType) {
+			ForEach(BadgeType.allCases) { (type) in
+				Text(LocalizedStringKey(type.title))
+					.tag(type.rawValue)
+			}
+		}
+		.disabled(!isShowingAppBadge)
+	}
+
 	private var tabBadge: some View {
 		Toggle("Show Tab Badge", isOn: $isShowingTabBadge)
 			.tint(.accentColor)
 	}
-	
+
 	private var miscSection: some View {
 		Section {
+			tabNames
 			confetti
 			preview
+			contextPreviewType
 		} header: {
 			Label { Text("Miscellaneous") } icon: { SFSymbols.bubbleSparkles }
 		} footer: {
-			Text("Long pressing a task from a list reveals a detail preview of the task when enabled.")
+			Text("Long pressing a task from a list reveals a context menu for the task when enabled.")
 		}
 	}
-	
+
+	private var tabNames: some View {
+		Toggle("Tab Names", isOn: $isTabNamesEnabled)
+			.tint(.accentColor)
+	}
+
 	private var confetti: some View {
 		Toggle("Toggle Confetti 🎉", isOn: $isConfettiEnabled)
 			.tint(.accentColor)
 	}
-	
+
 	private var preview: some View {
 		Toggle("Preview on Haptic Touch", isOn: $isPreviewEnabled)
 			.tint(.accentColor)
 	}
-	
+
+	private var contextPreviewType: some View {
+		Picker("Preview Type on Haptic Touch", selection: $previewType) {
+			ForEach(ContextPreviewType.allCases) { (type) in
+				Text(LocalizedStringKey(type.title))
+					.tag(type.rawValue)
+			}
+		}
+		.pickerStyle(.segmented)
+		.disabled(!isPreviewEnabled)
+	}
+
 	private var advancedSection: some View {
 		Section {
 			resetAppSettingsButton
@@ -165,13 +220,13 @@ private extension SettingsView {
 		} header: {
 			Label { Text("Advanced") } icon: { SFSymbols.magicWand }
 		} footer: {
-			Text("Be careful, these remove all your data! Restart the app to see all changes")
+			Text("Be careful, these remove all your data! Restart the app to see all changes.")
 		}
 	}
-	
+
 	private var resetAppSettingsButton: some View {
 		Button(role: .destructive) {
-			isConfirmingResetSettings.toggle()
+			vm.isConfirmingResetSettings.toggle()
 		} label: {
 			Label {
 				Text("Reset App Settings")
@@ -180,10 +235,10 @@ private extension SettingsView {
 			}
 		}
 	}
-	
+
 	private var resetAppDataButton: some View {
 		Button(role: .destructive) {
-			isConfirmingResetUserData.toggle()
+			vm.isConfirmingResetUserData.toggle()
 		} label: {
 			Label {
 				Text("Reset Your Data")
@@ -192,39 +247,47 @@ private extension SettingsView {
 			}
 		}
 	}
-	
+
 	private var devTeamSection: some View {
 		Section {
 			Label {
-				Link("Joe Pham", destination: URL(string: "https://github.com/rungxanh1995")!)
+				Link("Joe Pham", destination: vm.joeGitHubLink)
 			} icon: { SFSymbols.link }
 			
 			Label {
-				Link("Marco Stevanella", destination: URL(string: "https://github.com/floydcoder")!)
+				Link("Marco Stevanella", destination: vm.marcoGitHubLink)
 			} icon: { SFSymbols.link }
-			
+
 			Label {
-				Link("Ostap Sulyk", destination: URL(string: "https://github.com/ostap-sulyk")!)
+				Link("Ostap Sulyk", destination: vm.ostapGitHubLink)
 			} icon: { SFSymbols.link }
-			
+
 			Label {
-				Link("Rauf Anata", destination: URL(string: "https://github.com/drrauf")!)
+				Link("Rauf Anata", destination: vm.raufGitHubLink)
 			} icon: { SFSymbols.link }
 		} header: {
 			Label { Text("Meet The Team") } icon: { SFSymbols.handsSparklesFilled }
 		}
 	}
-	
+
+	private var acknowledgments: some View {
+		Section {
+			NavigationLink("Acknowledgments") {
+				AcknowledgmentsView()
+			}
+		}
+	}
+
 	private var appNameAndLogo: some View {
 		VStack(spacing: 8) {
 			HStack {
 				Spacer()
-				Text("TaskGuru \(appVersionNumber) (\(appBuildNumber))")
+				Text("TaskGuru \(vm.appVersionNumber) (\(vm.appBuildNumber))")
 					.font(.system(.callout))
 					.foregroundColor(.secondary)
 				Spacer()
 			}
-			
+
 			Image("app-logo")
 				.resizable()
 				.scaledToFit()

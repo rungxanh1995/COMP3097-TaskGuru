@@ -9,15 +9,14 @@
 import SwiftUI
 
 struct GradientNavigationTitle: View {
+	@Preference(\.accentColor) private var accentColor
 	let text: LocalizedStringKey
 
 	var body: some View {
 		Text(text)
 			.font(.system(.title, design: .rounded))
 			.fontWeight(.bold)
-			.foregroundStyle(
-				LinearGradient(colors: [.teal, .mint, .teal], startPoint: .topLeading, endPoint: .bottomTrailing)
-			)
+			.foregroundStyle(Color.defaultAccentColor.gradient)
 	}
 }
 
