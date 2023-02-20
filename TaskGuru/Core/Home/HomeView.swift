@@ -114,7 +114,7 @@ extension HomeView {
 	
 	private var upcomingSection: some View {
 		Section {
-			ForEach(TaskItem.mockData.filter { $0.dueDate.isInTheFuture }) { task in
+			ForEach(TaskItem.mockData.filter { $0.dueDate.isFromTomorrow }) { task in
 				NavigationLink(value: task) {
 					HomeListCell(task: task)
 				}

@@ -33,4 +33,10 @@ extension Date {
 	/// 	Date(timeInterval: 100, since: Date()).isInFuture -> true
 	///
 	var isInTheFuture: Bool { self > Date() }
+
+	/// Check if date is both not within today and in the future
+	///
+	///		Date(timeInterval: 100, since: Date()).isFromTomorrow -> false
+	///		Date(timeInterval: 100_000, since: Date()).isFromTomorrow -> true
+	var isFromTomorrow: Bool { !isWithinToday && isInTheFuture }
 }
