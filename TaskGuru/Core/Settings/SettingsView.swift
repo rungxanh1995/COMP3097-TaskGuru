@@ -34,11 +34,10 @@ struct SettingsView: View {
 				generalSection
 				badgeSection
 				miscSection
-				devTeamSection
 				advancedSection
-				
-				appNameAndLogo
-					.listRowBackground(Color.clear)
+				devTeamSection
+				acknowledgments
+				appNameAndLogo.listRowBackground(Color.clear)
 			}
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
@@ -255,6 +254,14 @@ private extension SettingsView {
 			} icon: { SFSymbols.link }
 		} header: {
 			Label { Text("Meet The Team") } icon: { SFSymbols.handsSparklesFilled }
+		}
+	}
+
+	private var acknowledgments: some View {
+		Section {
+			NavigationLink("Acknowledgments") {
+				AcknowledgmentsView()
+			}
 		}
 	}
 

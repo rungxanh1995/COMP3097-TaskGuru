@@ -44,6 +44,7 @@
 		2CB63A39299F250200271BD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A38299F250200271BD8 /* AppDelegate.swift */; };
 		2CB63A3B299F253100271BD8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A3A299F253100271BD8 /* UIApplication.swift */; };
 		2CD0D60C29A2CFA5009157FB /* BadgeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0D60B29A2CFA5009157FB /* BadgeType.swift */; };
+		2CD0D60F29A2D50C009157FB /* AcknowledgmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0D60E29A2D50C009157FB /* AcknowledgmentsView.swift */; };
 		41299E89299EA9F000666A48 /* AddTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41299E88299EA9F000666A48 /* AddTask.swift */; };
 		D033E52629913E8B00F9AF2A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52529913E8B00F9AF2A /* DetailView.swift */; };
 		D033E52829913ECA00F9AF2A /* DetailGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52729913ECA00F9AF2A /* DetailGridCell.swift */; };
@@ -90,6 +91,7 @@
 		2CB63A38299F250200271BD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB63A3A299F253100271BD8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		2CD0D60B29A2CFA5009157FB /* BadgeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeType.swift; sourceTree = "<group>"; };
+		2CD0D60E29A2D50C009157FB /* AcknowledgmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgmentsView.swift; sourceTree = "<group>"; };
 		41299E88299EA9F000666A48 /* AddTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTask.swift; sourceTree = "<group>"; };
 		D033E52529913E8B00F9AF2A /* DetailView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
 		D033E52729913ECA00F9AF2A /* DetailGridCell.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DetailGridCell.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
@@ -233,6 +235,7 @@
 				2CB63A35299F23F400271BD8 /* Pending */,
 				2CB63A2D299F233C00271BD8 /* Onboard */,
 				2C262B1B298A1A89004C622C /* Settings */,
+				2CD0D60D29A2D4F9009157FB /* Acknowledgements */,
 				EC60753729A00CA0008A1CD4 /* Other */,
 			);
 			path = Core;
@@ -308,6 +311,14 @@
 				2CD0D60B29A2CFA5009157FB /* BadgeType.swift */,
 			);
 			path = Badge;
+			sourceTree = "<group>";
+		};
+		2CD0D60D29A2D4F9009157FB /* Acknowledgements */ = {
+			isa = PBXGroup;
+			children = (
+				2CD0D60E29A2D50C009157FB /* AcknowledgmentsView.swift */,
+			);
+			path = Acknowledgements;
 			sourceTree = "<group>";
 		};
 		41299E87299EA95200666A48 /* Add */ = {
@@ -431,6 +442,7 @@
 				2CB63A2A299F21E200271BD8 /* PreferenceWrapper.swift in Sources */,
 				2C262B15298A1A0E004C622C /* Date.swift in Sources */,
 				2C12599129A1984800DD96E4 /* AccentColorModifier.swift in Sources */,
+				2CD0D60F29A2D50C009157FB /* AcknowledgmentsView.swift in Sources */,
 				2C12599729A1996200DD96E4 /* Color.swift in Sources */,
 				2CB63A32299F236B00271BD8 /* OnboardView.swift in Sources */,
 				2C12599329A1987000DD96E4 /* FontDesign.swift in Sources */,
@@ -587,6 +599,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TaskGuru/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = TaskGuru;
@@ -622,6 +635,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TaskGuru/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = TaskGuru;
