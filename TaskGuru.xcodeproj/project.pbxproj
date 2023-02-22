@@ -23,6 +23,7 @@
 		2C262B1A298A1A54004C622C /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B19298A1A54004C622C /* SFSymbols.swift */; };
 		2C262B1D298A1AAC004C622C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B1C298A1AAC004C622C /* SettingsView.swift */; };
 		2C2AED322991AF28000C5399 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2AED312991AF28000C5399 /* View.swift */; };
+		2C4C16EB29A6CA110056709E /* ConfettiViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C16EA29A6CA110056709E /* ConfettiViewModifier.swift */; };
 		2C74150B298B2579006CECDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C74150A298B2579006CECDA /* Launch Screen.storyboard */; };
 		2C8C35ED2984934E00DCEA67 /* TaskGuruApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */; };
 		2C8C35EF2984934E00DCEA67 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EE2984934E00DCEA67 /* HomeView.swift */; };
@@ -72,6 +73,7 @@
 		2C262B19298A1A54004C622C /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		2C262B1C298A1AAC004C622C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2C2AED312991AF28000C5399 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		2C4C16EA29A6CA110056709E /* ConfettiViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiViewModifier.swift; sourceTree = "<group>"; };
 		2C74150A298B2579006CECDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2C8C35E92984934E00DCEA67 /* TaskGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGuruApp.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				2CB63A1B299F20FD00271BD8 /* HapticManager.swift */,
 				2C12599829A19D2000DD96E4 /* HomeQuickAction.swift */,
 				2C262B19298A1A54004C622C /* SFSymbols.swift */,
+				2C4C16EA29A6CA110056709E /* ConfettiViewModifier.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				2C12598F29A1982D00DD96E4 /* AccentColor.swift in Sources */,
 				2CB63A1A299F20A500271BD8 /* AppState.swift in Sources */,
 				D033E52629913E8B00F9AF2A /* DetailView.swift in Sources */,
+				2C4C16EB29A6CA110056709E /* ConfettiViewModifier.swift in Sources */,
 				2C262B1D298A1AAC004C622C /* SettingsView.swift in Sources */,
 				2C262B0E298A19CB004C622C /* TaskType.swift in Sources */,
 				2CD0D60C29A2CFA5009157FB /* BadgeType.swift in Sources */,

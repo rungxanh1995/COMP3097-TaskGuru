@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import ConfettiSwiftUI
 
 struct PendingView: View {
 	@StateObject private var tabState: AppState = .init()
@@ -33,7 +32,7 @@ struct PendingView: View {
 					List { pendingSection }
 				}
 			}
-			.confettiCannon(counter: $confettiCounter)
+			.playConfetti($confettiCounter)
 			.navigationDestination(for: TaskItem.self) { task in
 				DetailView(task: task)
 			}
