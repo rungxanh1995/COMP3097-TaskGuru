@@ -78,7 +78,7 @@ extension TaskItem {
 	
 	/// Shows green when not approaching today's date, orange on today's date, and red when passed today's date
 	func colorForDueDate() -> Color {
-		if dueDate.isInTheFuture {
+		if dueDate.isFromTomorrow {
 			return Color.mint
 		} else if dueDate.isWithinToday {
 			return Color.orange

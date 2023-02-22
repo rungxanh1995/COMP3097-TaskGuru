@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import ConfettiSwiftUI
 
 struct HomeView: View {
 	
@@ -35,7 +34,7 @@ struct HomeView: View {
 				dueTodaySection
 				upcomingSection
 			}
-			.confettiCannon(counter: $confettiCounter)
+			.playConfetti($confettiCounter)
 			// pass the navigation value (TaskItem.self). This
 			// may allow to have the component reusable
 			.navigationDestination(for: TaskItem.self) { taskItem in

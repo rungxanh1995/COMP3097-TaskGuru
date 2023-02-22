@@ -19,6 +19,7 @@ struct SettingsView: View {
 	@Preference(\.isLockedInPortrait) private var isLockedInPortrait
 	@Preference(\.isHapticsReduced) private var isHapticsReduced
 	@Preference(\.isTabNamesEnabled) private var isTabNamesEnabled
+	@Preference(\.activeAppIcon) private var activeAppIcon
 	@Preference(\.accentColor) private var accentColor
 	@Preference(\.fontDesign) private var fontDesign
 	@Preference(\.systemTheme) private var systemTheme
@@ -71,8 +72,19 @@ struct SettingsView: View {
 				}
 				Button("Cancel", role: .cancel) { }
 			}
+			.onChange(of: activeAppIcon) { iconValue in
+				updateAppIcon(from: iconValue)
+			}
 		}
 		.navigationViewStyle(.stack)
+	}
+}
+
+private extension SettingsView {
+	private func updateAppIcon(from iconValue: Int) {
+		let iconName = AppIconType(rawValue: iconValue)?.assetName
+		UIApplication.shared.setAlternateIconName(iconName)
+		haptic(.success)
 	}
 }
 
@@ -80,14 +92,48 @@ private extension SettingsView {
 	private var generalSection: some View {
 		Section {
 			onboarding
+			appIcon
+			appAccentColor
 			portraitLock
 			haptics
-			appAccentColor
 			fontDesignStyle
 			appTheme
 		} header: {
 			Label { Text("General") } icon: { SFSymbols.gearFilled }
 		}
+	}
+
+	private var appIcon: some View {
+		Picker("App Icon", selection: $activeAppIcon) {
+			ForEach(AppIconType.allCases) { (appIcon) in
+				Label {
+					// TODO: Replace appIcon.assetName w/ appIcon.title
+					// when localization has been added
+					Text(LocalizedStringKey(appIcon.assetName))
+				} icon: {
+					appIcon.iconImage.asIconSize()
+				}
+				.labelStyle(.titleAndIcon)
+				.tag(appIcon.rawValue)
+			}
+		}
+		.pickerStyle(.navigationLink)
+	}
+
+	private var appAccentColor: some View {
+		Picker("Accent Color", selection: $accentColor) {
+			ForEach(AccentColorType.allCases) { (accent) in
+				Label {
+					Text(LocalizedStringKey(accent.title))
+				} icon: {
+					SFSymbols.circleFilled
+						.foregroundColor(accent.associatedColor)
+				}
+				.labelStyle(.titleAndIcon)
+				.tag(accent.rawValue)
+			}
+		}
+		.pickerStyle(.navigationLink)
 	}
 
 	private var portraitLock: some View {
@@ -98,22 +144,6 @@ private extension SettingsView {
 	private var haptics: some View {
 		Toggle("Reduce Haptics", isOn: $isHapticsReduced)
 			.tint(.accentColor)
-	}
-
-	private var appAccentColor: some View {
-		Picker("Accent Color", selection: $accentColor) {
-			ForEach(AccentColorType.allCases) { (accent) in
-				Label {
-					Text(LocalizedStringKey(accent.title))
-				} icon: {
-					SFSymbols.circleFilled
-						.foregroundColor(accent.inbuiltColor)
-				}
-				.labelStyle(.titleAndIcon)
-				.tag(accent.rawValue)
-			}
-		}
-		.pickerStyle(.navigationLink)
 	}
 
 	private var fontDesignStyle: some View {
@@ -288,11 +318,11 @@ private extension SettingsView {
 				Spacer()
 			}
 
-			Image("app-logo")
-				.resizable()
-				.scaledToFit()
-				.frame(width: 44, height: 44)
-				.clipShape(RoundedRectangle(cornerRadius: 10))
+			if let icon = AppIconType(rawValue: activeAppIcon)?.iconImage {
+				icon.asIconSize()
+			} else {
+				Image("app-logo").asIconSize()
+			}
 		}
 	}
 }

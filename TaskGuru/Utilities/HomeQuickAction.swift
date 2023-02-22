@@ -24,7 +24,7 @@ enum HomeQuickAction {
 	}
 	
 	static var allShortcutItems: [UIApplicationShortcutItem] = [
-		.init(type: "addTask", localizedTitle: NSLocalizedString("Add Task", comment: ""),
+		.init(type: UserInfoType.addTask.rawValue, localizedTitle: NSLocalizedString("Add Task", comment: ""),
 					localizedSubtitle: nil, icon: UIApplicationShortcutIcon(type: .add), userInfo: addTaskUserInfo)
 	]
 }

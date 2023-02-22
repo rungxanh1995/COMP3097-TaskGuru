@@ -22,4 +22,5 @@ enum UserDefaultsKey {
 	static let accentColor: String = "accent-color"
 	static let badgeType: String = "badge-type"
 	static let contextPreviewType: String = "context-preview-type"
+	static let appIcon: String = "app-icon"
 }
