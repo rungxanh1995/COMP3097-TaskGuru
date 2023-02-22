@@ -24,6 +24,8 @@
 		2C262B1D298A1AAC004C622C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B1C298A1AAC004C622C /* SettingsView.swift */; };
 		2C2AED322991AF28000C5399 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2AED312991AF28000C5399 /* View.swift */; };
 		2C4C16EB29A6CA110056709E /* ConfettiViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C16EA29A6CA110056709E /* ConfettiViewModifier.swift */; };
+		2C4C16EE29A6CF320056709E /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C16ED29A6CF320056709E /* AppIcon.swift */; };
+		2C4C16F029A6CFD40056709E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C16EF29A6CFD40056709E /* Image.swift */; };
 		2C74150B298B2579006CECDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C74150A298B2579006CECDA /* Launch Screen.storyboard */; };
 		2C8C35ED2984934E00DCEA67 /* TaskGuruApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */; };
 		2C8C35EF2984934E00DCEA67 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EE2984934E00DCEA67 /* HomeView.swift */; };
@@ -74,6 +76,8 @@
 		2C262B1C298A1AAC004C622C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2C2AED312991AF28000C5399 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		2C4C16EA29A6CA110056709E /* ConfettiViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiViewModifier.swift; sourceTree = "<group>"; };
+		2C4C16ED29A6CF320056709E /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
+		2C4C16EF29A6CFD40056709E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		2C74150A298B2579006CECDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2C8C35E92984934E00DCEA67 /* TaskGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGuruApp.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 			children = (
 				2C12599629A1996200DD96E4 /* Color.swift */,
 				2C262B14298A1A0E004C622C /* Date.swift */,
+				2C4C16EF29A6CFD40056709E /* Image.swift */,
 				2C2AED312991AF28000C5399 /* View.swift */,
 				2CB63A3A299F253100271BD8 /* UIApplication.swift */,
 			);
@@ -177,6 +182,7 @@
 		2C262B16298A1A39004C622C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				2C4C16EC29A6CF2B0056709E /* App Icon */,
 				2C12598B29A197F300DD96E4 /* Accent Color */,
 				2CD0D60A29A2CF98009157FB /* Badge */,
 				2C12598C29A197FA00DD96E4 /* Color Scheme */,
@@ -201,6 +207,14 @@
 				2C12598929A196AD00DD96E4 /* SettingsViewModel.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		2C4C16EC29A6CF2B0056709E /* App Icon */ = {
+			isa = PBXGroup;
+			children = (
+				2C4C16ED29A6CF320056709E /* AppIcon.swift */,
+			);
+			path = "App Icon";
 			sourceTree = "<group>";
 		};
 		2C8C35E02984934E00DCEA67 = {
@@ -458,6 +472,7 @@
 				2CB63A39299F250200271BD8 /* AppDelegate.swift in Sources */,
 				2CB63A2A299F21E200271BD8 /* PreferenceWrapper.swift in Sources */,
 				2C262B15298A1A0E004C622C /* Date.swift in Sources */,
+				2C4C16EE29A6CF320056709E /* AppIcon.swift in Sources */,
 				2C12599129A1984800DD96E4 /* AccentColorModifier.swift in Sources */,
 				2CD0D60F29A2D50C009157FB /* AcknowledgmentsView.swift in Sources */,
 				2C12599729A1996200DD96E4 /* Color.swift in Sources */,
@@ -466,6 +481,7 @@
 				2C12599329A1987000DD96E4 /* FontDesign.swift in Sources */,
 				2CB63A37299F23FF00271BD8 /* PendingView.swift in Sources */,
 				2CB63A2C299F21EE00271BD8 /* PublisherObservableObject.swift in Sources */,
+				2C4C16F029A6CFD40056709E /* Image.swift in Sources */,
 				2CB63A1E299F212000271BD8 /* SchemeModifier.swift in Sources */,
 				D033E52B29913F1A00F9AF2A /* EditView.swift in Sources */,
 				D033E52829913ECA00F9AF2A /* DetailGridCell.swift in Sources */,
@@ -614,8 +630,10 @@
 		2C8C35F82984934E00DCEA67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "Berry Dew Spring Summer Fall Winter Sky Midnight";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TaskGuru/Preview Content\"";
@@ -650,8 +668,10 @@
 		2C8C35F92984934E00DCEA67 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "Berry Dew Spring Summer Fall Winter Sky Midnight";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TaskGuru/Preview Content\"";
