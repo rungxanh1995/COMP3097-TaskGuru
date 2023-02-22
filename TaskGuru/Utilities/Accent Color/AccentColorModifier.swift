@@ -19,11 +19,13 @@ struct AccentColorModifier: ViewModifier {
 		case .teal: return .teal
 		case .indigo: return .indigo
 		case .pink: return .pink
+		case .berry: return Color(hex: 0xC93C4B)
 		case .red: return .red
 		case .orange: return .orange
 		case .yellow: return .yellow
 		case .green: return .green
 		case .mint: return .mint
+		case .clover: return Color(hex: 0x4597A1)
 		}
 	}
 	
