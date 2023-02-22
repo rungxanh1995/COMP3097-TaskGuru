@@ -17,80 +17,59 @@ struct TaskGuruApp: App {
 	@Preference(\.accentColor) private var accentColor
 	@Preference(\.badgeType) private var badgeType
 	@Preference(\.isShowingAppBadge) private var isShowingAppBadge
-	@Preference(\.isShowingTabBadge) private var isShowingTabBadge
 	@Preference(\.isLockedInPortrait) private var isLockedInPortrait
-	@Preference(\.isTabNamesEnabled) private var isTabNamesEnabled
-
-	@State private var pendingTasksCount: Int = 0
 
 	init() {
 		setAlertColor()
-		if isLockedInPortrait { appDelegate.lockInPortraitMode() } else { appDelegate.unlockPortraitMode() }
+		if isLockedInPortrait {
+			appDelegate.lockInPortraitMode()
+		} else {
+			appDelegate.unlockPortraitMode()
+		}
 	}
 
 	var body: some Scene {
 		WindowGroup {
-			if isOnboarding {
-				OnboardContainerView()
-					.transition(.asymmetric(insertion: .opacity.animation(.default), removal: .opacity))
-					.setUpColorTheme()
-					.setUpFontDesign()
-					.setUpAccentColor()
-			} else {
-				TabView {
-					HomeView()
-						.tabItem {
-							SFSymbols.house
-							if isTabNamesEnabled { Text("Home") }
-						}
-					PendingView()
-						.tabItem {
-							SFSymbols.clock
-							if isTabNamesEnabled { Text("Pending") }
-						}
-						.badge(isShowingTabBadge ? pendingTasksCount : 0)
-					SettingsView()
-						.tabItem {
-							SFSymbols.gear
-							if isTabNamesEnabled { Text("Settings") }
-						}
+			ZStack {
+				if isOnboarding {
+					OnboardContainerView()
+						.transition(.asymmetric(insertion: .opacity.animation(.default), removal: .opacity))
+				} else {
+					RootView()
+						.transition(.asymmetric(insertion: .opacity.animation(.default), removal: .opacity))
 				}
-				.onAppear {
-					pendingTasksCount = TaskItem.mockData.filter{ $0.isNotDone }.count
-					isLockedInPortrait ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
+			}
+			.setUpColorTheme()
+			.setUpFontDesign()
+			.setUpAccentColor()
+			.onChange(of: accentColor) { _ in
+				setAlertColor()
+			}
+			.onChange(of: badgeType) { _ in
+				setUpAppIconBadge()
+			}
+			.onChange(of: isShowingAppBadge) { _ in
+				setUpAppIconBadge()
+			}
+			.onChange(of: isLockedInPortrait) { _ in
+				isLockedInPortrait ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
+			}
+			.onChange(of: scenePhase) { newPhase in
+				switch newPhase {
+				case .background:
+					addHomeScreenQuickActions()
+					HomeQuickAction.selectedAction = nil
+				case .active:
+					handleQuickActionSelected()
+				default:
+					break
 				}
-				.onChange(of: accentColor) { _ in
-					setAlertColor()
-				}
-				.onChange(of: isLockedInPortrait) { _ in
-					isLockedInPortrait ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
-				}
-				.onChange(of: isShowingAppBadge) { _ in
-					setUpAppIconBadge()
-				}
-				.onChange(of: badgeType) { _ in
-					setUpAppIconBadge()
-				}
-				.onChange(of: scenePhase) { newPhase in
-					switch newPhase {
-					case .background:
-						addHomeScreenQuickActions()
-						HomeQuickAction.selectedAction = nil
-					case .active:
-						handleQuickActionSelected()
-					default:
-						break
-					}
-				}
-				.transition(.asymmetric(insertion: .opacity.animation(.default), removal: .opacity))
-				.setUpFontDesign()
-				.setUpAccentColor()
-				.setUpColorTheme()
 			}
 		}
 	}
 }
 
+// MARK: Alert Color Theme + Home screen Quick Action
 extension TaskGuruApp {
 	/// Fixes a SwiftUI default behavior, that a custom accent color is not accounted for in alerts.
 	private func setAlertColor() {
@@ -133,6 +112,8 @@ extension TaskGuruApp {
 		}
 	}
 }
+
+// MARK: App Badge on Home screen
 
 import UserNotifications
 
