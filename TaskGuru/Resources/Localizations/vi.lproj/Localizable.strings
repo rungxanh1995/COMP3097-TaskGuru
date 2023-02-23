@@ -1,0 +1,259 @@
+/* 
+  Localizable.strings
+  TaskGuru
+
+  Created by Joe Pham on 2023-02-22.
+  Translation done by Joe Pham, 101276573
+*/
+
+// MARK: Onboarding
+/* Buttons */
+"onboarding.buttons.onboarding.dismiss" = "Đã sẵn sàng!";
+"onboarding.buttons.onboarded.dismiss" = "Thoát";
+
+"onboarding.features.home.title" = "Tab Chính";
+"onboarding.features.home.description" = "Các tác vụ được phân loại theo mục để tiện theo dõi tác vụ quá hạn, đến hạn trong ngày, và sắp tới";
+"onboarding.features.pendingTab.title" = "Tab Tác vụ Chưa hoàn thành";
+"onboarding.features.pendingTab.description" = "Hiển thị các tác vụ chưa làm xong của bạn";
+"onboarding.features.appBadge.title" = "Nhãn biểu tượng app";
+"Track all or time-based pending tasks at a glance. Find this in %@ Settings" = "Theo dõi tác vụ còn tồn, tất cả hay phân loại theo thời gian tuỳ ý. Xem thêm trong %@ Cài đặt";
+"onboarding.features.quickActions.title" = "Menu H.động nhanh";
+"onboarding.features.quickActions.description" = "Bấm giữ mỗi tác vụ trong danh sách để truy cập menu ngữ cảnh";
+
+
+// MARK: Shared
+/* Task types */
+"taskItem.type.personal" = "Cá nhân";
+/* "Work" can also be understood as "business" */
+"taskItem.type.work" = "Công việc";
+/* "School" can also be understood as "educational" */
+"taskItem.type.school" = "Giáo dục";
+"taskItem.type.coding" = "Lập trình";
+"taskItem.type.other" = "Khác";
+
+/* Task statuses */
+/* "New" can also be understood as "newly created" */
+"taskItem.status.new" = "Vừa tạo";
+"taskItem.status.inProgress" = "Đang tiến hành";
+"taskItem.status.done" = "Đã xong";
+
+/* Navigation/Context menu - Quick actions in Home & Pending tabs */
+"contextMenu.task.markNew" = "Đánh dấu vừa tạo";
+"contextMenu.task.markInProgress" = "Đánh dấu đang làm";
+"contextMenu.task.markDone" = "Đánh dấu đã xong";
+"contextMenu.task.edit" = "Sửa";
+"contextMenu.task.delete" = "Xoá";
+"contextMenu.cancel" = "Huỷ";
+"contextMenu.ok" = "OK";
+
+/* Add Task button in Home & Pending tabs */
+"label.task.add" = "Tạo tác vụ";
+
+
+// MARK: Home
+/* Tab name */
+"home.tab.title" = "Chính";
+/* Navigation title */
+"home.nav.title" = "Tất cả Tác vụ";
+/* Section titles */
+"home.sections.overdue" = "Quá hạn";
+"home.sections.dueToday" = "Đến hạn trong ngày";
+"home.sections.upcoming" = "Sắp tới";
+/* Empty list sentence */
+"home.info.sectionEmpty" = "Không có tác vụ nào";
+/* All tasks empty sentence */
+"Nothing yet. Tap here or %@ to add more" = "Chưa có gì cả. Hãy bấm vào đây hoặc %@ để thêm";
+
+
+// MARK: Pending
+/* Pending tab name */
+"pending.tab.title" = "Chưa xong";
+/* Navigation title */
+"pending.nav.title" = "Tác vụ Chưa xong";
+/* Section titles */
+"pending.sections.overdue" = "Quá hạn";
+"pending.sections.dueToday" = "Đến hạn trong ngày";
+"pending.sections.upcoming" = "Sắp tới";
+
+"pending.info.fetchingData" = "Đang tải dữ liệu";
+"pending.info.listEmty" = "Bạn được tự do rồi! Hãy tận hưởng thời gian này cho bản thân nhé 🥳";
+"pending.info.listNotEmpty" = "Đừng quá căng thẳng. Bạn sẽ làm được thôi 💪";
+
+
+// MARK: Add
+/* Navigation title */
+"addTask.nav.title" = "Tạo tác vụ";
+/* Navigation action button */
+"addTask.nav.button.cancel" = "Huỷ";
+"addTask.nav.button.add" = "Thêm";
+/* Section titles */
+"addTask.sections.general" = "Chung";
+"addTask.sections.notes" = "Ghi chú";
+/* Inputs */
+"addTask.input.name" = "Tên";
+"addTask.input.dueDate" = "Ngày đến hạn";
+"addTask.input.type" = "Thể loại";
+"addTask.input.status" = "Tình trạng";
+"addTask.input.notes" = "Ghi chú";
+"addTask.input.placeholder.notes" = "Ghi chú bổ sung...";
+
+
+// MARK: Detail
+/* Navigation title */
+"taskDetail.nav.title" = "Chi tiết tác vụ";
+
+/* Grid cells */
+"taskDetail.cell.name.caption" = "Tên";
+"taskDetail.cell.status.caption" = "Tình trạng";
+"taskDetail.cell.dueDate.caption" = "Ngày đến hạn";
+"taskDetail.cell.type.caption" = "Thể loại";
+"taskDetail.cell.notes.caption" = "Ghi chú";
+
+/* Alerts */
+"taskDetail.alert.markAsDone" = "Đánh dấu tác vụ đã xong?";
+"taskDetail.alert.deleteTask" = "Xoá tác vụ?";
+
+"Last updated at %@" = "Cập nhật lần cuối lúc %@";
+
+
+// MARK: Edit
+/* Navigation title */
+"editTask.nav.title" = "Sửa tác vụ";
+/* Navigation action button */
+"editTask.nav.button.cancel" = "Huỷ";
+"editTask.nav.button.save" = "Lưu";
+/* Section titles */
+"editTask.sections.general" = "Chung";
+"editTask.sections.notes" = "Ghi chú";
+
+/* Inputs */
+"editTask.input.name" = "Tên";
+"editTask.input.dueDate" = "Ngày đến hạn";
+"editTask.input.type" = "Thể loại";
+"editTask.input.status" = "Tình trạng";
+"editTask.input.notes" = "Ghi chú";
+"editTask.input.placeholder.notes" = "Ghi chú bổ sung...";
+
+
+// MARK: Settings
+/* Tab name */
+"settings.tab.title" = "Cài đặt";
+/* Navigation title */
+"settings.nav.title" = "Cài đặt";
+
+/* Section titles */
+"settings.sections.general" = "Chung";
+"settings.sections.badge" = "Nhãn";
+"settings.sections.misc" = "Khác";
+"settings.sections.advanced" = "Nâng cao";
+"settings.sections.devTeam" = "Gặp đội ngũ phát triển";
+"settings.sections.ack" = "Bản xác nhận";
+
+/* General section */
+"settings.general.onboarding" = "Hiện màn hình giới thiệu";
+"settings.general.appIcon" = "Biểu tượng app";
+"settings.general.portraitLock" = "Khoá xoay màn hình";
+"settings.general.reduceHaptics" = "Giảm rung phản hồi";
+"settings.general.accentColor" = "Tông màu chủ đạo";
+"settings.general.fontStyle" = "Kiểu phông chữ";
+"settings.general.colorTheme" = "Chủ đề giao diện";
+
+/* Badge secrion */
+"settings.badge.appIcon" = "Hiện nhãn biểu tượng app";
+"settings.badge.appIconType" = "Nhãn b.tượng app cho tác vụ";
+"settings.badge.tab" = "Hiện nhãn tab";
+"settings.badge.footer" = "Nhãn biểu tượng hiển thị số tác vụ với đ.kiện đã chọn trên MH Chính. Hãy kiểm tra cài đặt Thông báo nếu bạn không thấy nhãn.";
+
+/* Misc section */
+"settings.misc.tabNames" = "Tên tab";
+"settings.misc.confetti" = "Hiệu ứng hoa giấy 🎉";
+"settings.misc.preview" = "Xem trước với Haptic Touch";
+"settings.misc.footer" = "Chạm và giữ tác vụ từ danh sách để hiển thị menu ngữ cảnh. Có hiệu lực khi cài đặt này được bật.";
+
+/* Advanced section */
+/* Footer */
+"settings.advanced.footer" = "Hãy cẩn thận vì tất cả dữ liệu sẽ bị xoá! Khởi động lại app để tất cả thay đổi có hiệu lực.";
+
+/* Confirm dialogs */
+"settings.advanced.resetSettings.alert" = "Cài đặt của app sẽ khôi phục lại mặc định.\nHành động này không thể hoàn tác";
+"settings.advanced.resetUserData.alert" = "Tất cả tác vụ của bạn sẽ bị xoá.\nHành động này không thể hoàn tác";
+
+/* Buttons */
+"settings.advanced.resetSettings" = "Khôi phục cài đặt mặc định";
+"settings.advanced.resetSettings.delete" = "Xoá";
+"settings.advanced.resetSettings.cancel" = "Huỷ";
+"settings.advanced.resetUserData" = "Xoá dữ liệu của bạn";
+"settings.advanced.resetUserData.delete" = "Xoá";
+"settings.advanced.resetUserData.cancel" = "Huỷ";
+
+/* App icons */
+"appIcon.dew" = "Sương sớm";
+"appIcon.spring" = "Mùa xuân";
+"appIcon.summer" = "Mùa hè";
+"appIcon.fall" = "Mùa thu";
+"appIcon.winter" = "Mùa đông";
+"appIcon.sky" = "Bầu trời";
+"appIcon.midnight" = "Nửa đêm";
+"appIcon.berry" = "Anh đào";
+
+/* Accent colors */
+"accentColor.blue" = "Xanh lam";
+"accentColor.teal" = "Mòng két";
+"accentColor.indigo" = "Chàm";
+"accentColor.pink" = "Hồng";
+"accentColor.berry" = "Anh đào";
+"accentColor.red" = "Đỏ";
+"accentColor.orange" = "Cam";
+"accentColor.yellow" = "Vàng";
+"accentColor.green" = "Xanh lá";
+"accentColor.mint" = "Bạc hà";
+"accentColor.clover" = "Cỏ ba lá";
+
+/* Font designs */
+"fontDesign.system" = "Hệ thống";
+"fontDesign.rounded" = "Tròn";
+"fontDesign.monospaced" = "Đơn cách";
+"fontDesign.serif" = "Có chân";
+
+/* Color themes */
+"colorTheme.system" = "Hệ thống";
+"colorTheme.light" = "Sáng";
+"colorTheme.dark" = "Tối";
+
+/* Badge types */
+"badgeType.allPending" = "Chưa xong";
+"badgeType.overdue" = "Quá hạn";
+"badgeType.dueToday" = "Đến hạn";
+"badgeType.upcoming" = "Sắp tới";
+
+/* Context preview types */
+"settings.misc.previewtype.title" = "Kiểu xem trước Haptic Touch";
+"settings.misc.previewtype.content.cell" = "Kiểu ô";
+"settings.misc.previewtype.content.detail" = "Chi tiết";
+
+
+// MARK: Acknowledgments
+/* Navigation title */
+"settings.ack.nav.title" = "Bản công nhận";
+
+"settings.ack.devTeam" = "Đội ngũ phát triển";
+"settings.ack.localization" = "Thông dịch";
+"settings.ack.dependencies" = "Phụ thuộc bên thứ ba";
+"settings.ack.license" = "Giấy phép";
+
+/* Localization */
+"settings.ack.localization.subtitle" = "Rất cảm ơn các cá nhân/tập thể sau đã góp phần thông dịch TaskGuru";
+"ack.localization.azerbaijani" = "Tiếng Azerbaijan";
+"ack.localization.chineseSim" = "Tiếng Trung (Giản thể)";
+"ack.localization.italian" = "Tiếng Ý";
+"ack.localization.portugueseBrazil" = "Tiếng Bồ Đào Nha (Brazil)";
+"ack.localization.ukrainian" = "Tiếng Ucraina";
+"ack.localization.vietnamese" = "Tiếng Việt";
+
+/* License */
+"settings.ack.license.content" = "© Giấy phép TaskGuru Phi thương mại
+
+Phần mềm này và các tệp tài liệu liên quan (TaskGuru App) được cấp phép cho bạn dưới giấy phép TaskGuru phiên bản phi thương mại. Bạn không được phép bán, cấp phép hoặc phân phối TaskGuru App hoặc bất kỳ phiên bản nào của nó cho mục đích thương mại. Bạn có thể sử dụng, sửa đổi và phân phối TaskGuru App cho mục đích phi thương mại, chẳng hạn như cho mục đích giáo dục hoặc sử dụng cá nhân.
+
+TASKGURU APP ĐƯỢC CUNG CẤP 'NHƯ NGUYÊN BẢN', KHÔNG CÓ BẤT KỲ BẢO ĐẢM NÀO, BAO GỒM NHƯNG KHÔNG GIỚI HẠN Ở TÍNH KHẢ DOANH, PHÙ HỢP VỚI MỤC ĐÍCH CỤ THỂ VÀ KHÔNG VI PHẠM QUYỀN SỞ HỮU TRÍ TUỆ. TRONG BẤT KỲ TRƯỜNG HỢP NÀO, TÁC GIẢ HOẶC CHỦ SỞ HỮU BẢN QUYỀN ĐỀU KHÔNG CHỊU TRÁCH NHIỆM ĐỐI VỚI BẤT KỲ YÊU CẦU, TỔN THẤT HOẶC TRÁCH NHIỆM PHÁP LÝ NÀO, CHO DÙ LÀ HÀNH ĐỘNG QUY ĐỊNH TRONG HỢP ĐỒNG, LỖI HOẶC THÀNH TỰU, VẤN ĐỀ PHÁT SINH, LIÊN QUAN ĐẾN TASKGURU APP HOẶC SỬ DỤNG CHO CÁC GIAO DỊCH KHÁC LIÊN QUAN ĐẾN TASKGURU APP.
+";
