@@ -38,6 +38,7 @@
 "taskItem.status.done" = "Đã xong";
 
 /* Navigation/Context menu - Quick actions in Home & Pending tabs */
+"contextMenu.task.markAs" = "Đánh dấu tác vụ là...?";
 "contextMenu.task.markNew" = "Đánh dấu vừa tạo";
 "contextMenu.task.markInProgress" = "Đánh dấu đang làm";
 "contextMenu.task.markDone" = "Đánh dấu đã xong";

@@ -38,6 +38,7 @@
 "taskItem.status.done" = "Concluído";
 
 /* Navigation/Context menu - Quick actions in Home & Pending tabs */
+"contextMenu.task.markAs" = "Marcar tarefa como...?";
 "contextMenu.task.markNew" = "Marcar como Novo";
 "contextMenu.task.markInProgress" = "Marcar como Em andamento";
 "contextMenu.task.markDone" = "Marcar como Concluído";

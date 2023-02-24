@@ -38,6 +38,7 @@
 "taskItem.status.done" = "已完成";
 
 /* Navigation/Context menu - Quick actions in Home & Pending tabs */
+"contextMenu.task.markAs" = "编辑任务为...?";
 "contextMenu.task.markNew" = "编辑为新的";
 "contextMenu.task.markInProgress" = "编辑为进行中";
 "contextMenu.task.markDone" = "编辑为已完成";
