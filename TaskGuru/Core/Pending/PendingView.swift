@@ -44,7 +44,7 @@ struct PendingView: View {
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
 				ToolbarItem(placement: .principal) {
-					NavigationTitle(text: "Pending Tasks")
+					NavigationTitle(text: "pending.nav.title")
 				}
 
 				ToolbarItem(placement: .primaryAction) {
@@ -66,15 +66,15 @@ extension PendingView {
 	private var emptyStateImage: some View {
 		VStack {
 			makeCheerfulDecorativeImage()
-			
-			Text("You're free! Enjoy your much deserved time 🥳")
-				.font(.footnote)
+
+			Text("pending.info.listEmty")
+				.font(.callout)
 				.foregroundColor(.secondary)
 		}
 	}
 
 	private var encouragingMessage: some View {
-		Text("Don't stress yourself too much. You got it 💪")
+		Text("pending.info.listNotEmpty")
 			.font(.footnote)
 			.foregroundColor(.secondary)
 	}
@@ -93,13 +93,14 @@ extension PendingView {
 						view.if(ContextPreviewType(rawValue: previewType) == .cell) { view in
 							view.contextMenu { makeContextMenu(for: task) }
 						} elseCase: { view in
-							view.contextMenu { makeContextMenu(for: task) } preview: { DetailView(task: task)
-							}
+							view.contextMenu {
+								makeContextMenu(for: task)
+							} preview: { DetailView(task: task) }
 						}
 					}
 				}
 			} header: {
-				Text("Overdue").bold().foregroundColor(.red)
+				Text("pending.sections.overdue").bold().foregroundColor(.red)
 			}
 		}
 	}
@@ -118,13 +119,14 @@ extension PendingView {
 						view.if(ContextPreviewType(rawValue: previewType) == .cell) { view in
 							view.contextMenu { makeContextMenu(for: task) }
 						} elseCase: { view in
-							view.contextMenu { makeContextMenu(for: task) } preview: { DetailView(task: task)
-							}
+							view.contextMenu {
+								makeContextMenu(for: task)
+							} preview: { DetailView(task: task) }
 						}
 					}
 				}
 			} header: {
-				Text("Due Today").bold().foregroundColor(.orange)
+				Text("pending.sections.dueToday").bold().foregroundColor(.orange)
 			}
 		}
 	}
@@ -143,13 +145,14 @@ extension PendingView {
 						view.if(ContextPreviewType(rawValue: previewType) == .cell) { view in
 							view.contextMenu { makeContextMenu(for: task) }
 						} elseCase: { view in
-							view.contextMenu { makeContextMenu(for: task) } preview: { DetailView(task: task)
-							}
+							view.contextMenu {
+								makeContextMenu(for: task)
+							} preview: { DetailView(task: task) }
 						}
 					}
 				}
 			} header: {
-				Text("Upcoming").bold().foregroundColor(.mint)
+				Text("pending.sections.upcoming").bold().foregroundColor(.mint)
 			}
 		}
 	}
@@ -159,21 +162,22 @@ extension PendingView {
 		markAsButtons(for: task)
 
 		Button { selectedTask = task } label: {
-			Label { Text("Edit") } icon: { SFSymbols.pencilSquare }
+			Label {
+				Text("contextMenu.task.edit")
+			} icon: { SFSymbols.pencilSquare }
 		}
-		Divider()
 		
 		Menu {
 			Button(role: .cancel) {} label: {
-				Label { Text("Cancel") } icon: { SFSymbols.xmark }
+				Label { Text("contextMenu.cancel") } icon: { SFSymbols.xmark }
 			}
 			Button(role: .destructive) {
 				// Delete task here
 			} label: {
-				Label { Text("Delete") } icon: { SFSymbols.trash }
+				Label { Text("contextMenu.task.delete") } icon: { SFSymbols.trash }
 			}
 		} label: {
-			Label { Text("Delete") } icon: { SFSymbols.trash }
+			Label { Text("contextMenu.task.delete") } icon: { SFSymbols.trash }
 		}
 	}
 
@@ -181,32 +185,44 @@ extension PendingView {
 	private func markAsButtons(for task: TaskItem) -> some View {
 		switch task.status {
 		case .new:
-			Group {
+			Section {
 				Button {
 					// mark task as in progress here
 				} label: {
-					Label { Text("Mark as In progress") } icon: { SFSymbols.circleArrows }
+					Label {
+						Text("contextMenu.task.markInProgress")
+					} icon: { SFSymbols.circleArrows }
 				}
 				Button {
 					// mark task as done here
 					if isConfettiEnabled { confettiCounter += 1}
 				} label: {
-					Label { Text("Mark as Done") } icon: { SFSymbols.checkmark }
+					Label {
+						Text("contextMenu.task.markDone")
+					} icon: { SFSymbols.checkmark }
 				}
+			} header: {
+				Text("contextMenu.task.markAs")
 			}
 		case .inProgress:
-			Group {
+			Section {
 				Button {
 					// mark task as new here
 				} label: {
-					Label { Text("Mark as New") } icon: { SFSymbols.sparkles }
+					Label {
+						Text("contextMenu.task.markNew")
+					} icon: { SFSymbols.sparkles }
 				}
 				Button {
 					// mark task as done here
 					if isConfettiEnabled { confettiCounter += 1}
 				} label: {
-					Label { Text("Mark as Done") } icon: { SFSymbols.checkmark }
+					Label {
+						Text("contextMenu.task.markDone")
+					} icon: { SFSymbols.checkmark }
 				}
+			} header: {
+				Text("contextMenu.task.markAs")
 			}
 		case .done: EmptyView()	// shouldn't happen in Pending view
 		}
@@ -216,7 +232,7 @@ extension PendingView {
 		Button {
 			isShowingAddTaskView.toggle()
 		} label: {
-			Label { Text("Add Task") } icon: { SFSymbols.plus }
+			Label { Text("label.task.add") } icon: { SFSymbols.plus }
 		}
 	}
 }
