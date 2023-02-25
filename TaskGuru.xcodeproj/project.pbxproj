@@ -15,6 +15,9 @@
 		2C12599529A1988900DD96E4 /* FontDesignModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12599429A1988900DD96E4 /* FontDesignModifier.swift */; };
 		2C12599729A1996200DD96E4 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12599629A1996200DD96E4 /* Color.swift */; };
 		2C12599929A19D2000DD96E4 /* HomeQuickAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12599829A19D2000DD96E4 /* HomeQuickAction.swift */; };
+		2C21940129A9941700CA0DF9 /* SettingsIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C21940029A9941700CA0DF9 /* SettingsIcon.swift */; };
+		2C21940329A9943D00CA0DF9 /* AppIconSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C21940229A9943D00CA0DF9 /* AppIconSettings.swift */; };
+		2C21940529A9946500CA0DF9 /* AccentColorSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C21940429A9946500CA0DF9 /* AccentColorSettings.swift */; };
 		2C262B0E298A19CB004C622C /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B0D298A19CB004C622C /* TaskType.swift */; };
 		2C262B10298A19D4004C622C /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B0F298A19D4004C622C /* TaskStatus.swift */; };
 		2C262B12298A19EC004C622C /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B11298A19EC004C622C /* TaskItem.swift */; };
@@ -68,6 +71,9 @@
 		2C12599429A1988900DD96E4 /* FontDesignModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontDesignModifier.swift; sourceTree = "<group>"; };
 		2C12599629A1996200DD96E4 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2C12599829A19D2000DD96E4 /* HomeQuickAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeQuickAction.swift; sourceTree = "<group>"; };
+		2C21940029A9941700CA0DF9 /* SettingsIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsIcon.swift; sourceTree = "<group>"; };
+		2C21940229A9943D00CA0DF9 /* AppIconSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettings.swift; sourceTree = "<group>"; };
+		2C21940429A9946500CA0DF9 /* AccentColorSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentColorSettings.swift; sourceTree = "<group>"; };
 		2C262B0D298A19CB004C622C /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
 		2C262B0F298A19D4004C622C /* TaskStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatus.swift; sourceTree = "<group>"; };
 		2C262B11298A19EC004C622C /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
@@ -213,6 +219,9 @@
 			children = (
 				2C262B1C298A1AAC004C622C /* SettingsView.swift */,
 				2C12598929A196AD00DD96E4 /* SettingsViewModel.swift */,
+				2C21940029A9941700CA0DF9 /* SettingsIcon.swift */,
+				2C21940229A9943D00CA0DF9 /* AppIconSettings.swift */,
+				2C21940429A9946500CA0DF9 /* AccentColorSettings.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -498,10 +507,13 @@
 				2C262B15298A1A0E004C622C /* Date.swift in Sources */,
 				2C4C16EE29A6CF320056709E /* AppIcon.swift in Sources */,
 				2C12599129A1984800DD96E4 /* AccentColorModifier.swift in Sources */,
+				2C21940329A9943D00CA0DF9 /* AppIconSettings.swift in Sources */,
 				2CD0D60F29A2D50C009157FB /* AcknowledgmentsView.swift in Sources */,
+				2C21940129A9941700CA0DF9 /* SettingsIcon.swift in Sources */,
 				2C12599729A1996200DD96E4 /* Color.swift in Sources */,
 				2C114C2F29A3B6FA0003F7E1 /* ContextPreviewType.swift in Sources */,
 				2CB63A32299F236B00271BD8 /* OnboardView.swift in Sources */,
+				2C21940529A9946500CA0DF9 /* AccentColorSettings.swift in Sources */,
 				2C12599329A1987000DD96E4 /* FontDesign.swift in Sources */,
 				2CB63A37299F23FF00271BD8 /* PendingView.swift in Sources */,
 				2CB63A2C299F21EE00271BD8 /* PublisherObservableObject.swift in Sources */,

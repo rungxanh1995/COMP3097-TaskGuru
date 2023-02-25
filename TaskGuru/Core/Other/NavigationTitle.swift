@@ -29,7 +29,7 @@ struct NavigationTitle: View {
 
 	var body: some View {
 		Text(text)
-			.font(.system(.title3))
+			.font(.system(.headline))
 			.fontWeight(.bold)
 			.foregroundStyle(Color.defaultAccentColor)
 	}

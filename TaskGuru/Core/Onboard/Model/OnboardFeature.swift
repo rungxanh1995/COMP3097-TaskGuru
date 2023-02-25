@@ -19,19 +19,19 @@ extension OnboardFeature {
 	static let features: [OnboardFeature] = [
 		OnboardFeature(
 			icon: SFSymbols.house,
-			title: "Home tab",
-			description: "Tasks categorized by section to easily track overdue, due today, and upcoming ones"),
+			title: "onboarding.features.home.title",
+			description: "onboarding.features.home.description"),
 		OnboardFeature(
-			icon: SFSymbols.clockBadge,
-			title: "Pending Tasks tab",
-			description: "Find your undone tasks here"),
+			icon: SFSymbols.clockBadge.symbolRenderingMode(.multicolor),
+			title: "onboarding.features.pendingTab.title",
+			description: "onboarding.features.pendingTab.description"),
 		OnboardFeature(
 			icon: SFSymbols.appBadge.symbolRenderingMode(.multicolor),
-			title: "App icon badge",
+			title: "onboarding.features.appBadge.title",
 			description: "Track all or time-based pending tasks at a glance. Find this in \(SFSymbols.gear) Settings"),
 		OnboardFeature(
 			icon: SFSymbols.menu,
-			title: "Quick Actions",
-			description: "Tap and hold each task from the list to use quick actions")
+			title: "onboarding.features.quickActions.title",
+			description: "onboarding.features.quickActions.description")
 	]
 }

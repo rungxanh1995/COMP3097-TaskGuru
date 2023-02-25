@@ -38,6 +38,12 @@ extension View {
 		if condition { ifContent(self) } else { elseContent(self) }
 	}
 
+	@ViewBuilder func ifLet<Value, Content: View>(
+		_ value: Value?,
+		@ViewBuilder content: (Self, Value) -> Content) -> some View {
+		if let value = value { content(self, value) } else { self }
+	}
+
 	func makeCheerfulDecorativeImage() -> some View {
 		HStack {
 			Spacer()
