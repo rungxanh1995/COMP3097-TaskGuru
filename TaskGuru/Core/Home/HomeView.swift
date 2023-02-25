@@ -45,8 +45,8 @@ struct HomeView: View {
 			.toolbar {
 				// set the tile to the leading position on the nav bar
 				// like padding start, right, left
-				ToolbarItem(placement: .navigationBarLeading) {
-					GradientNavigationTitle(text: "All Tasks")
+				ToolbarItem(placement: .principal) {
+					NavigationTitle(text: "All Tasks")
 				}
 				ToolbarItem(placement: .navigationBarTrailing) {
 					addTaskButton

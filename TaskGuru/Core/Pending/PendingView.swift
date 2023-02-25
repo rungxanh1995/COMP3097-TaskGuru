@@ -43,8 +43,8 @@ struct PendingView: View {
 			}
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
-				ToolbarItem(placement: .navigationBarLeading) {
-					GradientNavigationTitle(text: "Pending Tasks")
+				ToolbarItem(placement: .principal) {
+					NavigationTitle(text: "Pending Tasks")
 				}
 
 				ToolbarItem(placement: .primaryAction) {

@@ -43,8 +43,8 @@ struct SettingsView: View {
 			}
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
-				ToolbarItem(placement: .navigationBarLeading) {
-					GradientNavigationTitle(text: "Settings")
+				ToolbarItem(placement: .principal) {
+					NavigationTitle(text: "Settings")
 				}
 			}
 			.sheet(isPresented: $isShowingOnboarding, content: {
