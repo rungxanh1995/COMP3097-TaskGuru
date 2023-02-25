@@ -98,7 +98,11 @@ private extension SettingsView {
 		let currentIcon = AppIconType(rawValue: activeAppIcon)
 
 		HStack {
-			SettingsIcon(icon: SFSymbols.checkmarkFilled, bgColor: .teal)
+			if let icon = AppIconType(rawValue: activeAppIcon)?.iconImage {
+				icon.asSettingsIconSize()
+			} else {
+				Image("app-logo").asSettingsIconSize()
+			}
 			NavigationLink {
 				AppIconSettings()
 			} label: {
