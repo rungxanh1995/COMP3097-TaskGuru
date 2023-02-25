@@ -23,9 +23,7 @@ extension Image {
 		self
 			.resizable()
 			.scaledToFit()
-			
 			.frame(width: 28, height: 28)
-			
 			.clipShape(RoundedRectangle(cornerRadius: 10*(28/44)))
 	}
 }
