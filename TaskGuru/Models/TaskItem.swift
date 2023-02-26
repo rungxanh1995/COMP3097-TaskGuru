@@ -24,7 +24,7 @@ struct TaskItem: Identifiable, Hashable {
 	}
 	
 	var shortDueDate: String {
-		dueDate.formatted(date: .abbreviated, time: .omitted)
+		dueDate.formatted(.dateTime.day().month())
 	}
 	
 	var lastUpdated: Date
