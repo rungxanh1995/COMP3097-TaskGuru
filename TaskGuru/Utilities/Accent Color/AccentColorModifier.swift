@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct AccentColorModifier: ViewModifier {
+	@Environment(\.colorScheme) private var systemScheme
+
 	@AppStorage(UserDefaultsKey.accentColor)
 	private var accentColor: Int = AccentColorType.allCases.first!.rawValue
 	
@@ -19,13 +21,13 @@ struct AccentColorModifier: ViewModifier {
 		case .teal: return .teal
 		case .indigo: return .indigo
 		case .pink: return .pink
-		case .berry: return Color(hex: 0xC93C4B)
+		case .berry: return Color(hex: systemScheme == .light ? 0xEF0808 : 0xFF6060)
 		case .red: return .red
 		case .orange: return .orange
 		case .yellow: return .yellow
 		case .green: return .green
 		case .mint: return .mint
-		case .clover: return Color(hex: 0x4597A1)
+		case .clover: return Color(hex: systemScheme == .light ? 0x4597A1 : 0x8FFCC6)
 		}
 	}
 	

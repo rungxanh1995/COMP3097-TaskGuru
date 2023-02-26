@@ -24,14 +24,13 @@ import SwiftUI
 /// }
 /// ```
 struct NavigationTitle: View {
-	@Preference(\.accentColor) private var accentColor
 	let text: LocalizedStringKey
 
 	var body: some View {
-		Text(text)
+		Button(text) {}
 			.font(.system(.headline))
 			.fontWeight(.bold)
-			.foregroundStyle(Color.defaultAccentColor)
+			.allowsHitTesting(false)
 	}
 }
 

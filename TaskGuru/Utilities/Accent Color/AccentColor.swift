@@ -36,7 +36,7 @@ extension AccentColorType {
 		case .teal: return .teal
 		case .indigo: return .indigo
 		case .pink: return .pink
-		case .berry: return Color(hex: 0xC93C4B)
+		case .berry: return Color(hex: 0xEF0808)
 		case .red: return .red
 		case .orange: return .orange
 		case .yellow: return .yellow
