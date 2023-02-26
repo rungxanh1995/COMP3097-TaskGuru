@@ -29,16 +29,17 @@ struct OnboardContainerView: View {
 			
 			switch isOnboarding {
 			case .none: allSet
-			case .some: dismiss
+			case .some: EmptyView()
 			}
 		}
+		.padding(.bottom)
 	}
 }
 
 extension OnboardContainerView {
 	/// Button to display when user is new to the app
 	private var allSet: some View {
-		Button("I'm All Set!") {
+		Button("onboarding.buttons.onboarding.dismiss") {
 			withAnimation {	isOnboarding = false }
 			haptic(.success)
 		}
@@ -46,25 +47,6 @@ extension OnboardContainerView {
 		.buttonStyle(.bordered)
 		.buttonBorderShape(.capsule)
 		.tint(.defaultAccentColor)
-	}
-	
-	/// Button to display when user might be seeing this view in Settings
-	private var dismiss: some View {
-		Button {
-			dismissThisView()
-			haptic(.success)
-		} label: {
-			Label {
-				Text("Dismiss")
-			} icon: {
-				SFSymbols.xmark
-			}
-			.labelStyle(.titleOnly)
-		}
-		.bold()
-		.buttonStyle(.bordered)
-		.buttonBorderShape(.capsule)
-		.tint(.gray)
 	}
 }
 

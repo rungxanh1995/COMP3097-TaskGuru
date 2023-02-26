@@ -151,7 +151,7 @@
 "settings.sections.ack" = "Agradecimentos";
 
 /* General section */
-"settings.general.onboarding" = "Mostrar tela de apresentação";
+"settings.general.onboarding" = "Tela de apresentação";
 "settings.general.appIcon" = "App Icon";
 "settings.general.portraitLock" = "Bloqueio de orientação";
 "settings.general.reduceHaptics" = "Reduzir Haptics";

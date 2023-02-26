@@ -151,7 +151,7 @@
 "settings.sections.ack" = "致谢";
 
 /* General section */
-"settings.general.onboarding" = "显示入职屏幕";
+"settings.general.onboarding" = "入职屏幕";
 "settings.general.appIcon" = "应用图标";
 "settings.general.portraitLock" = "竖排方向锁定";
 "settings.general.reduceHaptics" = "减少触感触控";

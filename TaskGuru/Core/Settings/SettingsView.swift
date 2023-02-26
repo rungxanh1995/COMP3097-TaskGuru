@@ -10,7 +10,6 @@ import SwiftUI
 
 struct SettingsView: View {
 	@StateObject private var vm: ViewModel
-	@State private var isShowingOnboarding: Bool = false
 
 	@Preference(\.isShowingAppBadge) private var isShowingAppBadge
 	@Preference(\.isShowingTabBadge) private var isShowingTabBadge
@@ -47,9 +46,6 @@ struct SettingsView: View {
 					NavigationTitle(text: "settings.nav.title")
 				}
 			}
-			.sheet(isPresented: $isShowingOnboarding) {
-				OnboardContainerView()
-			}
 			.confirmationDialog(
 				"settings.advanced.resetSettings.alert",
 				isPresented: $vm.isConfirmingResetSettings,
@@ -80,13 +76,13 @@ struct SettingsView: View {
 private extension SettingsView {
 	private var generalSection: some View {
 		Section {
-			onboarding
 			appIcon
 			appAccentColor
 			portraitLock
 			haptics
 			fontDesignStyle
 			appTheme
+			onboarding
 		} header: {
 			Label {
 				Text("settings.sections.general")
@@ -171,11 +167,9 @@ private extension SettingsView {
 
 	private var onboarding: some View {
 		HStack {
-			SettingsIcon(icon: SFSymbols.handWave, bgColor: .blue)
-			Button {
-				isShowingOnboarding.toggle()
-			} label: {
-				Text("settings.general.onboarding")
+			SettingsIcon(icon: SFSymbols.handWave, bgColor: .indigo)
+			NavigationLink("settings.general.onboarding") {
+				OnboardContainerView()
 			}
 		}
 	}
