@@ -10,44 +10,66 @@ import SwiftUI
 
 struct HomeListCell: View {
 	
-	// it is a variable task as a type TaskItem
 	var task: TaskItem
-	
-	// The required body for the view
+	@Environment(\.dynamicTypeSize) var dynamicTypeSize
+
+	private let columns = [
+		GridItem(.flexible(), alignment: .leading),
+		GridItem(.flexible(), alignment: .leading),
+		GridItem(.flexible(), alignment: .leading)
+	]
+
 	var body: some View {
-		// H Stack is an horizontal stack
-		HStack(alignment: .top) {
-			// VStack is a vertical stack, leading is on the left side
-			VStack(alignment: .leading, spacing: 4) {
+		let lowerLayout = dynamicTypeSize <= .xxLarge ?
+		AnyLayout(HStackLayout(alignment: .center)) :
+		AnyLayout(VStackLayout(alignment: .leading))
+
+		VStack(alignment: .leading) {
+			HStack(alignment: .top) {
 				taskName
+			}
+			.bold(task.isNotDone ? true : false)
+
+			lowerLayout {
+				taskStatus.padding(.trailing, 12)
+				taskDueDate.padding(.trailing, 12)
 				taskType
 			}
-			
-			// a flexible padding spacer that uses the available space
-			Spacer()
-			
-			// another vstack this time with trailing so that is displayed on the right
-			VStack(alignment: .trailing, spacing: 4) {
-				taskDueDate
-				taskStatus
-			}
 		}
+		.strikethrough(task.isNotDone ? false : true)
 	}
 }
 
 extension HomeListCell {
-	private var taskName: some View {
-		// NAME
-		Text(task.name)
-		// to allow Dynamic Type support in the app
-			.font(.system(.body))
+	private var taskStatus: some View {
+		Label {
+			Text(LocalizedStringKey(task.status.rawValue))
+		} icon: {
+			ZStack {
+				switch task.status {
+				case .new: SFSymbols.sparkles
+				case .inProgress: SFSymbols.circleArrows
+				case .done: SFSymbols.checkmark
+				}
+			}.font(.caption)
+		}
+		.labelStyle(.titleAndIcon)
+		.font(.subheadline)
+		.foregroundStyle(task.colorForStatus())
 	}
-	
-	// TYPE
+
+	private var taskName: some View {
+		Text(task.name)
+			.font(.body)
+			.foregroundColor(task.isNotDone ? nil : .secondary)
+			.lineLimit(2).truncationMode(.tail)
+	}
+
 	private var taskType: some View {
-		HStack(spacing: 4) {
-			// to be able to match which icon to use for the type let us use swtich case
-			Group {
+		Label {
+			Text(LocalizedStringKey(task.type.rawValue))
+		} icon: {
+			ZStack {
 				switch task.type {
 				case .personal: SFSymbols.personFilled
 				case .work: SFSymbols.buildingFilled
@@ -55,44 +77,27 @@ extension HomeListCell {
 				case .coding: SFSymbols.computer
 				default: SFSymbols.listFilled
 				}
-			}
-			// decide the font size
-			.font(.system(.caption2))
-			
-			// the actual string category
-			Text(task.type.rawValue)
+			}.font(.caption)
 		}
-		.font(.system(.subheadline))
-		// secondary as faded gray
-		.foregroundColor(.secondary)
+		.labelStyle(.titleAndIcon)
+		.font(.subheadline)
+		.foregroundColor(task.isNotDone ? nil : .secondary)
 	}
-	
+
 	private var taskDueDate: some View {
-		HStack(spacing: 6) {
-			SFSymbols.calendarWithClock.font(.callout)
+		Label {
 			Text(task.shortDueDate)
+		} icon: {
+			SFSymbols.alarm.font(.caption)
 		}
-		.font(.system(.body))
-		// check the colorForDueDate extension
-		.foregroundColor(task.colorForDueDate())
-	}
-	
-	private var taskStatus: some View {
-		HStack(spacing: 4) {
-			Group {
-				switch task.status {
-				case .new: SFSymbols.sparkles
-				case .inProgress: SFSymbols.circleArrows
-				case .done: SFSymbols.checkmark
-				}
-			}
-			.font(.system(.caption2))
-			
-			Text(task.status.rawValue)
-		}
-		.font(.system(.subheadline))
-		// check the colorForStatus extension
-		.foregroundColor(task.colorForStatus())
+		.labelStyle(.titleAndIcon)
+		.font(.subheadline)
+		.foregroundColor(task.isNotDone ? task.colorForDueDate() : .secondary)
 	}
 }
 
+struct HomeListCell_Previews: PreviewProvider {
+	static var previews: some View {
+		HomeListCell(task: dev.task)
+	}
+}

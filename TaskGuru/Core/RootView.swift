@@ -1,15 +1,16 @@
 //
-//  RootView.swift
+//  RootScreen.swift
 //  TaskGuru
 //
 //  Created by Joe Pham on 2023-02-21.
+//	Student ID: 101276573
 //
 
 import SwiftUI
 
 enum Tab: Int, Hashable { case home, pending, settings }
 
-struct RootView: View {
+struct RootScreen: View {
 	@Preference(\.isShowingTabBadge) private var isShowingTabBadge
 	@Preference(\.isTabNamesEnabled) private var isTabNamesEnabled
 
@@ -17,7 +18,7 @@ struct RootView: View {
 
 	var body: some View {
 		TabView {
-			HomeView()
+			HomeScreen()
 				.tag(Tab.home)
 				.tabItem {
 					SFSymbols.house
@@ -45,6 +46,6 @@ struct RootView: View {
 
 struct RootView_Previews: PreviewProvider {
 	static var previews: some View {
-		RootView()
+		RootScreen()
 	}
 }

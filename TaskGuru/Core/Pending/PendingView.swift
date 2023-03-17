@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct PendingView: View {
+	@EnvironmentObject private var vm: HomeViewModel
 	@StateObject private var tabState: AppState = .init()
 	@State private var selectedTask: TaskItem?
 	private var noPendingTasksLeft: Bool {
@@ -27,7 +28,7 @@ struct PendingView: View {
 		NavigationStack(path: $tabState.navPath) {
 			ZStack {
 				if noPendingTasksLeft {
-					emptyStateImage.padding()
+					emptyStateImage().padding()
 				} else {
 					List {
 						pendingInThePastSection
@@ -37,9 +38,10 @@ struct PendingView: View {
 					}
 				}
 			}
+			.listStyle(.plain)
 			.playConfetti($confettiCounter)
 			.navigationDestination(for: TaskItem.self) { task in
-				DetailView(task: task)
+				DetailScreen(vm: .init(for: task, parentVM: vm), task: task)
 			}
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
@@ -52,10 +54,10 @@ struct PendingView: View {
 				}
 			}
 			.sheet(isPresented: $isShowingAddTaskView) {
-				AddTask()
+				AddTaskScreen(vm: .init(parentVM: self.vm))
 			}
 			.fullScreenCover(item: $selectedTask) { task in
-				EditView()
+				DetailScreen(vm: .init(for: task, parentVM: vm), task: task)
 			}
 		}
 		.environmentObject(tabState)
@@ -63,16 +65,16 @@ struct PendingView: View {
 }
 
 extension PendingView {
-	private var emptyStateImage: some View {
-		VStack {
+	private func emptyStateImage(alignment: HorizontalAlignment = .center) -> some View {
+		VStack(alignment: alignment) {
 			makeCheerfulDecorativeImage()
-
+			
 			Text("pending.info.listEmty")
 				.font(.callout)
 				.foregroundColor(.secondary)
 		}
 	}
-
+	
 	private var encouragingMessage: some View {
 		Text("pending.info.listNotEmpty")
 			.font(.footnote)
@@ -80,8 +82,7 @@ extension PendingView {
 	}
 
 	@ViewBuilder private var pendingInThePastSection: some View {
-		let pendings = TaskItem.mockData
-			.filter { $0.dueDate.isPastToday && $0.isNotDone }
+		let pendings = vm.pendingTasks.filter { $0.dueDate.isPastToday }
 		
 		if pendings.isEmpty == false {
 			Section {
@@ -95,7 +96,9 @@ extension PendingView {
 						} elseCase: { view in
 							view.contextMenu {
 								makeContextMenu(for: task)
-							} preview: { DetailView(task: task) }
+							} preview: {
+								DetailScreen(vm: .init(for: task, parentVM: vm), task: task)
+							}
 						}
 					}
 				}
@@ -106,8 +109,7 @@ extension PendingView {
 	}
 
 	@ViewBuilder private var pendingTodaySection: some View {
-		let pendings = TaskItem.mockData
-			.filter { $0.dueDate.isWithinToday && $0.isNotDone }
+		let pendings = vm.pendingTasks.filter { $0.dueDate.isWithinToday }
 		
 		if pendings.isEmpty == false {
 			Section {
@@ -121,7 +123,9 @@ extension PendingView {
 						} elseCase: { view in
 							view.contextMenu {
 								makeContextMenu(for: task)
-							} preview: { DetailView(task: task) }
+							} preview: {
+								DetailScreen(vm: .init(for: task, parentVM: vm), task: task)
+							}
 						}
 					}
 				}
@@ -132,8 +136,7 @@ extension PendingView {
 	}
 	
 	@ViewBuilder private var pendingFromTomorrowSection: some View {
-		let pendings = TaskItem.mockData
-			.filter { $0.dueDate.isFromTomorrow && $0.isNotDone }
+		let pendings = vm.pendingTasks.filter { $0.dueDate.isFromTomorrow }
 		
 		if pendings.isEmpty == false {
 			Section {
@@ -147,7 +150,9 @@ extension PendingView {
 						} elseCase: { view in
 							view.contextMenu {
 								makeContextMenu(for: task)
-							} preview: { DetailView(task: task) }
+							} preview: {
+								DetailScreen(vm: .init(for: task, parentVM: vm), task: task)
+							}
 						}
 					}
 				}

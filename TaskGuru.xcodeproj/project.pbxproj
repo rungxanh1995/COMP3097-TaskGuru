@@ -31,7 +31,7 @@
 		2C4C16F029A6CFD40056709E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C16EF29A6CFD40056709E /* Image.swift */; };
 		2C74150B298B2579006CECDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C74150A298B2579006CECDA /* Launch Screen.storyboard */; };
 		2C8C35ED2984934E00DCEA67 /* TaskGuruApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */; };
-		2C8C35EF2984934E00DCEA67 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EE2984934E00DCEA67 /* HomeView.swift */; };
+		2C8C35EF2984934E00DCEA67 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EE2984934E00DCEA67 /* HomeScreen.swift */; };
 		2C8C35F12984934E00DCEA67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C35F02984934E00DCEA67 /* Assets.xcassets */; };
 		2C8C35F42984934E00DCEA67 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C35F32984934E00DCEA67 /* Preview Assets.xcassets */; };
 		2C92905329A5C5F6009F3389 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C92905229A5C5F6009F3389 /* RootView.swift */; };
@@ -54,12 +54,16 @@
 		2CC55CE629A704F9001D64F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CC55CE829A704F9001D64F3 /* Localizable.strings */; };
 		2CD0D60C29A2CFA5009157FB /* BadgeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0D60B29A2CFA5009157FB /* BadgeType.swift */; };
 		2CD0D60F29A2D50C009157FB /* AcknowledgmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0D60E29A2D50C009157FB /* AcknowledgmentsView.swift */; };
-		41299E89299EA9F000666A48 /* AddTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41299E88299EA9F000666A48 /* AddTask.swift */; };
-		D033E52629913E8B00F9AF2A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52529913E8B00F9AF2A /* DetailView.swift */; };
+		41299E89299EA9F000666A48 /* AddTaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41299E88299EA9F000666A48 /* AddTaskScreen.swift */; };
+		D033E52629913E8B00F9AF2A /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52529913E8B00F9AF2A /* DetailScreen.swift */; };
 		D033E52829913ECA00F9AF2A /* DetailGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52729913ECA00F9AF2A /* DetailGridCell.swift */; };
 		D033E52B29913F1A00F9AF2A /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033E52A29913F1A00F9AF2A /* EditView.swift */; };
 		EC60753929A00CD5008A1CD4 /* NavigationTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC60753829A00CD5008A1CD4 /* NavigationTitle.swift */; };
 		EC60754029A02910008A1CD4 /* HomeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC60753F29A02910008A1CD4 /* HomeListCell.swift */; };
+		ECB9FF1729C4C34100F84406 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB9FF1629C4C34100F84406 /* PreviewProvider.swift */; };
+		ECB9FF1929C4C43C00F84406 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB9FF1829C4C43C00F84406 /* HomeViewModel.swift */; };
+		ECB9FF1B29C4C54400F84406 /* AddTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB9FF1A29C4C54400F84406 /* AddTaskViewModel.swift */; };
+		ECB9FF1D29C4C5BB00F84406 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB9FF1C29C4C5BB00F84406 /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,7 +92,7 @@
 		2C74150A298B2579006CECDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2C8C35E92984934E00DCEA67 /* TaskGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGuruApp.swift; sourceTree = "<group>"; };
-		2C8C35EE2984934E00DCEA67 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2C8C35EE2984934E00DCEA67 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		2C8C35F02984934E00DCEA67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C8C35F32984934E00DCEA67 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2C92905229A5C5F6009F3389 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -116,12 +120,16 @@
 		2CC55CEE29A70502001D64F3 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CD0D60B29A2CFA5009157FB /* BadgeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeType.swift; sourceTree = "<group>"; };
 		2CD0D60E29A2D50C009157FB /* AcknowledgmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgmentsView.swift; sourceTree = "<group>"; };
-		41299E88299EA9F000666A48 /* AddTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTask.swift; sourceTree = "<group>"; };
-		D033E52529913E8B00F9AF2A /* DetailView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
+		41299E88299EA9F000666A48 /* AddTaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskScreen.swift; sourceTree = "<group>"; };
+		D033E52529913E8B00F9AF2A /* DetailScreen.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
 		D033E52729913ECA00F9AF2A /* DetailGridCell.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DetailGridCell.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
 		D033E52A29913F1A00F9AF2A /* EditView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 1; };
 		EC60753829A00CD5008A1CD4 /* NavigationTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitle.swift; sourceTree = "<group>"; };
 		EC60753F29A02910008A1CD4 /* HomeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListCell.swift; sourceTree = "<group>"; };
+		ECB9FF1629C4C34100F84406 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		ECB9FF1829C4C43C00F84406 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		ECB9FF1A29C4C54400F84406 /* AddTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewModel.swift; sourceTree = "<group>"; };
+		ECB9FF1C29C4C5BB00F84406 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +197,7 @@
 				2C4C16EF29A6CFD40056709E /* Image.swift */,
 				2C2AED312991AF28000C5399 /* View.swift */,
 				2CB63A3A299F253100271BD8 /* UIApplication.swift */,
+				ECB9FF1629C4C34100F84406 /* PreviewProvider.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -292,7 +301,8 @@
 		2C8C35FB2984950E00DCEA67 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				2C8C35EE2984934E00DCEA67 /* HomeView.swift */,
+				2C8C35EE2984934E00DCEA67 /* HomeScreen.swift */,
+				ECB9FF1829C4C43C00F84406 /* HomeViewModel.swift */,
 				EC60753F29A02910008A1CD4 /* HomeListCell.swift */,
 			);
 			path = Home;
@@ -381,7 +391,8 @@
 		41299E87299EA95200666A48 /* Add */ = {
 			isa = PBXGroup;
 			children = (
-				41299E88299EA9F000666A48 /* AddTask.swift */,
+				41299E88299EA9F000666A48 /* AddTaskScreen.swift */,
+				ECB9FF1A29C4C54400F84406 /* AddTaskViewModel.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -389,7 +400,8 @@
 		D033E52429913E4B00F9AF2A /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				D033E52529913E8B00F9AF2A /* DetailView.swift */,
+				D033E52529913E8B00F9AF2A /* DetailScreen.swift */,
+				ECB9FF1C29C4C5BB00F84406 /* DetailViewModel.swift */,
 				D033E52729913ECA00F9AF2A /* DetailGridCell.swift */,
 			);
 			path = Detail;
@@ -498,9 +510,10 @@
 				2CB63A20299F214500271BD8 /* SchemeType.swift in Sources */,
 				EC60754029A02910008A1CD4 /* HomeListCell.swift in Sources */,
 				2C2AED322991AF28000C5399 /* View.swift in Sources */,
+				ECB9FF1929C4C43C00F84406 /* HomeViewModel.swift in Sources */,
 				2C12599529A1988900DD96E4 /* FontDesignModifier.swift in Sources */,
 				2C12599929A19D2000DD96E4 /* HomeQuickAction.swift in Sources */,
-				2C8C35EF2984934E00DCEA67 /* HomeView.swift in Sources */,
+				2C8C35EF2984934E00DCEA67 /* HomeScreen.swift in Sources */,
 				2CB63A1C299F20FD00271BD8 /* HapticManager.swift in Sources */,
 				2CB63A39299F250200271BD8 /* AppDelegate.swift in Sources */,
 				2CB63A2A299F21E200271BD8 /* PreferenceWrapper.swift in Sources */,
@@ -516,17 +529,20 @@
 				2C21940529A9946500CA0DF9 /* AccentColorSettings.swift in Sources */,
 				2C12599329A1987000DD96E4 /* FontDesign.swift in Sources */,
 				2CB63A37299F23FF00271BD8 /* PendingView.swift in Sources */,
+				ECB9FF1B29C4C54400F84406 /* AddTaskViewModel.swift in Sources */,
 				2CB63A2C299F21EE00271BD8 /* PublisherObservableObject.swift in Sources */,
 				2C4C16F029A6CFD40056709E /* Image.swift in Sources */,
 				2CB63A1E299F212000271BD8 /* SchemeModifier.swift in Sources */,
 				D033E52B29913F1A00F9AF2A /* EditView.swift in Sources */,
 				D033E52829913ECA00F9AF2A /* DetailGridCell.swift in Sources */,
+				ECB9FF1729C4C34100F84406 /* PreviewProvider.swift in Sources */,
 				2CB63A28299F21BA00271BD8 /* Preferences.swift in Sources */,
 				2C12598A29A196AD00DD96E4 /* SettingsViewModel.swift in Sources */,
 				2C262B12298A19EC004C622C /* TaskItem.swift in Sources */,
 				2C12598F29A1982D00DD96E4 /* AccentColor.swift in Sources */,
 				2CB63A1A299F20A500271BD8 /* AppState.swift in Sources */,
-				D033E52629913E8B00F9AF2A /* DetailView.swift in Sources */,
+				D033E52629913E8B00F9AF2A /* DetailScreen.swift in Sources */,
+				ECB9FF1D29C4C5BB00F84406 /* DetailViewModel.swift in Sources */,
 				2C4C16EB29A6CA110056709E /* ConfettiViewModifier.swift in Sources */,
 				2C262B1D298A1AAC004C622C /* SettingsView.swift in Sources */,
 				2C262B0E298A19CB004C622C /* TaskType.swift in Sources */,
@@ -540,7 +556,7 @@
 				2CB63A34299F239200271BD8 /* OnboardContainerView.swift in Sources */,
 				2C262B10298A19D4004C622C /* TaskStatus.swift in Sources */,
 				2CB63A25299F218400271BD8 /* UserDefaultWrapper.swift in Sources */,
-				41299E89299EA9F000666A48 /* AddTask.swift in Sources */,
+				41299E89299EA9F000666A48 /* AddTaskScreen.swift in Sources */,
 				2C8C35ED2984934E00DCEA67 /* TaskGuruApp.swift in Sources */,
 				2CB63A23299F216500271BD8 /* UserDefaultsKey.swift in Sources */,
 			);
