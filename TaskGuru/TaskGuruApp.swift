@@ -13,6 +13,8 @@ struct TaskGuruApp: App {
 	@UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 	@Environment(\.scenePhase) private var scenePhase
 
+	@StateObject private var homeVM: HomeViewModel = .init()
+
 	@AppStorage(UserDefaultsKey.isOnboarding) private var isOnboarding: Bool = true
 	@Preference(\.accentColor) private var accentColor
 	@Preference(\.badgeType) private var badgeType
@@ -30,41 +32,38 @@ struct TaskGuruApp: App {
 
 	var body: some Scene {
 		WindowGroup {
-			ZStack {
-				if isOnboarding {
+			RootScreen()
+				.sheet(isPresented: .constant(isOnboarding)) {
 					OnboardContainerView()
-						.transition(.asymmetric(insertion: .opacity.animation(.default), removal: .opacity))
-				} else {
-					RootView()
-						.transition(.asymmetric(insertion: .opacity.animation(.default), removal: .opacity))
+						.interactiveDismissDisabled()
 				}
-			}
-			.setUpColorTheme()
-			.setUpFontDesign()
-			.setUpAccentColor()
-			.onChange(of: accentColor) { _ in
-				setAlertColor()
-			}
-			.onChange(of: badgeType) { _ in
-				setUpAppIconBadge()
-			}
-			.onChange(of: isShowingAppBadge) { _ in
-				setUpAppIconBadge()
-			}
-			.onChange(of: isLockedInPortrait) { _ in
-				isLockedInPortrait ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
-			}
-			.onChange(of: scenePhase) { newPhase in
-				switch newPhase {
-				case .background:
-					addHomeScreenQuickActions()
-					HomeQuickAction.selectedAction = nil
-				case .active:
-					handleQuickActionSelected()
-				default:
-					break
+				.environmentObject(homeVM)
+				.setUpColorTheme()
+				.setUpFontDesign()
+				.setUpAccentColor()
+				.onChange(of: accentColor) { _ in
+					setAlertColor()
 				}
-			}
+				.onChange(of: badgeType) { _ in
+					setUpAppIconBadge()
+				}
+				.onChange(of: isShowingAppBadge) { _ in
+					setUpAppIconBadge()
+				}
+				.onChange(of: isLockedInPortrait) { _ in
+					isLockedInPortrait ? appDelegate.lockInPortraitMode() : appDelegate.unlockPortraitMode()
+				}
+				.onChange(of: scenePhase) { newPhase in
+					switch newPhase {
+					case .background:
+						addHomeScreenQuickActions()
+						HomeQuickAction.selectedAction = nil
+					case .active:
+						handleQuickActionSelected()
+					default:
+						break
+					}
+				}
 		}
 	}
 }

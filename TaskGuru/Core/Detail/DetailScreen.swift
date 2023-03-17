@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  DetailScreen.swift
 //  TaskGuru
 //
 //  Created by Ostap Sulyk on 2023-02-06.
@@ -9,7 +9,8 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct DetailScreen: View {
+	@ObservedObject var vm: DetailScreen.ViewModel
 	let task: TaskItem
 	
 	@State private var isShowingEdit: Bool = false
@@ -84,7 +85,7 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
-			DetailView(task: TaskItem.mockData.first!)
+			DetailScreen(vm: .init(for: dev.task, parentVM: dev.homeVM), task: dev.task)
 		}
 	}
 }

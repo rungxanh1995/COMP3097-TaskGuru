@@ -25,6 +25,7 @@ enum SFSymbols {
 	static let plusCircled: Image = .init(systemName: "plus.circle")
 	static let xmark: Image = .init(systemName: "xmark")
 	static let trash: Image = .init(systemName: "trash")
+	static let alarm: Image = .init(systemName: "alarm")
 	static let calendarWithClock: Image = .init(systemName: "calendar.badge.clock")
 	static let sparkles: Image = .init(systemName: "sparkles")
 	static let circleArrows: Image = .init(systemName: "arrow.triangle.2.circlepath")

@@ -1,5 +1,5 @@
 //
-//  AddTask.swift
+//  AddTaskScreen.swift
 //  TaskGuru
 //
 //  Created by Rauf Anata on 2023-02-16.
@@ -8,8 +8,10 @@
 
 import SwiftUI
 
-struct AddTask: View {
+struct AddTaskScreen: View {
 	@Environment(\.dismiss) var dismissThisView
+	
+	@ObservedObject var vm: AddTaskScreen.ViewModel
 	
 	@State private var taskName: String = ""
 	@State private var dueDate: Date = .init()
@@ -71,7 +73,7 @@ struct AddTask: View {
 
 struct AddTask_Previews: PreviewProvider {
 	static var previews: some View {
-		AddTask()
+		AddTaskScreen(vm: .init(parentVM: dev.homeVM))
 	}
 }
 
