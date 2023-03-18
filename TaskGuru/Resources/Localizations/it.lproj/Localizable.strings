@@ -7,8 +7,10 @@
 */
 
 // MARK: Onboarding
+"onboarding.title" = "Welcome to TaskGuru";
+"onboarding.privacy" = "We respect our users' privacy and do not collect any personal data for advertising or commercial purposes in this app. You can trust that your information will remain secure and protected, even across device restores, with the use of iCloud backup.";
 /* Buttons */
-"onboarding.buttons.onboarding.dismiss" = "I'm All Set!";
+"onboarding.buttons.onboarding.dismiss" = "Continue";
 "onboarding.buttons.onboarded.dismiss" = "Dismiss";
 
 "onboarding.features.home.title" = "Home tab";
@@ -18,7 +20,9 @@
 "onboarding.features.appBadge.title" = "App icon badge";
 "Track all or time-based pending tasks at a glance. Find this in %@ Settings" = "Track all or time-based pending tasks at a glance. Find this in %@ Settings";
 "onboarding.features.quickActions.title" = "Quick Actions";
-"onboarding.features.quickActions.description" = "Tap and hold each task from the list to use quick actions";
+"onboarding.features.quickActions.description" = "Tap and hold or swipe each task from the list to use quick actions";
+"onboarding.features.customization.title" = "Customizations";
+"onboarding.features.customization.description" = "Explore a heap of settings to personalize TaskGuru to your liking";
 
 
 // MARK: Shared
@@ -37,6 +41,12 @@
 "taskItem.status.inProgress" = "In progress";
 "taskItem.status.done" = "Done";
 
+/* Task priorities */
+"taskItem.priority.none" = "None";
+"taskItem.priority.low" = "Low";
+"taskItem.priority.medium" = "Medium";
+"taskItem.priority.high" = "High";
+
 /* Navigation/Context menu - Quick actions in Home & Pending tabs */
 "contextMenu.task.markAs" = "Mark Task as...?";
 "contextMenu.task.markNew" = "Mark as New";
@@ -46,6 +56,7 @@
 "contextMenu.task.delete" = "Delete";
 "contextMenu.cancel" = "Cancel";
 "contextMenu.ok" = "OK";
+"contextMenu.clearDoneTasks" = "Clear Done Tasks";
 
 /* Add Task button in Home & Pending tabs */
 "label.task.add" = "Add Task";
@@ -57,13 +68,15 @@
 /* Navigation title */
 "home.nav.title" = "All Tasks";
 /* Section titles */
-"home.sections.overdue" = "Overdue";
-"home.sections.dueToday" = "Due Today";
-"home.sections.upcoming" = "Upcoming";
+"home.sections.overdue" = "OVERDUE";
+"home.sections.dueToday" = "DUE TODAY";
+"home.sections.upcoming" = "UPCOMING";
 /* Empty list sentence */
 "home.info.sectionEmpty" = "No tasks";
 /* All tasks empty sentence */
-"Nothing yet. Tap here or %@ to add more" = "Nothing yet. Tap here or %@ to add more";
+"Nothing yet. Tap here or %@ to add more" = "Add new tasks by tapping %@, and they'll show up here";
+/* Confirm dialogs */
+"home.clearDoneTasks.alert" = "Are you sure to clear all tasks that are completed?\nThis action cannot be undone";
 
 
 // MARK: Pending
@@ -72,9 +85,9 @@
 /* Navigation title */
 "pending.nav.title" = "Pending Tasks";
 /* Section titles */
-"pending.sections.overdue" = "Overdue";
-"pending.sections.dueToday" = "Due Today";
-"pending.sections.upcoming" = "Upcoming";
+"pending.sections.overdue" = "OVERDUE";
+"pending.sections.dueToday" = "DUE TODAY";
+"pending.sections.upcoming" = "UPCOMING";
 
 "pending.info.fetchingData" = "Fetching data";
 "pending.info.listEmty" = "You're free! Enjoy your much deserved time 🥳";
@@ -95,6 +108,7 @@
 "addTask.input.dueDate" = "Due Date";
 "addTask.input.type" = "Type";
 "addTask.input.status" = "Status";
+"addTask.input.priority" = "Priority";
 "addTask.input.notes" = "Notes";
 "addTask.input.placeholder.notes" = "Any extra notes...";
 
@@ -108,6 +122,7 @@
 "taskDetail.cell.status.caption" = "Status";
 "taskDetail.cell.dueDate.caption" = "Due Date";
 "taskDetail.cell.type.caption" = "Type";
+"taskDetail.cell.priority.caption" = "Priority";
 "taskDetail.cell.notes.caption" = "Notes";
 
 /* Alerts */
@@ -132,6 +147,7 @@
 "editTask.input.dueDate" = "Due Date";
 "editTask.input.type" = "Type";
 "editTask.input.status" = "Status";
+"editTask.input.priority" = "Priority";
 "editTask.input.notes" = "Notes";
 "editTask.input.placeholder.notes" = "Any extra notes...";
 
@@ -152,20 +168,29 @@
 
 /* General section */
 "settings.general.onboarding" = "Onboarding screen";
+"settings.general.appearance" = "Appearance";
 "settings.general.appIcon" = "App Icon";
 "settings.general.portraitLock" = "Portrait Lock";
 "settings.general.reduceHaptics" = "Reduce Haptics";
 "settings.general.accentColor" = "Accent Color";
 "settings.general.fontStyle" = "Font Style";
+"settings.general.fontWidth" = "Font Width";
 "settings.general.colorTheme" = "Color Theme";
+"settings.general.boldText" = "Bold Text";
+"settings.general.highlight" = "Highlight Today's Dues";
+
+"settings.general.relDateTime" = "Relative Time Format";
+"settings.general.relDateTime.footer" = "E.g. \"1 month ago\" instead of \"YYYY-MM-DD\"";
 
 /* Badge section */
 "settings.badge.appIcon" = "Show App Icon Badge";
 "settings.badge.appIconType" = "App Icon Badge Type";
+"settings.badge.notifSetting" = "Go to Notifications setting";
 "settings.badge.tab" = "Show Tab Badge";
 "settings.badge.footer" = "Icon badge shows a number of tasks on Home screen. Review your Notification settings if no badge shown.";
 
 /* Misc section */
+"settings.misc.language" = "Language";
 "settings.misc.tabNames" = "Tab Names";
 "settings.misc.confetti" = "Toggle Confetti 🎉";
 "settings.misc.preview" = "Preview on Haptic Touch";
@@ -195,12 +220,14 @@
 "appIcon.winter" = "Winter";
 "appIcon.sky" = "Sky";
 "appIcon.midnight" = "Midnight";
+"appIcon.iris" = "Iris";
 "appIcon.berry" = "Berry";
 
 /* Accent colors */
 "accentColor.blue" = "Blue";
 "accentColor.teal" = "Teal";
 "accentColor.indigo" = "Indigo";
+"accentColor.purple" = "Purple";
 "accentColor.pink" = "Pink";
 "accentColor.berry" = "Berry";
 "accentColor.red" = "Red";
@@ -210,11 +237,19 @@
 "accentColor.mint" = "Mint";
 "accentColor.clover" = "Clover";
 
+"settings.appearance.footer" = "Custom font width is available with system font style";
+
 /* Font designs */
 "fontDesign.system" = "System";
 "fontDesign.rounded" = "Rounded";
 "fontDesign.monospaced" = "Monospaced";
 "fontDesign.serif" = "Serif";
+
+/* Font widths */
+"fontWidth.standard" = "Standard";
+"fontWidth.condensed" = "Condensed";
+"fontWidth.compressed" = "Compressed";
+"fontWidth.expanded" = "Expanded";
 
 /* Color themes */
 "colorTheme.system" = "System";
@@ -233,7 +268,7 @@
 "settings.misc.previewtype.content.detail" = "Detail";
 
 
-// MARK: Acknowledgments
+/* ACKNOWLEDGEMENTS */
 /* Navigation title */
 "settings.ack.nav.title" = "Acknowledgements";
 

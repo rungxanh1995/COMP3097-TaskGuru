@@ -14,49 +14,80 @@ struct AcknowledgmentsView: View {
 			VStack(alignment: .center) {
 				developmentTeam
 				Divider()
+				localization
+				Divider()
 				dependencies
 				Divider()
 				license
 			}
 			.multilineTextAlignment(.center)
 			.padding()
-			.navigationBarTitle("Acknowledgments")
+			.navigationBarTitle("settings.ack.nav.title")
 			.navigationBarTitleDisplayMode(.inline)
 		}
 	}
 }
 
 extension AcknowledgmentsView {
+	@ViewBuilder
+	private func translationFor(_ language: LocalizedStringKey, translators: String...) -> some View {
+		VStack {
+			Text(language).font(.headline)
+			ForEach(translators, id: \.self) { Text($0) }
+			Spacer()
+		}
+	}
+
 	private var developmentTeam: some View {
 		Group {
-			Text("Development Team")
+			Text("settings.ack.devTeam")
 				.font(.title3).bold()
-				.foregroundColor(.defaultAccentColor)
 			Text("Joe Pham")
 			Text("Marco Stevanella")
 			Text("Ostap Sulyk")
 			Text("Rauf Anata")
 		}
 	}
-	
-	private var dependencies: some View {
+
+	private var localization: some View {
 		Group {
-			Text("Third Party Dependencies")
+			Text("settings.ack.localization")
 				.font(.title3).bold()
-				.foregroundColor(.defaultAccentColor)
-			Link(destination: URL(string: "https://github.com/simibac/ConfettiSwiftUI")!) {
-				Text("ConfettiSwiftUI")
-			}
-			Text("Simon Bachmann")
+			Text("settings.ack.localization.subtitle")
+				.padding(.bottom)
+			
+			translationFor("ack.localization.azerbaijani", translators: "Rauf Anata")
+			translationFor("ack.localization.italian", translators: "Marco Stevanella")
+			translationFor("ack.localization.portugueseBrazil", translators: "Matheus Armando")
+			translationFor("ack.localization.ukrainian", translators: "Ostap Sulyk")
+			translationFor("ack.localization.vietnamese", translators: "Joe Pham")
 		}
 	}
-	
+
+	private var dependencies: some View {
+		VStack(spacing: 12) {
+			Text("settings.ack.dependencies")
+				.font(.title3).bold()
+			VStack {
+				Link(destination: URL(string: "https://github.com/simibac/ConfettiSwiftUI")!) {
+					Text("ConfettiSwiftUI")
+				}
+				Text("Simon Bachmann")
+			}
+			
+			VStack {
+				Link(destination: URL(string: "https://github.com/SFSafeSymbols/SFSafeSymbols")!) {
+					Text("SFSafeSymbols")
+				}
+			}
+		}
+	}
+
 	private var license: some View {
 		Group {
-			Text("License")
+			Text("settings.ack.license")
 				.font(.title3).bold()
-				.foregroundColor(.defaultAccentColor)
-			Text("settings.acknowledgements.license.content")
+			Text("settings.ack.license.content")
 		}
 	}
 }

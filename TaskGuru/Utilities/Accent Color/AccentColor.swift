@@ -10,39 +10,35 @@ import SwiftUI
 
 enum AccentColorType: Int, Identifiable, CaseIterable {
 	var id: Self { self }
-	case blue, teal, indigo, pink, berry, red, orange, yellow, green, mint, clover
+	case berry, orange, yellow, green, clover, teal, blue, indigo, purple
 }
 
 extension AccentColorType {
 	var title: String {
 		switch self {
-		case .blue: return "Blue"
-		case .teal: return "Teal"
-		case .indigo: return "Indigo"
-		case .pink: return "Pink"
-		case .berry: return "Berry"
-		case .red: return "Red"
-		case .orange: return "Orange"
-		case .yellow: return "Yellow"
-		case .green: return "Green"
-		case .mint: return "Mint"
-		case .clover: return "Clover"
+		case .berry: return "accentColor.berry"
+		case .orange: return "accentColor.orange"
+		case .yellow: return "accentColor.yellow"
+		case .green: return "accentColor.green"
+		case .clover: return "accentColor.clover"
+		case .teal: return "accentColor.teal"
+		case .blue: return "accentColor.blue"
+		case .indigo: return "accentColor.indigo"
+		case .purple: return "accentColor.purple"
 		}
 	}
 
 	var associatedColor: Color {
 		switch self {
-		case .blue: return .blue
-		case .teal: return .teal
-		case .indigo: return .indigo
-		case .pink: return .pink
-		case .berry: return Color(hex: 0xEF0808)
-		case .red: return .red
-		case .orange: return .orange
-		case .yellow: return .yellow
-		case .green: return .green
-		case .mint: return .mint
-		case .clover: return Color(hex: 0x4597A1)
+		case .berry: return Color(hex: 0xE51817)
+		case .orange: return Color(hex: 0xE47101)
+		case .yellow: return Color(hex: 0xF0B302)
+		case .green: return Color(hex: 0x70BE00)
+		case .clover: return Color(hex: 0x02C564)
+		case .teal: return Color(hex: 0x00BBCC)
+		case .blue: return Color(hex: 0x0080FE)
+		case .indigo: return Color(hex: 0x5500FE)
+		case .purple: return Color(hex: 0xA901FF)
 		}
 	}
 }

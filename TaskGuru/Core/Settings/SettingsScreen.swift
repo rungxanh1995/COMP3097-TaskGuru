@@ -1,5 +1,5 @@
 //
-//  SettingsView.swift
+//  SettingsScreen.swift
 //  TaskGuru
 //
 //  Created by Joe Pham on 2023-01-31.
@@ -8,37 +8,36 @@
 
 import SwiftUI
 
-struct SettingsView: View {
-	@StateObject private var vm: ViewModel
+import SwiftUI
 
+struct SettingsScreen: View {
+	@StateObject private var vm: ViewModel
+	
 	@Preference(\.isShowingAppBadge) private var isShowingAppBadge
 	@Preference(\.isShowingTabBadge) private var isShowingTabBadge
-	@Preference(\.isConfettiEnabled) private var isConfettiEnabled
-	@Preference(\.isPreviewEnabled) private var isPreviewEnabled
+	@Preference(\.badgeType) private var badgeType
+	@Preference(\.isRelativeDateTime) private var isRelativeDateTime
 	@Preference(\.isLockedInPortrait) private var isLockedInPortrait
 	@Preference(\.isHapticsReduced) private var isHapticsReduced
-	@Preference(\.isTabNamesEnabled) private var isTabNamesEnabled
 	@Preference(\.activeAppIcon) private var activeAppIcon
-	@Preference(\.accentColor) private var accentColor
-	@Preference(\.fontDesign) private var fontDesign
-	@Preference(\.systemTheme) private var systemTheme
-	@Preference(\.badgeType) private var badgeType
-	@Preference(\.contextPreviewType) private var contextPreviewType
-
-	init(vm: SettingsView.ViewModel = .init()) {
+	
+	init(vm: SettingsScreen.ViewModel = .init()) {
 		_vm = StateObject(wrappedValue: vm)
 	}
-
+	
 	var body: some View {
 		NavigationStack {
 			Form {
 				generalSection
+				dateTimeSection
 				badgeSection
-				miscSection
+				displayLanguage
 				advancedSection
 				devTeamSection
+				onboarding
 				acknowledgements
-				appNameAndLogo.listRowBackground(Color.clear)
+				appNameAndLogo
+					.listRowBackground(Color.clear)
 			}
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
@@ -73,130 +72,92 @@ struct SettingsView: View {
 	}
 }
 
-private extension SettingsView {
+private extension SettingsScreen {
 	private var generalSection: some View {
 		Section {
-			appIcon
-			appAccentColor
+			appearance
 			portraitLock
 			haptics
-			fontDesignStyle
-			appTheme
-			onboarding
 		} header: {
 			Label {
 				Text("settings.sections.general")
 			} icon: { SFSymbols.gearFilled }
 		}
 	}
-
-	@ViewBuilder private var appIcon: some View {
-		let currentIcon = AppIconType(rawValue: activeAppIcon)
-
-		HStack {
-			if let icon = AppIconType(rawValue: activeAppIcon)?.iconImage {
-				icon.asSettingsIconSize()
-			} else {
-				Image("app-logo").asSettingsIconSize()
-			}
+	
+	private var appearance: some View {
+		settingsRow {
+			SettingsIcon(icon: SFSymbols.paintbrush, accent: .appTeal)
+		} content: {
 			NavigationLink {
-				AppIconSettings()
+				AppearanceScreen()
 			} label: {
-				Text("settings.general.appIcon")
-					.ifLet(currentIcon?.title, content: { text, iconName in
-						text.badge(LocalizedStringKey(iconName))
-					})
+				Text("settings.general.appearance")
 			}
 		}
 	}
-
+	
 	private var portraitLock: some View {
-		HStack {
-			SettingsIcon(icon: SFSymbols.lockRotation, bgColor: .indigo)
+		settingsRow {
+			SettingsIcon(icon: SFSymbols.lockRotation, accent: .appIndigo)
+		} content: {
 			Toggle("settings.general.portraitLock", isOn: $isLockedInPortrait)
 				.tint(.accentColor)
 		}
 	}
-
+	
 	private var haptics: some View {
-		HStack {
-			SettingsIcon(icon: SFSymbols.waveform, bgColor: .pink)
+		settingsRow {
+			SettingsIcon(icon: SFSymbols.waveform, accent: .appYellow)
+		} content: {
 			Toggle("settings.general.reduceHaptics", isOn: $isHapticsReduced)
 				.tint(.accentColor)
 		}
 	}
-
-	@ViewBuilder private var appAccentColor: some View {
-		let currentAccentColor = AccentColorType(rawValue: accentColor)
-		HStack {
-			SettingsIcon(icon: SFSymbols.paintbrush, bgColor: .defaultAccentColor)
-			NavigationLink {
-				AccentColorSettings()
-			} label: {
-				Text("settings.general.accentColor")
-					.ifLet(currentAccentColor?.title) { text, colorName in
-						text.badge(LocalizedStringKey(colorName))
-					}
-			}
+	
+	private var dateTimeSection: some View {
+		Section {
+			relativeDateTime
+		} footer: {
+			Text("settings.general.relDateTime.footer")
 		}
 	}
-
-	private var fontDesignStyle: some View {
-		HStack {
-			SettingsIcon(icon: SFSymbols.textFormat, bgColor: .orange)
-			Picker("settings.general.fontStyle", selection: $fontDesign) {
-				ForEach(FontDesignType.allCases) { (design) in
-					Text(LocalizedStringKey(design.title))
-						.tag(design.rawValue)
-				}
-			}
+	
+	private var relativeDateTime: some View {
+		settingsRow {
+			SettingsIcon(icon: SFSymbols.clock, accent: .appGreen)
+		} content: {
+			Toggle("settings.general.relDateTime", isOn: $isRelativeDateTime)
+				.tint(.accentColor)
 		}
 	}
-
-	private var appTheme: some View {
-		HStack {
-			SettingsIcon(icon: SFSymbols.appearance, bgColor: .blue)
-			Picker("settings.general.colorTheme", selection: $systemTheme) {
-				ForEach(SchemeType.allCases) { (theme) in
-					Text(LocalizedStringKey(theme.title))
-						.tag(theme.rawValue)
-				}
-			}
-		}
-	}
-
-	private var onboarding: some View {
-		HStack {
-			SettingsIcon(icon: SFSymbols.handWave, bgColor: .indigo)
-			NavigationLink("settings.general.onboarding") {
-				OnboardContainerView()
-			}
-		}
-	}
-
+	
 	private var badgeSection: some View {
 		Section {
 			tabBadge
 			appBadge
+			notifSettingLink
 		} header: {
 			Label { Text("settings.sections.badge") } icon: { SFSymbols.appBadge }
 		} footer: {
 			Text("settings.badge.footer")
 		}
 	}
-
+	
 	private var tabBadge: some View {
-		HStack {
-			SettingsIcon(icon: SFSymbols.clockBadge, bgColor: .pink)
+		settingsRow {
+			SettingsIcon(icon: SFSymbols.clockBadge, accent: .appPink)
+		} content: {
 			Toggle("settings.badge.tab", isOn: $isShowingTabBadge)
 				.tint(.accentColor)
 		}
 	}
-
+	
 	private var appBadge: some View {
 		VStack {
-			HStack {
-				SettingsIcon(icon: SFSymbols.appBadge, bgColor: .teal)
+			settingsRow {
+				SettingsIcon(icon: SFSymbols.appBadge, accent: .appPurple)
+			} content: {
 				Toggle("settings.badge.appIcon", isOn: $isShowingAppBadge)
 					.tint(.accentColor)
 			}
@@ -209,53 +170,32 @@ private extension SettingsView {
 			.disabled(!isShowingAppBadge)
 		}
 	}
-
-	private var miscSection: some View {
-		Section {
-			tabNames
-			confetti
-			preview
-		} header: {
-			Label { Text("settings.sections.misc") } icon: { SFSymbols.bubbleSparkles }
-		} footer: {
-			Text("settings.misc.footer")
-		}
-	}
-
-	private var tabNames: some View {
+	
+	/// Guide user to System notification settings to manually allow permission for badge
+	private var notifSettingLink: some View {
 		HStack {
-			SettingsIcon(icon: SFSymbols.dock, bgColor: .blue)
-			Toggle("settings.misc.tabNames", isOn: $isTabNamesEnabled)
-				.tint(.accentColor)
+			let url = URL(string: UIApplication.openNotificationSettingsURLString)!
+			Link("settings.badge.notifSetting", destination: url)
+				.tint(.primary)
+			Spacer()
+			SFSymbols.arrowUpForward
+				.foregroundColor(isShowingAppBadge ? .primary : .gray.opacity(0.5))
+		}
+		.disabled(!isShowingAppBadge)
+	}
+	
+	private var displayLanguage: some View {
+		settingsRow {
+			SettingsIcon(icon: SFSymbols.globe, accent: .appOrange)
+		} content: {
+			let url = URL(string: UIApplication.openSettingsURLString)!
+			Link("settings.misc.language", destination: url)
+				.tint(.primary)
+			Spacer()
+			SFSymbols.arrowUpForward
 		}
 	}
-
-	private var confetti: some View {
-		HStack {
-			SettingsIcon(icon: SFSymbols.sparkles, bgColor: .pink)
-			Toggle("settings.misc.confetti", isOn: $isConfettiEnabled)
-				.tint(.accentColor)
-		}
-	}
-
-	private var preview: some View {
-		VStack {
-			HStack {
-				SettingsIcon(icon: SFSymbols.handTap, bgColor: .indigo)
-				Toggle("settings.misc.preview", isOn: $isPreviewEnabled)
-					.tint(.accentColor)
-			}
-			Picker("settings.misc.previewtype.title", selection: $contextPreviewType) {
-				ForEach(ContextPreviewType.allCases) { (type) in
-					Text(LocalizedStringKey(type.title))
-						.tag(type.rawValue)
-				}
-			}
-			.pickerStyle(.segmented)
-			.disabled(!isPreviewEnabled)
-		}
-	}
-
+	
 	private var advancedSection: some View {
 		Section {
 			resetAppSettingsButton
@@ -266,10 +206,11 @@ private extension SettingsView {
 			Text("settings.advanced.footer")
 		}
 	}
-
+	
 	private var resetAppSettingsButton: some View {
-		HStack {
-			SettingsIcon(icon: SFSymbols.gearFilled, bgColor: .red)
+		settingsRow {
+			SettingsIcon(icon: SFSymbols.gear, accent: .red)
+		} content: {
 			Button(role: .destructive) {
 				vm.isConfirmingResetSettings.toggle()
 			} label: {
@@ -277,10 +218,11 @@ private extension SettingsView {
 			}
 		}
 	}
-
+	
 	private var resetAppDataButton: some View {
-		HStack {
-			SettingsIcon(icon: SFSymbols.personFolder, bgColor: .red)
+		settingsRow {
+			SettingsIcon(icon: SFSymbols.personFolder, accent: .red)
+		} content: {
 			Button(role: .destructive) {
 				vm.isConfirmingResetUserData.toggle()
 			} label: {
@@ -288,7 +230,7 @@ private extension SettingsView {
 			}
 		}
 	}
-
+	
 	private var devTeamSection: some View {
 		Section {
 			Label {
@@ -310,7 +252,17 @@ private extension SettingsView {
 			Label { Text("settings.sections.devTeam") } icon: { SFSymbols.handsSparklesFilled }
 		}
 	}
-
+	
+	private var onboarding: some View {
+		settingsRow {
+			SettingsIcon(icon: SFSymbols.handWave, accent: .defaultAccentColor)
+		} content: {
+			NavigationLink("settings.general.onboarding") {
+				OnboardContainerView()
+			}
+		}
+	}
+	
 	private var acknowledgements: some View {
 		Section {
 			NavigationLink("settings.sections.ack") {
@@ -318,21 +270,21 @@ private extension SettingsView {
 			}
 		}
 	}
-
+	
 	private var appNameAndLogo: some View {
 		VStack(spacing: 8) {
 			HStack {
 				Spacer()
 				Text("TaskGuru \(vm.appVersionNumber) (\(vm.appBuildNumber))")
-					.font(.system(.callout))
+					.font(.callout)
 					.foregroundColor(.secondary)
 				Spacer()
 			}
-
+			
 			if let icon = AppIconType(rawValue: activeAppIcon)?.iconImage {
-				icon.asIconSize()
+				icon.asIcon()
 			} else {
-				Image("app-logo").asIconSize()
+				Image("app-logo").asIcon()
 			}
 		}
 	}
@@ -340,6 +292,6 @@ private extension SettingsView {
 
 struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
-		SettingsView()
+		SettingsScreen()
 	}
 }
