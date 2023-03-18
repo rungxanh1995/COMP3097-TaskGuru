@@ -24,7 +24,7 @@ struct RootScreen: View {
 					SFSymbols.bulletList
 					if isTabNamesEnabled { Text("Home") }
 				}
-			PendingView()
+			PendingScreen()
 				.tag(Tab.pending)
 				.tabItem {
 					SFSymbols.clock

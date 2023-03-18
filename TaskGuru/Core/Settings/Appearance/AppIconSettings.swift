@@ -19,7 +19,7 @@ struct AppIconSettings: View {
 						Label {
 							Text(LocalizedStringKey(appIcon.title))
 						} icon: {
-							appIcon.iconImage.asIconSize()
+							appIcon.iconImage.asSettingsIcon()
 						}
 						.tag(appIcon.rawValue)
 					}

@@ -1,21 +1,21 @@
 //
-//  HomeScreen.swift
+//  PendingScreen.swift
 //  TaskGuru
 //
-//  Created by Marco Stevanella on 2023-02-17.
-//  Student ID: 101307949
+//  Created by Joe Pham on 2023-02-16.
+//	Student ID: 101276573
 //
 
 import SwiftUI
 
-struct HomeScreen: View {
+struct PendingScreen: View {
 	@EnvironmentObject private var vm: HomeViewModel
 	@StateObject private var tabState: AppState = .init()
 	@State private var selectedTask: TaskItem?
-
+	
 	@Preference(\.isConfettiEnabled) private var isConfettiEnabled
 	@State private var confettiCounter: Int = 0
-
+	
 	@Preference(\.isTodayDuesHighlighted) private var duesHighlighted
 	@Preference(\.isPreviewEnabled) private var isPreviewEnabled
 	@Preference(\.contextPreviewType) private var previewType
@@ -24,12 +24,13 @@ struct HomeScreen: View {
 		NavigationStack(path: $tabState.navPath) {
 			ZStack {
 				if vm.noPendingTasksLeft {
-					emptyTaskText.padding()
+					emptyStateImage().padding()
 				} else {
 					List {
-						overdueSection
-						todaysDate
-						upcomingSection
+						pendingInThePastSection
+						pendingTodaySection
+						pendingFromTomorrowSection
+						encouragingMessage.listRowBackground(Color.clear)
 					}
 				}
 			}
@@ -40,20 +41,13 @@ struct HomeScreen: View {
 			}
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
-				ToolbarItem(placement: .navigationBarLeading) {
-					todaysDate
-				}
 				ToolbarItem(placement: .principal) {
-					NavigationTitle(text: "home.nav.title")
+					NavigationTitle(text: "pending.nav.title")
 				}
 				ToolbarItem(placement: .primaryAction) {
 					addTaskButton
 				}
-				ToolbarItem(placement: .secondaryAction) {
-					clearDoneTasksButton
-				}
 			}
-			.searchable(text: $vm.searchText)
 			.sheet(isPresented: $vm.isShowingAddTaskView) {
 				AddTaskScreen(vm: .init(parentVM: self.vm))
 			}
@@ -65,71 +59,66 @@ struct HomeScreen: View {
 	}
 }
 
-extension HomeScreen {
-	private var emptyTaskText: some View {
-		VStack {
+extension PendingScreen {
+	private func emptyStateImage(alignment: HorizontalAlignment = .center) -> some View {
+		VStack(alignment: alignment) {
 			makeCheerfulDecorativeImage()
-
-			let emptyTaskListSentence = LocalizedStringKey("Nothing yet. Tap here or \(SFSymbols.plusCircled) to add more")
-			Text(emptyTaskListSentence)
+			
+			Text("pending.info.listEmty")
 				.font(.callout)
 				.foregroundColor(.secondary)
 		}
-		.onTapGesture { vm.isShowingAddTaskView.toggle() }
 	}
-
-	private var emptyFilteredListText: some View {
-		Text("home.info.sectionEmpty")
-			.font(.callout)
+	
+	private var encouragingMessage: some View {
+		Text("pending.info.listNotEmpty")
+			.font(.footnote)
 			.foregroundColor(.secondary)
 	}
-
-	private var overdueSection: some View {
-		Section {
-			let overdues = vm.searchResults.filter { $0.dueDate.isPastToday }
-
-			if overdues.isEmpty {
-				emptyFilteredListText
-			} else {
-				filteredList(of: overdues)
+	
+	@ViewBuilder private var pendingInThePastSection: some View {
+		let pendings = vm.pendingTasks.filter { $0.dueDate.isPastToday }
+		
+		if pendings.isEmpty == false {
+			Section {
+				filteredList(of: pendings)
+			} header: {
+				Text("pending.sections.overdue").bold().foregroundColor(.appPink)
 			}
-		} header: {
-			Text("home.sections.overdue").bold().foregroundColor(.pink)
 		}
 	}
-
-	private var dueTodaySection: some View {
+	
+	@ViewBuilder private var pendingTodaySection: some View {
+		let pendings = vm.pendingTasks.filter { $0.dueDate.isWithinToday }
+		
 		Section {
-			let dues = vm.searchResults.filter { $0.dueDate.isWithinToday }
-			
-			if dues.isEmpty {
-				emptyFilteredListText
-			} else {
-				filteredList(of: dues)
+			if pendings.isEmpty == false {
+				filteredList(of: pendings)
 					.if(duesHighlighted) { list in
-						list
-							.listRowBackground(DynamicHighlightBackground())
+						list.listRowBackground(DynamicHighlightBackground())
 					}
-			}
-		} header: {
-			Text("home.sections.dueToday").bold().foregroundColor(.yellow)
-		}
-	}
-
-	private var upcomingSection: some View {
-		Section {
-			let upcomings = vm.searchResults.filter { $0.dueDate.isFromTomorrow }
-			
-			if upcomings.isEmpty {
-				emptyFilteredListText
 			} else {
-				filteredList(of: upcomings)
+				// leading alignment to workaround weird-looking list separator
+				emptyStateImage(alignment: .leading).listRowBackground(Color.clear)
 			}
 		} header: {
-			Text("home.sections.upcoming").bold().foregroundColor(.teal)
+			Text("pending.sections.dueToday").bold().foregroundColor(.appYellow)
 		}
 	}
-
+	
+	@ViewBuilder private var pendingFromTomorrowSection: some View {
+		let pendings = vm.pendingTasks.filter { $0.dueDate.isFromTomorrow }
+		
+		if pendings.isEmpty == false {
+			Section {
+				filteredList(of: pendings)
+			} header: {
+				Text("pending.sections.upcoming").bold().foregroundColor(.appTeal)
+			}
+		}
+	}
+	
+	@ViewBuilder
 	private func filteredList(of tasks: [TaskItem]) -> some View {
 		ForEach(tasks) { task in
 			NavigationLink(value: task) {
@@ -146,50 +135,59 @@ extension HomeScreen {
 			}
 			.swipeActions(edge: .leading) {
 				switch task.status {
-				case .new:
-					markInProgressButton(for: task).tint(.yellow)
-				case .inProgress:
-					markNewButton(for: task).tint(.teal)
-				case .done:
-					markNewButton(for: task).tint(.teal)
-					markInProgressButton(for: task).tint(.yellow)
+				case .new: markInProgressButton(for: task).tint(.appYellow)
+				case .inProgress: markNewButton(for: task).tint(.appTeal)
+				case .done: EmptyView()
 				}
 			}
 			.swipeActions(edge: .trailing, allowsFullSwipe: true) {
-				deleteButton(for: task).tint(.pink)
-				if task.isNotDone {
-					markDoneButton(for: task).tint(.indigo)
-				}
+				deleteButton(for: task).tint(.appPink)
+				// all tasks in this view are pending ones,
+				// so no need to conditional check to render this button
+				markDoneButton(for: task).tint(.appIndigo)
 			}
 		}
 	}
 	
 	@ViewBuilder
 	private func makeContextMenu(for task: TaskItem) -> some View {
-		if task.isNotDone {
-			Button {
-				withAnimation { vm.markAsDone(task) }
-				if isConfettiEnabled { confettiCounter += 1 }
-			} label: {
-				Label { Text("Mark as Done") } icon: { SFSymbols.checkmark }
-			}
+		markAsButtons(for: task)
+		
+		Button {
+			selectedTask = task
+		} label: {
+			Label { Text("contextMenu.task.edit") } icon: { SFSymbols.pencilSquare }
 		}
-		Button { selectedTask = task } label: {
-			Label { Text("Edit") } icon: { SFSymbols.pencilSquare }
-		}
-		Divider()
 		
 		Menu {
 			Button(role: .cancel) {} label: {
-				Label { Text("Cancel") } icon: { SFSymbols.xmark }
+				Label { Text("contextMenu.cancel") } icon: { SFSymbols.xmark }
 			}
 			Button(role: .destructive) {
 				withAnimation { vm.delete(task) }
+				haptic(.success)
 			} label: {
-				Label { Text("Delete") } icon: { SFSymbols.trash }
+				Label { Text("contextMenu.task.delete") } icon: { SFSymbols.trash }
 			}
 		} label: {
-			Label { Text("Delete") } icon: { SFSymbols.trash }
+			Label { Text("contextMenu.task.delete") } icon: { SFSymbols.trash }
+		}
+	}
+	
+	@ViewBuilder private func markAsButtons(for task: TaskItem) -> some View {
+		switch task.status {
+		case .new:
+			Section {
+				markInProgressButton(for: task)
+				markDoneButton(for: task)
+			} header: { Text("contextMenu.task.markAs") }
+		case .inProgress:
+			Section {
+				markNewButton(for: task)
+				markDoneButton(for: task)
+			} header: { Text("contextMenu.task.markAs") }
+		case .done:
+			EmptyView()
 		}
 	}
 	
@@ -238,40 +236,20 @@ extension HomeScreen {
 		}
 	}
 	
-	private var todaysDate: some View {
-		Label {
-			Text(Date().formatted(.dateTime.weekday().day()))
-				.bold()
-		} icon: {
-			SFSymbols.calendarWithClock
-		}
-		.labelStyle(.titleAndIcon)
-		.foregroundColor(.yellow)
-	}
-	
 	private var addTaskButton: some View {
 		Button {
 			vm.isShowingAddTaskView.toggle()
 		} label: {
-			Label { Text("Add Task") } icon: { SFSymbols.plus }
+			Label { Text("label.task.add") } icon: { SFSymbols.plus }
 		}
 		.buttonStyle(.bordered)
 		.buttonBorderShape(.capsule)
 	}
-
-	private var clearDoneTasksButton: some View {
-		Button(role: .destructive) {
-			haptic(.warning)
-			withAnimation { vm.isConfirmingClearDoneTasks.toggle() }
-		} label: {
-			Label { Text("contextMenu.clearDoneTasks") } icon: { SFSymbols.trash }
-		}
-	}
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct PendingView_Previews: PreviewProvider {
 	static var previews: some View {
-		HomeScreen()
+		PendingScreen()
 			.environmentObject(HomeViewModel())
 	}
 }

@@ -36,6 +36,8 @@
 		2C8837D429C5FDA0004CAE4E /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 2C8837D329C5FDA0004CAE4E /* SFSafeSymbols */; };
 		2C8837D729C5FE7C004CAE4E /* BontFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837D629C5FE7C004CAE4E /* BontFontModifier.swift */; };
 		2C8837D929C5FEED004CAE4E /* FontWidthModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837D829C5FEED004CAE4E /* FontWidthModifier.swift */; };
+		2C8837DB29C60906004CAE4E /* DynamicColorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837DA29C60906004CAE4E /* DynamicColorLabel.swift */; };
+		2C8837DD29C6093F004CAE4E /* DynamicHighlightBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837DC29C6093F004CAE4E /* DynamicHighlightBackground.swift */; };
 		2C8C35ED2984934E00DCEA67 /* TaskGuruApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */; };
 		2C8C35EF2984934E00DCEA67 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EE2984934E00DCEA67 /* HomeScreen.swift */; };
 		2C8C35F12984934E00DCEA67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C35F02984934E00DCEA67 /* Assets.xcassets */; };
@@ -54,7 +56,7 @@
 		2CB63A30299F235100271BD8 /* OnboardFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A2F299F235100271BD8 /* OnboardFeature.swift */; };
 		2CB63A32299F236B00271BD8 /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A31299F236B00271BD8 /* OnboardView.swift */; };
 		2CB63A34299F239200271BD8 /* OnboardContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A33299F239200271BD8 /* OnboardContainerView.swift */; };
-		2CB63A37299F23FF00271BD8 /* PendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A36299F23FF00271BD8 /* PendingView.swift */; };
+		2CB63A37299F23FF00271BD8 /* PendingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A36299F23FF00271BD8 /* PendingScreen.swift */; };
 		2CB63A39299F250200271BD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A38299F250200271BD8 /* AppDelegate.swift */; };
 		2CB63A3B299F253100271BD8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB63A3A299F253100271BD8 /* UIApplication.swift */; };
 		2CC55CE629A704F9001D64F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CC55CE829A704F9001D64F3 /* Localizable.strings */; };
@@ -101,6 +103,8 @@
 		2C8837D029C5FD3B004CAE4E /* AccentPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentPalette.swift; sourceTree = "<group>"; };
 		2C8837D629C5FE7C004CAE4E /* BontFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BontFontModifier.swift; sourceTree = "<group>"; };
 		2C8837D829C5FEED004CAE4E /* FontWidthModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWidthModifier.swift; sourceTree = "<group>"; };
+		2C8837DA29C60906004CAE4E /* DynamicColorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicColorLabel.swift; sourceTree = "<group>"; };
+		2C8837DC29C6093F004CAE4E /* DynamicHighlightBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHighlightBackground.swift; sourceTree = "<group>"; };
 		2C8C35E92984934E00DCEA67 /* TaskGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGuruApp.swift; sourceTree = "<group>"; };
 		2C8C35EE2984934E00DCEA67 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -119,7 +123,7 @@
 		2CB63A2F299F235100271BD8 /* OnboardFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardFeature.swift; sourceTree = "<group>"; };
 		2CB63A31299F236B00271BD8 /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
 		2CB63A33299F239200271BD8 /* OnboardContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardContainerView.swift; sourceTree = "<group>"; };
-		2CB63A36299F23FF00271BD8 /* PendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingView.swift; sourceTree = "<group>"; };
+		2CB63A36299F23FF00271BD8 /* PendingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingScreen.swift; sourceTree = "<group>"; };
 		2CB63A38299F250200271BD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB63A3A299F253100271BD8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		2CC55CE729A704F9001D64F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -259,9 +263,9 @@
 		2C8837CA29C4FB41004CAE4E /* Appearance */ = {
 			isa = PBXGroup;
 			children = (
+				2C8837CB29C4FB59004CAE4E /* AppearanceScreen.swift */,
 				2C21940229A9943D00CA0DF9 /* AppIconSettings.swift */,
 				2C21940429A9946500CA0DF9 /* AccentColorSettings.swift */,
-				2C8837CB29C4FB59004CAE4E /* AppearanceScreen.swift */,
 			);
 			path = Appearance;
 			sourceTree = "<group>";
@@ -399,7 +403,7 @@
 		2CB63A35299F23F400271BD8 /* Pending */ = {
 			isa = PBXGroup;
 			children = (
-				2CB63A36299F23FF00271BD8 /* PendingView.swift */,
+				2CB63A36299F23FF00271BD8 /* PendingScreen.swift */,
 			);
 			path = Pending;
 			sourceTree = "<group>";
@@ -458,7 +462,9 @@
 		EC60753729A00CA0008A1CD4 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				2C8837DA29C60906004CAE4E /* DynamicColorLabel.swift */,
 				EC60753829A00CD5008A1CD4 /* NavigationTitle.swift */,
+				2C8837DC29C6093F004CAE4E /* DynamicHighlightBackground.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -549,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CB63A20299F214500271BD8 /* SchemeType.swift in Sources */,
+				2C8837DD29C6093F004CAE4E /* DynamicHighlightBackground.swift in Sources */,
 				EC60754029A02910008A1CD4 /* HomeListCell.swift in Sources */,
 				2C2AED322991AF28000C5399 /* View.swift in Sources */,
 				ECB9FF1929C4C43C00F84406 /* HomeViewModel.swift in Sources */,
@@ -566,11 +573,12 @@
 				2C21940129A9941700CA0DF9 /* SettingsIcon.swift in Sources */,
 				2C12599729A1996200DD96E4 /* Color.swift in Sources */,
 				2C114C2F29A3B6FA0003F7E1 /* ContextPreviewType.swift in Sources */,
+				2C8837DB29C60906004CAE4E /* DynamicColorLabel.swift in Sources */,
 				2C8837D129C5FD3B004CAE4E /* AccentPalette.swift in Sources */,
 				2CB63A32299F236B00271BD8 /* OnboardView.swift in Sources */,
 				2C21940529A9946500CA0DF9 /* AccentColorSettings.swift in Sources */,
 				2C12599329A1987000DD96E4 /* FontDesign.swift in Sources */,
-				2CB63A37299F23FF00271BD8 /* PendingView.swift in Sources */,
+				2CB63A37299F23FF00271BD8 /* PendingScreen.swift in Sources */,
 				ECB9FF1B29C4C54400F84406 /* AddTaskViewModel.swift in Sources */,
 				2CB63A2C299F21EE00271BD8 /* PublisherObservableObject.swift in Sources */,
 				2C4C16F029A6CFD40056709E /* Image.swift in Sources */,
