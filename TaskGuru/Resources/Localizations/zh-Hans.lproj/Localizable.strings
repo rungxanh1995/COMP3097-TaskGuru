@@ -7,249 +7,284 @@
 */
 
 // MARK: Onboarding
+"onboarding.title" = "Welcome to TaskGuru";
+"onboarding.privacy" = "We respect our users' privacy and do not collect any personal data for advertising or commercial purposes in this app. You can trust that your information will remain secure and protected, even across device restores, with the use of iCloud backup.";
 /* Buttons */
-"onboarding.buttons.onboarding.dismiss" = "我准备好了！";
-"onboarding.buttons.onboarded.dismiss" = "忽略";
+"onboarding.buttons.onboarding.dismiss" = "Continue";
+"onboarding.buttons.onboarded.dismiss" = "Dismiss";
 
-"onboarding.features.home.title" = "主页选项卡";
-"onboarding.features.home.description" = "任务按完成时间分类，得方便跟踪逾期、今天到期、和即将到期的任务";
-"onboarding.features.pendingTab.title" = "待处中任务选项卡";
-"onboarding.features.pendingTab.description" = "在这里查找未完成的任务";
-"onboarding.features.appBadge.title" = "程序图标徽章";
-"Track all or time-based pending tasks at a glance. Find this in %@ Settings" = "一目了然地跟踪所有或基于时间的待处中任务。在 %@ 设置选项卡 里找到它";
-"onboarding.features.quickActions.title" = "上下文菜单";
-"onboarding.features.quickActions.description" = "从列表中点击并长按每个任务以使用上下文菜单";
-
-
-/* SHARED */
-/* Task types */
-"taskItem.type.personal" = "个人";
-/* "Work" can also be understood as "business" */
-"taskItem.type.work" = "工作";
-/* "School" can also be understood as "educational" */
-"taskItem.type.school" = "教育";
-"taskItem.type.coding" = "编程";
-"taskItem.type.other" = "其他";
-
-/* Task statuses */
-/* "New" can also be understood as "newly created" */
-"taskItem.status.new" = "新的";
-"taskItem.status.inProgress" = "进行中";
-"taskItem.status.done" = "已完成";
-
-/* Navigation/Context menu - Quick actions in Home & Pending tabs */
-"contextMenu.task.markAs" = "编辑任务为...?";
-"contextMenu.task.markNew" = "编辑为新的";
-"contextMenu.task.markInProgress" = "编辑为进行中";
-"contextMenu.task.markDone" = "编辑为已完成";
-"contextMenu.task.edit" = "编辑";
-"contextMenu.task.delete" = "删除";
-"contextMenu.cancel" = "取消";
-"contextMenu.ok" = "OK";
-
-/* Add Task button in Home & Pending tabs */
-"label.task.add" = "添加任务";
-
-
-/* HOME */
-/* Tab name */
-"home.tab.title" = "主页";
-/* Navigation title */
-"home.nav.title" = "所有任务";
-/* Section titles */
-"home.sections.overdue" = "逾期";
-"home.sections.dueToday" = "今天到期";
-"home.sections.upcoming" = "即将到期";
-/* Empty list sentence */
-"home.info.sectionEmpty" = "暂无任务";
-/* All tasks empty sentence */
-"Nothing yet. Tap here or %@ to add more" = "还没有什么。 点击这里或 %@ 添加更多";
+"onboarding.features.home.title" = "Home tab";
+"onboarding.features.home.description" = "Tasks categorized by section to easily track overdue, due today, and upcoming ones";
+"onboarding.features.pendingTab.title" = "Pending Tasks tab";
+"onboarding.features.pendingTab.description" = "Find your undone tasks here";
+"onboarding.features.appBadge.title" = "App icon badge";
+"Track all or time-based pending tasks at a glance. Find this in %@ Settings" = "Track all or time-based pending tasks at a glance. Find this in %@ Settings";
+"onboarding.features.quickActions.title" = "Quick Actions";
+"onboarding.features.quickActions.description" = "Tap and hold or swipe each task from the list to use quick actions";
+"onboarding.features.customization.title" = "Customizations";
+"onboarding.features.customization.description" = "Explore a heap of settings to personalize TaskGuru to your liking";
 
 
 // MARK: Shared
-/* Pending tab name */
-"pending.tab.title" = "待处中";
-/* Navigation title */
-"pending.nav.title" = "待处中的任务";
-/* Section titles */
-"pending.sections.overdue" = "逾期";
-"pending.sections.dueToday" = "今天到期";
-"pending.sections.upcoming" = "即将到期";
+/* Task types */
+"taskItem.type.personal" = "Personal";
+/* "Work" can also be understood as "business" */
+"taskItem.type.work" = "Work";
+/* "School" can also be understood as "educational" */
+"taskItem.type.school" = "School";
+"taskItem.type.coding" = "Coding";
+"taskItem.type.other" = "Other";
 
-"pending.info.fetchingData" = "正在获取数据";
-"pending.info.listEmty" = "你自由了！享受你应得的休息时间 🥳";
-"pending.info.listNotEmpty" = "不要给自己太多压力。你能弄它们所有 💪";
+/* Task statuses */
+/* "New" can also be understood as "newly created" */
+"taskItem.status.new" = "New";
+"taskItem.status.inProgress" = "In progress";
+"taskItem.status.done" = "Done";
+
+/* Task priorities */
+"taskItem.priority.none" = "None";
+"taskItem.priority.low" = "Low";
+"taskItem.priority.medium" = "Medium";
+"taskItem.priority.high" = "High";
+
+/* Navigation/Context menu - Quick actions in Home & Pending tabs */
+"contextMenu.task.markAs" = "Mark Task as...?";
+"contextMenu.task.markNew" = "Mark as New";
+"contextMenu.task.markInProgress" = "Mark as In progress";
+"contextMenu.task.markDone" = "Mark as Done";
+"contextMenu.task.edit" = "Edit";
+"contextMenu.task.delete" = "Delete";
+"contextMenu.cancel" = "Cancel";
+"contextMenu.ok" = "OK";
+"contextMenu.clearDoneTasks" = "Clear Done Tasks";
+
+/* Add Task button in Home & Pending tabs */
+"label.task.add" = "Add Task";
+
+
+// MARK: Home
+/* Tab name */
+"home.tab.title" = "Home";
+/* Navigation title */
+"home.nav.title" = "All Tasks";
+/* Section titles */
+"home.sections.overdue" = "OVERDUE";
+"home.sections.dueToday" = "DUE TODAY";
+"home.sections.upcoming" = "UPCOMING";
+/* Empty list sentence */
+"home.info.sectionEmpty" = "No tasks";
+/* All tasks empty sentence */
+"Nothing yet. Tap here or %@ to add more" = "Add new tasks by tapping %@, and they'll show up here";
+/* Confirm dialogs */
+"home.clearDoneTasks.alert" = "Are you sure to clear all tasks that are completed?\nThis action cannot be undone";
+
+
+// MARK: Pending
+/* Tab name */
+"pending.tab.title" = "Pending";
+/* Navigation title */
+"pending.nav.title" = "Pending Tasks";
+/* Section titles */
+"pending.sections.overdue" = "OVERDUE";
+"pending.sections.dueToday" = "DUE TODAY";
+"pending.sections.upcoming" = "UPCOMING";
+
+"pending.info.fetchingData" = "Fetching data";
+"pending.info.listEmty" = "You're free! Enjoy your much deserved time 🥳";
+"pending.info.listNotEmpty" = "Don't stress yourself too much. You got it 💪";
 
 
 // MARK: Add
 /* Navigation title */
-"addTask.nav.title" = "添加任务";
+"addTask.nav.title" = "Add Task";
 /* Navigation action button */
-"addTask.nav.button.cancel" = "取消";
-"addTask.nav.button.add" = "添加";
+"addTask.nav.button.cancel" = "Cancel";
+"addTask.nav.button.add" = "Add";
 /* Section titles */
-"addTask.sections.general" = "通用";
-"addTask.sections.notes" = "备注";
+"addTask.sections.general" = "General";
+"addTask.sections.notes" = "Notes";
 /* Inputs */
-"addTask.input.name" = "名称";
-"addTask.input.dueDate" = "到期日";
-"addTask.input.type" = "类型";
-"addTask.input.status" = "状态";
-"addTask.input.notes" = "备注";
-"addTask.input.placeholder.notes" = "额外的备注...";
+"addTask.input.name" = "Name";
+"addTask.input.dueDate" = "Due Date";
+"addTask.input.type" = "Type";
+"addTask.input.status" = "Status";
+"addTask.input.priority" = "Priority";
+"addTask.input.notes" = "Notes";
+"addTask.input.placeholder.notes" = "Any extra notes...";
 
 
 // MARK: Detail
 /* Navigation title */
-"taskDetail.nav.title" = "任务细节";
+"taskDetail.nav.title" = "Task Detail";
 
 /* Grid cells */
-"taskDetail.cell.name.caption" = "名称";
-"taskDetail.cell.status.caption" = "状态";
-"taskDetail.cell.dueDate.caption" = "到期日";
-"taskDetail.cell.type.caption" = "类型";
-"taskDetail.cell.notes.caption" = "备注";
+"taskDetail.cell.name.caption" = "Name";
+"taskDetail.cell.status.caption" = "Status";
+"taskDetail.cell.dueDate.caption" = "Due Date";
+"taskDetail.cell.type.caption" = "Type";
+"taskDetail.cell.priority.caption" = "Priority";
+"taskDetail.cell.notes.caption" = "Notes";
 
 /* Alerts */
-"taskDetail.alert.markAsDone" = "编辑为已完成?";
-"taskDetail.alert.deleteTask" = "删除任务?";
+"taskDetail.alert.markAsDone" = "Mark Task as Done?";
+"taskDetail.alert.deleteTask" = "Delete Task?";
 
-"Last updated at %@" = "最后更新于 %@";
+"Last updated at %@" = "Last updated at %@";
 
 
 // MARK: Edit
 /* Navigation title */
-"editTask.nav.title" = "编辑任务";
+"editTask.nav.title" = "Edit Task";
 /* Navigation action button */
-"editTask.nav.button.cancel" = "取消";
-"editTask.nav.button.save" = "编辑";
+"editTask.nav.button.cancel" = "Cancel";
+"editTask.nav.button.save" = "Save";
 /* Section titles */
-"editTask.sections.general" = "通用";
-"editTask.sections.notes" = "备注";
+"editTask.sections.general" = "General";
+"editTask.sections.notes" = "Notes";
 
 /* Inputs */
-"editTask.input.name" = "名称";
-"editTask.input.dueDate" = "到期日";
-"editTask.input.type" = "类型";
-"editTask.input.status" = "状态";
-"editTask.input.notes" = "备注";
-"editTask.input.placeholder.notes" = "额外的备注...";
+"editTask.input.name" = "Name";
+"editTask.input.dueDate" = "Due Date";
+"editTask.input.type" = "Type";
+"editTask.input.status" = "Status";
+"editTask.input.priority" = "Priority";
+"editTask.input.notes" = "Notes";
+"editTask.input.placeholder.notes" = "Any extra notes...";
 
 
 // MARK: Settings
 /* Tab name */
-"settings.tab.title" = "设置";
+"settings.tab.title" = "Settings";
 /* Navigation title */
-"settings.nav.title" = "设置";
+"settings.nav.title" = "Settings";
 
 /* Section titles */
-"settings.sections.general" = "通用";
-"settings.sections.badge" = "标志";
-"settings.sections.misc" = "杂项";
-"settings.sections.advanced" = "高级";
-"settings.sections.devTeam" = "软件开发队";
-"settings.sections.ack" = "致谢";
+"settings.sections.general" = "General";
+"settings.sections.badge" = "Badge";
+"settings.sections.misc" = "Miscellaneous";
+"settings.sections.advanced" = "Advanced";
+"settings.sections.devTeam" = "Meet The Team";
+"settings.sections.ack" = "Acknowledgments";
 
 /* General section */
-"settings.general.onboarding" = "入职屏幕";
-"settings.general.appIcon" = "应用图标";
-"settings.general.portraitLock" = "竖排方向锁定";
-"settings.general.reduceHaptics" = "减少触感触控";
-"settings.general.accentColor" = "主题颜色";
-"settings.general.fontStyle" = "字体";
-"settings.general.colorTheme" = "外观主题";
+"settings.general.onboarding" = "Onboarding screen";
+"settings.general.appearance" = "Appearance";
+"settings.general.appIcon" = "App Icon";
+"settings.general.portraitLock" = "Portrait Lock";
+"settings.general.reduceHaptics" = "Reduce Haptics";
+"settings.general.accentColor" = "Accent Color";
+"settings.general.fontStyle" = "Font Style";
+"settings.general.fontWidth" = "Font Width";
+"settings.general.colorTheme" = "Color Theme";
+"settings.general.boldText" = "Bold Text";
+"settings.general.highlight" = "Highlight Today's Dues";
+
+"settings.general.relDateTime" = "Relative Time Format";
+"settings.general.relDateTime.footer" = "E.g. \"1 month ago\" instead of \"YYYY-MM-DD\"";
 
 /* Badge section */
-"settings.badge.appIcon" = "显示应用图标的标志";
-"settings.badge.appIconType" = "程序图标徽章类型";
-"settings.badge.tab" = "显示选项卡标记";
-"settings.badge.footer" = "在主屏幕上显示任务的数量。 如果没有显示徽章，请检查你的通知设置。";
+"settings.badge.appIcon" = "Show App Icon Badge";
+"settings.badge.appIconType" = "App Icon Badge Type";
+"settings.badge.notifSetting" = "Go to Notifications setting";
+"settings.badge.tab" = "Show Tab Badge";
+"settings.badge.footer" = "Icon badge shows a number of tasks on Home screen. Review your Notification settings if no badge shown.";
 
 /* Misc section */
-"settings.misc.tabNames" = "选项卡标题";
-"settings.misc.confetti" = "切换五彩纸屑 🎉";
-"settings.misc.preview" = "触觉触摸预览";
-"settings.misc.footer" = "长按列表中的任务会在启用时显示任务的上下文菜单。";
+"settings.misc.language" = "Language";
+"settings.misc.tabNames" = "Tab Names";
+"settings.misc.confetti" = "Toggle Confetti 🎉";
+"settings.misc.preview" = "Preview on Haptic Touch";
+"settings.misc.footer" = "Long pressing a task from a list reveals a context menu for the task when enabled.";
 
 /* Advanced section */
 /* Footer */
-"settings.advanced.footer" = "注意，这些会删除所有你的数据！重新启动应用程序以查看所有更改。";
+"settings.advanced.footer" = "Be careful, these remove all your data! Restart the app to see all changes.";
 
 /* Confirm dialogs */
-"settings.advanced.resetSettings.alert" = "应用设置将被重置。\n此操作无法撤销";
-"settings.advanced.resetUserData.alert" = "所有任务都将被删除。\n此操作无法撤销";
+"settings.advanced.resetSettings.alert" = "App settings would reset.\nThis action cannot be undone";
+"settings.advanced.resetUserData.alert" = "All your tasks would be deleted.\nThis action cannot be undone";
 
 /* Buttons */
-"settings.advanced.resetSettings" = "重置应用设置";
-"settings.advanced.resetSettings.delete" = "删除";
-"settings.advanced.resetSettings.cancel" = "取消";
-"settings.advanced.resetUserData" = "重置你的数据";
-"settings.advanced.resetUserData.delete" = "删除";
-"settings.advanced.resetUserData.cancel" = "取消";
+"settings.advanced.resetSettings" = "Reset App Settings";
+"settings.advanced.resetSettings.delete" = "Delete";
+"settings.advanced.resetSettings.cancel" = "Cancel";
+"settings.advanced.resetUserData" = "Reset Your Data";
+"settings.advanced.resetUserData.delete" = "Delete";
+"settings.advanced.resetUserData.cancel" = "Cancel";
 
 /* App icons */
-"appIcon.dew" = "露珠";
-"appIcon.spring" = "春天";
-"appIcon.summer" = "夏天";
-"appIcon.fall" = "秋天";
-"appIcon.winter" = "冬天";
-"appIcon.sky" = "天空";
-"appIcon.midnight" = "半夜";
-"appIcon.berry" = "浆果";
+"appIcon.dew" = "Dew";
+"appIcon.spring" = "Spring";
+"appIcon.summer" = "Summer";
+"appIcon.fall" = "Fall";
+"appIcon.winter" = "Winter";
+"appIcon.sky" = "Sky";
+"appIcon.midnight" = "Midnight";
+"appIcon.iris" = "Iris";
+"appIcon.berry" = "Berry";
 
 /* Accent colors */
-"accentColor.blue" = "蓝色";
-"accentColor.teal" = "蓝绿色";
-"accentColor.indigo" = "靛蓝色";
-"accentColor.pink" = "粉色";
-"accentColor.berry" = "浆果色";
-"accentColor.red" = "红色";
-"accentColor.orange" = "橙色";
-"accentColor.yellow" = "黄色";
-"accentColor.green" = "绿色";
-"accentColor.mint" = "薄荷";
-"accentColor.clover" = "三叶草";
+"accentColor.blue" = "Blue";
+"accentColor.teal" = "Teal";
+"accentColor.indigo" = "Indigo";
+"accentColor.purple" = "Purple";
+"accentColor.pink" = "Pink";
+"accentColor.berry" = "Berry";
+"accentColor.red" = "Red";
+"accentColor.orange" = "Orange";
+"accentColor.yellow" = "Yellow";
+"accentColor.green" = "Green";
+"accentColor.mint" = "Mint";
+"accentColor.clover" = "Clover";
+
+"settings.appearance.footer" = "Custom font width is available with system font style";
 
 /* Font designs */
-"fontDesign.system" = "系统";
-"fontDesign.rounded" = "圆形";
-"fontDesign.monospaced" = "等宽";
-"fontDesign.serif" = "衬线";
+"fontDesign.system" = "System";
+"fontDesign.rounded" = "Rounded";
+"fontDesign.monospaced" = "Monospaced";
+"fontDesign.serif" = "Serif";
+
+/* Font widths */
+"fontWidth.standard" = "Standard";
+"fontWidth.condensed" = "Condensed";
+"fontWidth.compressed" = "Compressed";
+"fontWidth.expanded" = "Expanded";
 
 /* Color themes */
-"colorTheme.system" = "系统";
-"colorTheme.light" = "浅色";
-"colorTheme.dark" = "深色";
+"colorTheme.system" = "System";
+"colorTheme.light" = "Light";
+"colorTheme.dark" = "Dark";
 
 /* Badge types */
-"badgeType.allPending" = "所有待处中";
-"badgeType.overdue" = "逾期";
-"badgeType.dueToday" = "今天到期";
-"badgeType.upcoming" = "即将到期";
+"badgeType.allPending" = "All Pending";
+"badgeType.overdue" = "Overdue";
+"badgeType.dueToday" = "Due Today";
+"badgeType.upcoming" = "Upcoming";
 
 /* Context preview types */
-"settings.misc.previewtype.title" = "触觉触摸预览类型";
-"settings.misc.previewtype.content.cell" = "表单元格";
-"settings.misc.previewtype.content.detail" = "详细视图";
+"settings.misc.previewtype.title" = "Preview Type on Haptic Touch";
+"settings.misc.previewtype.content.cell" = "Cell";
+"settings.misc.previewtype.content.detail" = "Detail";
 
 
-// MARK: Acknowledgments
+/* ACKNOWLEDGEMENTS */
 /* Navigation title */
-"settings.ack.nav.title" = "致谢";
+"settings.ack.nav.title" = "Acknowledgements";
 
-"settings.ack.devTeam" = "开发团队";
-"settings.ack.localization" = "本地化";
-"settings.ack.dependencies" = "第三方依赖项";
-"settings.ack.license" = "许可证";
+"settings.ack.devTeam" = "Development Team";
+"settings.ack.localization" = "Localization";
+"settings.ack.dependencies" = "Third Party Dependencies";
+"settings.ack.license" = "License";
 
 /* Localization */
-"settings.ack.localization.subtitle" = "非常感谢为 TaskGuru 翻译做出贡献的众多优秀人士";
-"ack.localization.azerbaijani" = "阿塞拜疆语";
-"ack.localization.chineseSim" = "中文（简体）";
-"ack.localization.italian" = "意大利语";
-"ack.localization.portugueseBrazil" = "（巴西）葡萄牙语";
-"ack.localization.ukrainian" = "乌克兰语";
-"ack.localization.vietnamese" = "越南语";
+"settings.ack.localization.subtitle" = "Many thanks to the amazing folks contributing to the translations for TaskGuru";
+"ack.localization.azerbaijani" = "Azerbaijani";
+"ack.localization.chineseSim" = "Chinese (Simplified)";
+"ack.localization.italian" = "Italian";
+"ack.localization.portugueseBrazil" = "Portuguese (Brazillian)";
+"ack.localization.ukrainian" = "Ukrainian";
+"ack.localization.vietnamese" = "Vietnamese";
 
 /* License */
 "settings.ack.license.content" = "© TaskGuru Non-Commercial License

@@ -19,8 +19,12 @@ enum UserDefaultsKey {
 	static let isConfettiEnabled: String = "is-confetti-enabled"
 	static let isTabNamesEnabled: String = "is-tab-names-enabled"
 	static let fontDesign: String = "font-design"
+	static let fontWidth: String = "font-width"
 	static let accentColor: String = "accent-color"
 	static let badgeType: String = "badge-type"
 	static let contextPreviewType: String = "context-preview-type"
 	static let appIcon: String = "app-icon"
+	static let isBoldFont: String = "is-bold-font"
+	static let isTodayDuesHighlighted: String = "is-today-dues-highlighted"
+	static let isRelativeDateTime: String = "is-relative-date-time"
 }

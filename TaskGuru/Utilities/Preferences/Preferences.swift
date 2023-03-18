@@ -49,10 +49,13 @@ final class Preferences {
 	var isTabNamesEnabled: Bool = true
 
 	@UserDefault(UserDefaultsKey.fontDesign)
-	var fontDesign: Int = FontDesignType.allCases.first!.rawValue
+	var fontDesign: Int = FontDesignType.system.rawValue
+
+	@UserDefault(UserDefaultsKey.fontWidth)
+	var fontWidth: Int = FontWidthType.standard.rawValue
 
 	@UserDefault(UserDefaultsKey.accentColor)
-	var accentColor: Int = AccentColorType.allCases.first!.rawValue
+	var accentColor: Int = AccentColorType.clover.rawValue
 
 	@UserDefault(UserDefaultsKey.badgeType)
 	var badgeType: Int = BadgeType.allCases.first!.rawValue
@@ -62,4 +65,13 @@ final class Preferences {
 
 	@UserDefault(UserDefaultsKey.appIcon)
 	var activeAppIcon: Int = AppIconType.allCases.first!.rawValue
+
+	@UserDefault(UserDefaultsKey.isBoldFont)
+	var isBoldFont: Bool = false
+
+	@UserDefault(UserDefaultsKey.isTodayDuesHighlighted)
+	var isTodayDuesHighlighted: Bool = true
+
+	@UserDefault(UserDefaultsKey.isRelativeDateTime)
+	var isRelativeDateTime: Bool = false
 }

@@ -24,12 +24,18 @@
 		2C262B15298A1A0E004C622C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B14298A1A0E004C622C /* Date.swift */; };
 		2C262B18298A1A4A004C622C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B17298A1A4A004C622C /* Constants.swift */; };
 		2C262B1A298A1A54004C622C /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B19298A1A54004C622C /* SFSymbols.swift */; };
-		2C262B1D298A1AAC004C622C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B1C298A1AAC004C622C /* SettingsView.swift */; };
+		2C262B1D298A1AAC004C622C /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C262B1C298A1AAC004C622C /* SettingsScreen.swift */; };
 		2C2AED322991AF28000C5399 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2AED312991AF28000C5399 /* View.swift */; };
 		2C4C16EB29A6CA110056709E /* ConfettiViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C16EA29A6CA110056709E /* ConfettiViewModifier.swift */; };
 		2C4C16EE29A6CF320056709E /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C16ED29A6CF320056709E /* AppIcon.swift */; };
 		2C4C16F029A6CFD40056709E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4C16EF29A6CFD40056709E /* Image.swift */; };
 		2C74150B298B2579006CECDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C74150A298B2579006CECDA /* Launch Screen.storyboard */; };
+		2C8837CC29C4FB59004CAE4E /* AppearanceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837CB29C4FB59004CAE4E /* AppearanceScreen.swift */; };
+		2C8837CF29C5FC80004CAE4E /* FontWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837CE29C5FC80004CAE4E /* FontWidth.swift */; };
+		2C8837D129C5FD3B004CAE4E /* AccentPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837D029C5FD3B004CAE4E /* AccentPalette.swift */; };
+		2C8837D429C5FDA0004CAE4E /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 2C8837D329C5FDA0004CAE4E /* SFSafeSymbols */; };
+		2C8837D729C5FE7C004CAE4E /* BontFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837D629C5FE7C004CAE4E /* BontFontModifier.swift */; };
+		2C8837D929C5FEED004CAE4E /* FontWidthModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837D829C5FEED004CAE4E /* FontWidthModifier.swift */; };
 		2C8C35ED2984934E00DCEA67 /* TaskGuruApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */; };
 		2C8C35EF2984934E00DCEA67 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C35EE2984934E00DCEA67 /* HomeScreen.swift */; };
 		2C8C35F12984934E00DCEA67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C35F02984934E00DCEA67 /* Assets.xcassets */; };
@@ -84,12 +90,17 @@
 		2C262B14298A1A0E004C622C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		2C262B17298A1A4A004C622C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2C262B19298A1A54004C622C /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
-		2C262B1C298A1AAC004C622C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2C262B1C298A1AAC004C622C /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		2C2AED312991AF28000C5399 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		2C4C16EA29A6CA110056709E /* ConfettiViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiViewModifier.swift; sourceTree = "<group>"; };
 		2C4C16ED29A6CF320056709E /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		2C4C16EF29A6CFD40056709E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		2C74150A298B2579006CECDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		2C8837CB29C4FB59004CAE4E /* AppearanceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceScreen.swift; sourceTree = "<group>"; };
+		2C8837CE29C5FC80004CAE4E /* FontWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWidth.swift; sourceTree = "<group>"; };
+		2C8837D029C5FD3B004CAE4E /* AccentPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentPalette.swift; sourceTree = "<group>"; };
+		2C8837D629C5FE7C004CAE4E /* BontFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BontFontModifier.swift; sourceTree = "<group>"; };
+		2C8837D829C5FEED004CAE4E /* FontWidthModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWidthModifier.swift; sourceTree = "<group>"; };
 		2C8C35E92984934E00DCEA67 /* TaskGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8C35EC2984934E00DCEA67 /* TaskGuruApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGuruApp.swift; sourceTree = "<group>"; };
 		2C8C35EE2984934E00DCEA67 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -113,7 +124,6 @@
 		2CB63A3A299F253100271BD8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		2CC55CE729A704F9001D64F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CC55CE929A704FD001D64F3 /* az */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = az; path = az.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2CC55CEA29A704FD001D64F3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2CC55CEB29A704FF001D64F3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2CC55CEC29A70500001D64F3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2CC55CED29A70501001D64F3 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -137,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C8837D429C5FDA0004CAE4E /* SFSafeSymbols in Frameworks */,
 				2CB63A18299F205B00271BD8 /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +168,7 @@
 			children = (
 				2C12598E29A1982D00DD96E4 /* AccentColor.swift */,
 				2C12599029A1984800DD96E4 /* AccentColorModifier.swift */,
+				2C8837D029C5FD3B004CAE4E /* AccentPalette.swift */,
 			);
 			path = "Accent Color";
 			sourceTree = "<group>";
@@ -208,17 +220,19 @@
 				2C4C16EC29A6CF2B0056709E /* App Icon */,
 				2C12598B29A197F300DD96E4 /* Accent Color */,
 				2CD0D60A29A2CF98009157FB /* Badge */,
+				2C8837D529C5FE72004CAE4E /* Bold Font */,
 				2C12598C29A197FA00DD96E4 /* Color Scheme */,
 				2C114C2D29A3B6EB0003F7E1 /* Context Menu */,
 				2C12598D29A1981000DD96E4 /* Font Design */,
+				2C8837CD29C5FC6C004CAE4E /* Font Width */,
 				2CB63A26299F21A700271BD8 /* Preferences */,
 				2CB63A21299F215E00271BD8 /* UserDefaults */,
 				2CB63A19299F20A500271BD8 /* AppState.swift */,
 				2C262B17298A1A4A004C622C /* Constants.swift */,
+				2C4C16EA29A6CA110056709E /* ConfettiViewModifier.swift */,
 				2CB63A1B299F20FD00271BD8 /* HapticManager.swift */,
 				2C12599829A19D2000DD96E4 /* HomeQuickAction.swift */,
 				2C262B19298A1A54004C622C /* SFSymbols.swift */,
-				2C4C16EA29A6CA110056709E /* ConfettiViewModifier.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -226,11 +240,10 @@
 		2C262B1B298A1A89004C622C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				2C262B1C298A1AAC004C622C /* SettingsView.swift */,
+				2C262B1C298A1AAC004C622C /* SettingsScreen.swift */,
 				2C12598929A196AD00DD96E4 /* SettingsViewModel.swift */,
 				2C21940029A9941700CA0DF9 /* SettingsIcon.swift */,
-				2C21940229A9943D00CA0DF9 /* AppIconSettings.swift */,
-				2C21940429A9946500CA0DF9 /* AccentColorSettings.swift */,
+				2C8837CA29C4FB41004CAE4E /* Appearance */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -241,6 +254,33 @@
 				2C4C16ED29A6CF320056709E /* AppIcon.swift */,
 			);
 			path = "App Icon";
+			sourceTree = "<group>";
+		};
+		2C8837CA29C4FB41004CAE4E /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				2C21940229A9943D00CA0DF9 /* AppIconSettings.swift */,
+				2C21940429A9946500CA0DF9 /* AccentColorSettings.swift */,
+				2C8837CB29C4FB59004CAE4E /* AppearanceScreen.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		2C8837CD29C5FC6C004CAE4E /* Font Width */ = {
+			isa = PBXGroup;
+			children = (
+				2C8837CE29C5FC80004CAE4E /* FontWidth.swift */,
+				2C8837D829C5FEED004CAE4E /* FontWidthModifier.swift */,
+			);
+			path = "Font Width";
+			sourceTree = "<group>";
+		};
+		2C8837D529C5FE72004CAE4E /* Bold Font */ = {
+			isa = PBXGroup;
+			children = (
+				2C8837D629C5FE7C004CAE4E /* BontFontModifier.swift */,
+			);
+			path = "Bold Font";
 			sourceTree = "<group>";
 		};
 		2C8C35E02984934E00DCEA67 = {
@@ -441,6 +481,7 @@
 			name = TaskGuru;
 			packageProductDependencies = (
 				2CB63A17299F205B00271BD8 /* ConfettiSwiftUI */,
+				2C8837D329C5FDA0004CAE4E /* SFSafeSymbols */,
 			);
 			productName = TaskGuru;
 			productReference = 2C8C35E92984934E00DCEA67 /* TaskGuru.app */;
@@ -469,7 +510,6 @@
 				en,
 				Base,
 				vi,
-				"zh-Hans",
 				uk,
 				it,
 				az,
@@ -478,6 +518,7 @@
 			mainGroup = 2C8C35E02984934E00DCEA67;
 			packageReferences = (
 				2CB63A16299F205B00271BD8 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+				2C8837D229C5FDA0004CAE4E /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 			);
 			productRefGroup = 2C8C35EA2984934E00DCEA67 /* Products */;
 			projectDirPath = "";
@@ -525,6 +566,7 @@
 				2C21940129A9941700CA0DF9 /* SettingsIcon.swift in Sources */,
 				2C12599729A1996200DD96E4 /* Color.swift in Sources */,
 				2C114C2F29A3B6FA0003F7E1 /* ContextPreviewType.swift in Sources */,
+				2C8837D129C5FD3B004CAE4E /* AccentPalette.swift in Sources */,
 				2CB63A32299F236B00271BD8 /* OnboardView.swift in Sources */,
 				2C21940529A9946500CA0DF9 /* AccentColorSettings.swift in Sources */,
 				2C12599329A1987000DD96E4 /* FontDesign.swift in Sources */,
@@ -537,18 +579,22 @@
 				D033E52829913ECA00F9AF2A /* DetailGridCell.swift in Sources */,
 				ECB9FF1729C4C34100F84406 /* PreviewProvider.swift in Sources */,
 				2CB63A28299F21BA00271BD8 /* Preferences.swift in Sources */,
+				2C8837CC29C4FB59004CAE4E /* AppearanceScreen.swift in Sources */,
 				2C12598A29A196AD00DD96E4 /* SettingsViewModel.swift in Sources */,
 				2C262B12298A19EC004C622C /* TaskItem.swift in Sources */,
+				2C8837D729C5FE7C004CAE4E /* BontFontModifier.swift in Sources */,
 				2C12598F29A1982D00DD96E4 /* AccentColor.swift in Sources */,
 				2CB63A1A299F20A500271BD8 /* AppState.swift in Sources */,
 				D033E52629913E8B00F9AF2A /* DetailScreen.swift in Sources */,
 				ECB9FF1D29C4C5BB00F84406 /* DetailViewModel.swift in Sources */,
 				2C4C16EB29A6CA110056709E /* ConfettiViewModifier.swift in Sources */,
-				2C262B1D298A1AAC004C622C /* SettingsView.swift in Sources */,
+				2C262B1D298A1AAC004C622C /* SettingsScreen.swift in Sources */,
 				2C262B0E298A19CB004C622C /* TaskType.swift in Sources */,
 				2CD0D60C29A2CFA5009157FB /* BadgeType.swift in Sources */,
 				2CB63A30299F235100271BD8 /* OnboardFeature.swift in Sources */,
 				EC60753929A00CD5008A1CD4 /* NavigationTitle.swift in Sources */,
+				2C8837D929C5FEED004CAE4E /* FontWidthModifier.swift in Sources */,
+				2C8837CF29C5FC80004CAE4E /* FontWidth.swift in Sources */,
 				2C92905329A5C5F6009F3389 /* RootView.swift in Sources */,
 				2C262B1A298A1A54004C622C /* SFSymbols.swift in Sources */,
 				2C262B18298A1A4A004C622C /* Constants.swift in Sources */,
@@ -570,7 +616,6 @@
 			children = (
 				2CC55CE729A704F9001D64F3 /* en */,
 				2CC55CE929A704FD001D64F3 /* az */,
-				2CC55CEA29A704FD001D64F3 /* zh-Hans */,
 				2CC55CEB29A704FF001D64F3 /* it */,
 				2CC55CEC29A70500001D64F3 /* pt-BR */,
 				2CC55CED29A70501001D64F3 /* uk */,
@@ -796,6 +841,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2C8837D229C5FDA0004CAE4E /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols";
+			requirement = {
+				kind = exactVersion;
+				version = 4.1.1;
+			};
+		};
 		2CB63A16299F205B00271BD8 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
@@ -807,6 +860,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2C8837D329C5FDA0004CAE4E /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C8837D229C5FDA0004CAE4E /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
 		2CB63A17299F205B00271BD8 /* ConfettiSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2CB63A16299F205B00271BD8 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;

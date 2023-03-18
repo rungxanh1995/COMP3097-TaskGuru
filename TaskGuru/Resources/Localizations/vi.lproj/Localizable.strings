@@ -8,7 +8,10 @@
 
 // MARK: Onboarding
 /* Buttons */
-"onboarding.buttons.onboarding.dismiss" = "Đã sẵn sàng!";
+"onboarding.title" = "Chào mừng đến với TaskGuru";
+"onboarding.privacy" = "Chúng tôi tôn trọng quyền riêng tư của người dùng và không thu thập bất cứ thông tin cá nhân nào cho mục đích quảng cáo hoặc thương mại trong ứng dụng này. Bạn có thể tin tưởng rằng thông tin của mình được bảo mật, cả khi thiết bị được khôi phục từ iCloud.";
+/* Buttons */
+"onboarding.buttons.onboarding.dismiss" = "Tiếp tục";
 "onboarding.buttons.onboarded.dismiss" = "Thoát";
 
 "onboarding.features.home.title" = "Tab Chính";
@@ -18,7 +21,9 @@
 "onboarding.features.appBadge.title" = "Nhãn biểu tượng app";
 "Track all or time-based pending tasks at a glance. Find this in %@ Settings" = "Theo dõi tác vụ còn tồn, tất cả hay phân loại theo thời gian tuỳ ý. Xem thêm trong %@ Cài đặt";
 "onboarding.features.quickActions.title" = "Menu H.động nhanh";
-"onboarding.features.quickActions.description" = "Bấm giữ mỗi tác vụ trong danh sách để truy cập menu ngữ cảnh";
+"onboarding.features.quickActions.description" = "Bấm giữ hoặc vuốt ngang mỗi tác vụ trong danh sách để sử dụng hành động nhanh";
+"onboarding.features.customization.title" = "Cá nhân hoá";
+"onboarding.features.customization.description" = "Khám phá thêm các cài đặt để biến TaskGuru thành của riêng bạn";
 
 
 // MARK: Shared
@@ -34,8 +39,14 @@
 /* Task statuses */
 /* "New" can also be understood as "newly created" */
 "taskItem.status.new" = "Vừa tạo";
-"taskItem.status.inProgress" = "Đang tiến hành";
+"taskItem.status.inProgress" = "Đang làm";
 "taskItem.status.done" = "Đã xong";
+
+/* Task priorities */
+"taskItem.priority.none" = "Không có";
+"taskItem.priority.low" = "Thấp";
+"taskItem.priority.medium" = "Trung bình";
+"taskItem.priority.high" = "Cao";
 
 /* Navigation/Context menu - Quick actions in Home & Pending tabs */
 "contextMenu.task.markAs" = "Đánh dấu tác vụ là...?";
@@ -46,6 +57,7 @@
 "contextMenu.task.delete" = "Xoá";
 "contextMenu.cancel" = "Huỷ";
 "contextMenu.ok" = "OK";
+"contextMenu.clearDoneTasks" = "Xoá tác vụ đã h.thành";
 
 /* Add Task button in Home & Pending tabs */
 "label.task.add" = "Tạo tác vụ";
@@ -57,13 +69,15 @@
 /* Navigation title */
 "home.nav.title" = "Tất cả Tác vụ";
 /* Section titles */
-"home.sections.overdue" = "Quá hạn";
-"home.sections.dueToday" = "Đến hạn trong ngày";
-"home.sections.upcoming" = "Sắp tới";
+"home.sections.overdue" = "QUÁ HẠN";
+"home.sections.dueToday" = "ĐẾN HẠN TRONG NGÀY";
+"home.sections.upcoming" = "SẮP TỚI";
 /* Empty list sentence */
 "home.info.sectionEmpty" = "Không có tác vụ nào";
 /* All tasks empty sentence */
-"Nothing yet. Tap here or %@ to add more" = "Chưa có gì cả. Hãy bấm vào đây hoặc %@ để thêm";
+"Nothing yet. Tap here or %@ to add more" = "Thêm tác vụ mới bằng cách chạm nút %@, rồi d.sách sẽ hiển thị ở đây";
+/* Confirm dialogs */
+"home.clearDoneTasks.alert" = "Bạn chắc chắn muốn xoá các tác vụ đã hoàn thành?\nHành động này không thể hoàn tác";
 
 
 // MARK: Pending
@@ -72,9 +86,9 @@
 /* Navigation title */
 "pending.nav.title" = "Tác vụ Chưa xong";
 /* Section titles */
-"pending.sections.overdue" = "Quá hạn";
-"pending.sections.dueToday" = "Đến hạn trong ngày";
-"pending.sections.upcoming" = "Sắp tới";
+"pending.sections.overdue" = "QUÁ HẠN";
+"pending.sections.dueToday" = "ĐẾN HẠN TRONG NGÀY";
+"pending.sections.upcoming" = "SẮP TỚI";
 
 "pending.info.fetchingData" = "Đang tải dữ liệu";
 "pending.info.listEmty" = "Bạn được tự do rồi! Hãy tận hưởng thời gian này cho bản thân nhé 🥳";
@@ -95,6 +109,7 @@
 "addTask.input.dueDate" = "Ngày đến hạn";
 "addTask.input.type" = "Thể loại";
 "addTask.input.status" = "Tình trạng";
+"addTask.input.priority" = "Mức ưu tiên";
 "addTask.input.notes" = "Ghi chú";
 "addTask.input.placeholder.notes" = "Ghi chú bổ sung...";
 
@@ -108,6 +123,7 @@
 "taskDetail.cell.status.caption" = "Tình trạng";
 "taskDetail.cell.dueDate.caption" = "Ngày đến hạn";
 "taskDetail.cell.type.caption" = "Thể loại";
+"taskDetail.cell.priority.caption" = "Mức ưu tiên";
 "taskDetail.cell.notes.caption" = "Ghi chú";
 
 /* Alerts */
@@ -132,6 +148,7 @@
 "editTask.input.dueDate" = "Ngày đến hạn";
 "editTask.input.type" = "Thể loại";
 "editTask.input.status" = "Tình trạng";
+"editTask.input.priority" = "Mức ưu tiên";
 "editTask.input.notes" = "Ghi chú";
 "editTask.input.placeholder.notes" = "Ghi chú bổ sung...";
 
@@ -152,20 +169,29 @@
 
 /* General section */
 "settings.general.onboarding" = "Màn hình giới thiệu";
+"settings.general.appearance" = "Giao diện";
 "settings.general.appIcon" = "Biểu tượng app";
 "settings.general.portraitLock" = "Khoá xoay màn hình";
 "settings.general.reduceHaptics" = "Giảm rung phản hồi";
-"settings.general.accentColor" = "Tông màu chủ đạo";
-"settings.general.fontStyle" = "Kiểu phông chữ";
-"settings.general.colorTheme" = "Chủ đề giao diện";
+"settings.general.accentColor" = "Màu chủ đạo";
+"settings.general.fontStyle" = "Kiểu chữ";
+"settings.general.fontWidth" = "Khoảng cách chữ";
+"settings.general.colorTheme" = "Chủ đề";
+"settings.general.boldText" = "Chữ đậm";
+"settings.general.highlight" = "Tô nổi tác vụ đến hạn";
 
-/* Badge secrion */
+"settings.general.relDateTime" = "Định dạng t.gian tương đối";
+"settings.general.relDateTime.footer" = "Ví dụ: \"1 tháng trước\" thay vì \"ngày-tháng-năm\"";
+
+/* Badge section */
 "settings.badge.appIcon" = "Hiện nhãn biểu tượng app";
-"settings.badge.appIconType" = "Nhãn b.tượng app cho tác vụ";
+"settings.badge.appIconType" = "B.tượng app cho các tác vụ";
+"settings.badge.notifSetting" = "Đi đến Cài đặt thông báo";
 "settings.badge.tab" = "Hiện nhãn tab";
 "settings.badge.footer" = "Nhãn biểu tượng hiển thị số tác vụ với đ.kiện đã chọn trên MH Chính. Hãy kiểm tra cài đặt Thông báo nếu bạn không thấy nhãn.";
 
 /* Misc section */
+"settings.misc.language" = "Ngôn ngữ";
 "settings.misc.tabNames" = "Tên tab";
 "settings.misc.confetti" = "Hiệu ứng hoa giấy 🎉";
 "settings.misc.preview" = "Xem trước với Haptic Touch";
@@ -195,12 +221,14 @@
 "appIcon.winter" = "Mùa đông";
 "appIcon.sky" = "Bầu trời";
 "appIcon.midnight" = "Nửa đêm";
+"appIcon.iris" = "Hoa diên vĩ";
 "appIcon.berry" = "Anh đào";
 
 /* Accent colors */
 "accentColor.blue" = "Xanh lam";
 "accentColor.teal" = "Mòng két";
 "accentColor.indigo" = "Chàm";
+"accentColor.purple" = "Tím";
 "accentColor.pink" = "Hồng";
 "accentColor.berry" = "Anh đào";
 "accentColor.red" = "Đỏ";
@@ -210,11 +238,19 @@
 "accentColor.mint" = "Bạc hà";
 "accentColor.clover" = "Cỏ ba lá";
 
+"settings.appearance.footer" = "Tuỳ chỉnh khoảng cách phông chữ khả dụng với kiểu chữ hệ thống";
+
 /* Font designs */
 "fontDesign.system" = "Hệ thống";
 "fontDesign.rounded" = "Tròn";
 "fontDesign.monospaced" = "Đơn cách";
 "fontDesign.serif" = "Có chân";
+
+/* Font widths */
+"fontWidth.standard" = "Tiêu chuẩn";
+"fontWidth.condensed" = "Gọn";
+"fontWidth.compressed" = "Gọn hơn";
+"fontWidth.expanded" = "Giãn cách";
 
 /* Color themes */
 "colorTheme.system" = "Hệ thống";
@@ -233,7 +269,7 @@
 "settings.misc.previewtype.content.detail" = "Chi tiết";
 
 
-// MARK: Acknowledgments
+/* ACKNOWLEDGEMENTS */
 /* Navigation title */
 "settings.ack.nav.title" = "Bản công nhận";
 

@@ -10,25 +10,27 @@ import SwiftUI
 
 struct SettingsIcon: View {
 	let icon: Image
-	let bgColor: Color
+	let accent: Color
 	
 	var body: some View {
-		VStack {
-			icon
-				.resizable()
-				.scaledToFit()
-				.frame(width: 20, height: 20)
-		}
-		.background(in: RoundedRectangle(cornerRadius: 3).inset(by: -4))
-		.backgroundStyle(bgColor)
-		.foregroundStyle(.white)
-		.padding(4)
+		icon
+			.resizable()
+			.scaledToFit()
+			.frame(width: 21.75, height: 21.75)
+			.background(in: RoundedRectangle(cornerRadius: 3).inset(by: -4))
+			.backgroundStyle(accent)
+			.foregroundStyle(.white)
+			.padding(4)
+			.overlay(
+				RoundedRectangle(cornerRadius: 7)
+					.stroke(.gray.opacity(0.25), lineWidth: 0.5)
+			)
 	}
 }
 
 struct SettingsIcon_Previews: PreviewProvider {
 	static var previews: some View {
-		SettingsIcon(icon: SFSymbols.paintbrush, bgColor: .pink)
+		SettingsIcon(icon: SFSymbols.paintbrush, accent: .pink)
 			.previewLayout(.sizeThatFits)
 	}
 }

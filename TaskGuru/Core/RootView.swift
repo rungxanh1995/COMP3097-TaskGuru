@@ -21,7 +21,7 @@ struct RootScreen: View {
 			HomeScreen()
 				.tag(Tab.home)
 				.tabItem {
-					SFSymbols.house
+					SFSymbols.bulletList
 					if isTabNamesEnabled { Text("Home") }
 				}
 			PendingView()
@@ -31,7 +31,7 @@ struct RootScreen: View {
 					if isTabNamesEnabled { Text("Pending") }
 				}
 				.badge(isShowingTabBadge ? pendingTasksCount : 0)
-			SettingsView()
+			SettingsScreen()
 				.tag(Tab.settings)
 				.tabItem {
 					SFSymbols.gear

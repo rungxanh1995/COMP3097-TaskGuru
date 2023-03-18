@@ -40,6 +40,8 @@ struct TaskGuruApp: App {
 				.environmentObject(homeVM)
 				.setUpColorTheme()
 				.setUpFontDesign()
+				.setUpFontWidth()
+				.setUpBoldFont()
 				.setUpAccentColor()
 				.onChange(of: accentColor) { _ in
 					setAlertColor()

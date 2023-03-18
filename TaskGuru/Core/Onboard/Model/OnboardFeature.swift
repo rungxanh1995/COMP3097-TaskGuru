@@ -18,7 +18,7 @@ struct OnboardFeature: Identifiable {
 extension OnboardFeature {
 	static let features: [OnboardFeature] = [
 		OnboardFeature(
-			icon: SFSymbols.house,
+			icon: SFSymbols.bulletList,
 			title: "onboarding.features.home.title",
 			description: "onboarding.features.home.description"),
 		OnboardFeature(
