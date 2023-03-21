@@ -20,9 +20,9 @@ struct DetailGridCell: View {
                 .multilineTextAlignment(.center)
                 .padding()
                 .foregroundColor(titleColor)
-            
+
             Spacer()
-            
+
             Text(caption)
                 .font(.system(.caption))
                 .padding(6)
@@ -32,7 +32,6 @@ struct DetailGridCell: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.thinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 8))
-        
     }
 }
 

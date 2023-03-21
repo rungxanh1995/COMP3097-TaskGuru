@@ -12,14 +12,14 @@ struct PendingScreen: View {
 	@EnvironmentObject private var vm: HomeViewModel
 	@StateObject private var tabState: AppState = .init()
 	@State private var selectedTask: TaskItem?
-	
+
 	@Preference(\.isConfettiEnabled) private var isConfettiEnabled
 	@State private var confettiCounter: Int = 0
-	
+
 	@Preference(\.isTodayDuesHighlighted) private var duesHighlighted
 	@Preference(\.isPreviewEnabled) private var isPreviewEnabled
 	@Preference(\.contextPreviewType) private var previewType
-	
+
 	var body: some View {
 		NavigationStack(path: $tabState.navPath) {
 			ZStack {
@@ -37,7 +37,7 @@ struct PendingScreen: View {
 			.listStyle(.plain)
 			.playConfetti($confettiCounter)
 			.navigationDestination(for: TaskItem.self) { task in
-				DetailScreen(vm: .init(for: task, parentVM: vm), task: task)
+				DetailScreen(vm: .init(for: task, parentVM: vm))
 			}
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
@@ -52,7 +52,7 @@ struct PendingScreen: View {
 				AddTaskScreen(vm: .init(parentVM: self.vm))
 			}
 			.fullScreenCover(item: $selectedTask) { task in
-				DetailScreen(vm: .init(for: task, parentVM: vm), task: task)
+				DetailScreen(vm: .init(for: task, parentVM: vm))
 			}
 		}
 		.environmentObject(tabState)
@@ -129,7 +129,7 @@ extension PendingScreen {
 					cell.contextMenu { makeContextMenu(for: task) }
 				} elseCase: { cell in
 					cell.contextMenu { makeContextMenu(for: task) } preview: {
-						DetailScreen(vm: .init(for: task, parentVM: vm), task: task)
+						DetailScreen(vm: .init(for: task, parentVM: vm))
 					}
 				}
 			}

@@ -36,7 +36,7 @@ struct HomeScreen: View {
 			.listStyle(.plain)
 			.playConfetti($confettiCounter)
 			.navigationDestination(for: TaskItem.self) { task in
-				DetailScreen(vm: .init(for: task, parentVM: vm), task: task)
+				DetailScreen(vm: .init(for: task, parentVM: vm))
 			}
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
@@ -58,7 +58,7 @@ struct HomeScreen: View {
 				AddTaskScreen(vm: .init(parentVM: self.vm))
 			}
 			.fullScreenCover(item: $selectedTask) { task in
-				DetailScreen(vm: .init(for: task, parentVM: vm), task: task)
+				DetailScreen(vm: .init(for: task, parentVM: vm))
 			}
 		}
 		.environmentObject(tabState)
@@ -140,7 +140,7 @@ extension HomeScreen {
 					cell.contextMenu { makeContextMenu(for: task) }
 				} elseCase: { cell in
 					cell.contextMenu { makeContextMenu(for: task) } preview: {
-						DetailScreen(vm: .init(for: task, parentVM: vm), task: task)
+						DetailScreen(vm: .init(for: task, parentVM: vm))
 					}
 				}
 			}
