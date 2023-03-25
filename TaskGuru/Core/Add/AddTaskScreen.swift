@@ -9,33 +9,31 @@
 import SwiftUI
 
 struct AddTaskScreen: View {
+	internal enum FocusField { case name, notes }
+	@FocusState private var focusField: FocusField?
+
 	@Environment(\.dismiss) var dismissThisView
 	
 	@ObservedObject var vm: AddTaskScreen.ViewModel
-	
-	@State private var taskName: String = ""
-	@State private var dueDate: Date = .init()
-	@State private var taskTypeSelected: TaskType = .personal
-	@State private var statusSelected: TaskStatus = .new
-	@State private var taskNotes = ""
 	
 	var body: some View {
 		NavigationView {
 			Form {
 				Section {
-					TextField("Name", text: $taskName)
-					
-					DatePicker("Due Date", selection: $dueDate,
+					TextField("Name", text: $vm.taskName)
+						.focused($focusField, equals: .name)
+
+					DatePicker("Due Date", selection: $vm.dueDate,
 										 displayedComponents: .date
 					)
 					
-					Picker("Type", selection: $taskTypeSelected) {
+					Picker("Type", selection: $vm.taskType) {
 						ForEach(TaskType.allCases, id: \.self) {
 							Text($0.rawValue)
 						}
 					}
 					
-					Picker("Status", selection: $statusSelected) {
+					Picker("Status", selection: $vm.taskStatus) {
 						ForEach(TaskStatus.allCases, id: \.self) {
 							Text($0.rawValue)
 						}
@@ -45,11 +43,18 @@ struct AddTaskScreen: View {
 				}
 				
 				Section {
-					TextField("Notes", text: $taskNotes, prompt: Text("Any extra notes..."), axis: .vertical)
+					TextField("Notes", text: $vm.taskNotes, prompt: Text("Any extra notes..."), axis: .vertical)
+						.focused($focusField, equals: .notes)
 				} header: {
 					Label { Text("Notes") } icon: { SFSymbols.pencilDrawing }
 				}
 			}
+			.onAppear {
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+					focusField = .name
+				}
+			}
+			.onSubmit { focusField = nil }
 			.navigationTitle("Add Task")
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
@@ -61,13 +66,20 @@ struct AddTaskScreen: View {
 				
 				ToolbarItem(placement: .confirmationAction) {
 					Button("Add") {
-						// add task then dismiss view
+						addNewTask()
 						dismissThisView()
 					}
 				}
 			}
 		}
 		.interactiveDismissDisabled()
+	}
+}
+
+extension AddTaskScreen {
+	private func addNewTask() -> Void {
+		vm.addTask(name: &vm.taskName, dueDate: vm.dueDate, type: vm.taskType,
+							 status: vm.taskStatus, notes: vm.taskNotes)
 	}
 }
 
