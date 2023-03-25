@@ -28,7 +28,7 @@ struct HomeScreen: View {
 				} else {
 					List {
 						overdueSection
-						todaysDate
+						dueTodaySection
 						upcomingSection
 					}
 				}
@@ -84,37 +84,39 @@ extension HomeScreen {
 			.foregroundColor(.secondary)
 	}
 
-	private var overdueSection: some View {
-		Section {
-			let overdues = vm.searchResults.filter { $0.dueDate.isPastToday }
+    private var overdueSection: some View {
+        Section {
+            let overdues = vm.searchResults.filter { $0.dueDate.isPastToday }
 
-			if overdues.isEmpty {
-				emptyFilteredListText
-			} else {
-				filteredList(of: overdues)
-			}
-		} header: {
-			Text("home.sections.overdue").bold().foregroundColor(.pink)
-		}
-	}
+            if overdues.isEmpty {
+                emptyFilteredListText
+            } else {
+                filteredList(of: overdues)
+            }
+        } header: {
+            Text("home.sections.overdue").bold()
+                .foregroundColor(.red)
+        }
+    }
 
-	private var dueTodaySection: some View {
-		Section {
-			let dues = vm.searchResults.filter { $0.dueDate.isWithinToday }
-			
-			if dues.isEmpty {
-				emptyFilteredListText
-			} else {
-				filteredList(of: dues)
-					.if(duesHighlighted) { list in
-						list
-							.listRowBackground(DynamicHighlightBackground())
-					}
-			}
-		} header: {
-			Text("home.sections.dueToday").bold().foregroundColor(.yellow)
-		}
-	}
+    private var dueTodaySection: some View {
+        Section {
+            let dues = vm.searchResults.filter { $0.dueDate.isWithinToday }
+
+            if dues.isEmpty {
+                emptyFilteredListText
+            } else {
+                filteredList(of: dues)
+                    .if(duesHighlighted) { list in
+                        list
+                            .listRowBackground(DynamicHighlightBackground())
+                    }
+            }
+        } header: {
+            Text("home.sections.dueToday").bold()
+                .foregroundColor(.yellow)
+        }
+    }
 
 	private var upcomingSection: some View {
 		Section {
@@ -126,7 +128,8 @@ extension HomeScreen {
 				filteredList(of: upcomings)
 			}
 		} header: {
-			Text("home.sections.upcoming").bold().foregroundColor(.teal)
+			Text("home.sections.upcoming").bold()
+                .foregroundColor(.teal)
 		}
 	}
 

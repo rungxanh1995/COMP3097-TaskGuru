@@ -2,7 +2,8 @@
 //  DetailViewModel.swift
 //  TaskGuru
 //
-//  Created by Marco Stevanella on 2023-03-17.
+//  Created by Ostap Sulyk on 2023-03-17.
+//  Student ID: 101186901
 //
 
 import Foundation

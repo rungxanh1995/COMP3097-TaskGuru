@@ -40,7 +40,7 @@ final class HomeViewModel: ObservableObject {
 	
 	func addTask(name: inout String, type: TaskType, dueDate: Date, status: TaskStatus, notes: String) {
 		let newItem = TaskItem(name: name, dueDate: dueDate, lastUpdated: .now,
-													 type: type, status: status, notes: notes)
+                               type: type, status: status, notes: notes)
 		allTasks.append(newItem)
 	}
 	
