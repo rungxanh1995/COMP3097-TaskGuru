@@ -39,6 +39,7 @@ struct RootScreen: View {
 				}
 		}
 		.onAppear {
+            // TODO: Use .onReceive ISO of .onAppear when persistence to get correct task count
 			pendingTasksCount = TaskItem.mockData.filter{ $0.isNotDone }.count
 		}
 	}
