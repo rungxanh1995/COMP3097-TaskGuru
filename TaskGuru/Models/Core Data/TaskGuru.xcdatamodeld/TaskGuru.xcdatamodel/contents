@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E252" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="TaskItem" representedClassName="TaskItem" syncable="YES">
+        <attribute name="cdDueDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="cdID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="cdLastUpdated" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="cdName" attributeType="String"/>
+        <attribute name="cdNotes" attributeType="String"/>
+        <attribute name="cdPriority" optional="YES" attributeType="String"/>
+        <attribute name="cdStatus" attributeType="String"/>
+        <attribute name="cdType" attributeType="String"/>
+    </entity>
+</model>

@@ -39,4 +39,20 @@ extension Date {
 	///		Date(timeInterval: 100, since: Date()).isFromTomorrow -> false
 	///		Date(timeInterval: 100_000, since: Date()).isFromTomorrow -> true
 	var isFromTomorrow: Bool { !isWithinToday && isInTheFuture }
+
+    static var beginningOfDay: Date {
+        let calendar = Calendar.current
+        guard let beginningOfDay = calendar.date(bySettingHour: 0, minute: 0, second: 0, of: .now) else {
+            fatalError("Could not set date to 00:00:00")
+        }
+        return beginningOfDay
+    }
+
+    static var endOfDay: Date {
+        let calendar = Calendar.current
+        guard let beginningOfDay = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: .now) else {
+            fatalError("Could not set date to 23:59:59")
+        }
+        return beginningOfDay
+    }
 }

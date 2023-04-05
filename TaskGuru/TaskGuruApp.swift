@@ -138,13 +138,8 @@ extension TaskGuruApp {
 
 	private func badgeNumberForAppIcon() -> Int {
 		guard let badge = BadgeType(rawValue: badgeType) else { return 0 }
-		switch badge {
 		// TODO: Update these cases when HomeViewModel is implemented.
 		// No need to depend on mockData anymore.
-		case .allPending: return TaskItem.mockData.filter { $0.isNotDone }.count
-		case .overdue: return TaskItem.mockData.filter { $0.dueDate.isPastToday && $0.isNotDone }.count
-		case .dueToday: return TaskItem.mockData.filter { $0.dueDate.isWithinToday && $0.isNotDone }.count
-		case .upcoming: return TaskItem.mockData.filter { $0.dueDate.isInTheFuture && $0.isNotDone }.count
-		}
+		return 0
 	}
 }
