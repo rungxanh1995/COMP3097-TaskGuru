@@ -108,11 +108,9 @@ extension TaskGuruApp {
 
 		switch actionName {
 		case HomeQuickAction.UserInfoType.addTask.rawValue:
-			// flip isShowingAddTaskView of HomeViewModel to true
-			break
+			homeVM.isShowingAddTaskView = true
 		default:
-			// flip isShowingAddTaskView of HomeViewModel back to false
-			break
+			homeVM.isShowingAddTaskView = false
 		}
 	}
 }
