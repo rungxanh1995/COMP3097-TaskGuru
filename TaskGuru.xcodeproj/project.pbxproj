@@ -37,7 +37,6 @@
 		2C74150B298B2579006CECDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C74150A298B2579006CECDA /* Launch Screen.storyboard */; };
 		2C8837CC29C4FB59004CAE4E /* AppearanceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837CB29C4FB59004CAE4E /* AppearanceScreen.swift */; };
 		2C8837CF29C5FC80004CAE4E /* FontWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837CE29C5FC80004CAE4E /* FontWidth.swift */; };
-		2C8837D129C5FD3B004CAE4E /* AccentPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837D029C5FD3B004CAE4E /* AccentPalette.swift */; };
 		2C8837D429C5FDA0004CAE4E /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 2C8837D329C5FDA0004CAE4E /* SFSafeSymbols */; };
 		2C8837D729C5FE7C004CAE4E /* BontFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837D629C5FE7C004CAE4E /* BontFontModifier.swift */; };
 		2C8837D929C5FEED004CAE4E /* FontWidthModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8837D829C5FEED004CAE4E /* FontWidthModifier.swift */; };
@@ -112,7 +111,6 @@
 		2C74150A298B2579006CECDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2C8837CB29C4FB59004CAE4E /* AppearanceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceScreen.swift; sourceTree = "<group>"; };
 		2C8837CE29C5FC80004CAE4E /* FontWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWidth.swift; sourceTree = "<group>"; };
-		2C8837D029C5FD3B004CAE4E /* AccentPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentPalette.swift; sourceTree = "<group>"; };
 		2C8837D629C5FE7C004CAE4E /* BontFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BontFontModifier.swift; sourceTree = "<group>"; };
 		2C8837D829C5FEED004CAE4E /* FontWidthModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWidthModifier.swift; sourceTree = "<group>"; };
 		2C8837DA29C60906004CAE4E /* DynamicColorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicColorLabel.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 			children = (
 				2C12598E29A1982D00DD96E4 /* AccentColor.swift */,
 				2C12599029A1984800DD96E4 /* AccentColorModifier.swift */,
-				2C8837D029C5FD3B004CAE4E /* AccentPalette.swift */,
 			);
 			path = "Accent Color";
 			sourceTree = "<group>";
@@ -623,7 +620,6 @@
 				2C12599729A1996200DD96E4 /* Color.swift in Sources */,
 				2C114C2F29A3B6FA0003F7E1 /* ContextPreviewType.swift in Sources */,
 				2C8837DB29C60906004CAE4E /* DynamicColorLabel.swift in Sources */,
-				2C8837D129C5FD3B004CAE4E /* AccentPalette.swift in Sources */,
 				2CB63A32299F236B00271BD8 /* OnboardView.swift in Sources */,
 				2C21940529A9946500CA0DF9 /* AccentColorSettings.swift in Sources */,
 				2C12599329A1987000DD96E4 /* FontDesign.swift in Sources */,
