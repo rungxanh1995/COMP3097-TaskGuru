@@ -30,6 +30,7 @@ final class HomeViewModel: ObservableObject {
 	var pendingTasks: [TaskItem] { allTasks.filter { $0.isNotDone } }
 	
 	@Published var isShowingAddTaskView: Bool = false
+	@Published var isFetchingData: Bool = false
 	@Published var isConfirmingClearDoneTasks: Bool = false
 	
 	var noPendingTasksLeft: Bool { searchResults.filter { $0.isNotDone }.isEmpty }

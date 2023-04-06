@@ -43,6 +43,9 @@ struct TaskGuruApp: App {
 				.setUpFontWidth()
 				.setUpBoldFont()
 				.setUpAccentColor()
+				.onReceive(homeVM.$isFetchingData) { _ in
+					if isShowingAppBadge { setUpAppIconBadge() }
+				}
 				.onChange(of: accentColor) { _ in
 					setAlertColor()
 				}
@@ -138,8 +141,11 @@ extension TaskGuruApp {
 
 	private func badgeNumberForAppIcon() -> Int {
 		guard let badge = BadgeType(rawValue: badgeType) else { return 0 }
-		// TODO: Update these cases when HomeViewModel is implemented.
-		// No need to depend on mockData anymore.
-		return 0
+		switch badge {
+		case .allPending: return homeVM.pendingTasks.count
+		case .overdue: return homeVM.allTasks.filter { $0.dueDate.isPastToday && $0.isNotDone }.count
+		case .dueToday: return homeVM.allTasks.filter { $0.dueDate.isWithinToday && $0.isNotDone }.count
+		case .upcoming: return homeVM.allTasks.filter { $0.dueDate.isFromTomorrow && $0.isNotDone }.count
+		}
 	}
 }
