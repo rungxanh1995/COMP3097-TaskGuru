@@ -18,22 +18,21 @@ struct DynamicHighlightBackground: View {
 	@AppStorage(UserDefaultsKey.accentColor) private var accentColor: Int = AccentColorType.clover.rawValue
 
 	var body: some View {
-		let accentPalette = AccentColorPalette(colorScheme: systemScheme)
 		switch systemScheme {
 		case .light:
 			ZStack {
 				Color.white
-				accentPalette.selectedAccentColor.opacity(0.075)
+				Color.defaultAccentColor.opacity(0.075)
 			}
 		case .dark:
 			ZStack {
 				Color.gray.opacity(0.25)
-				accentPalette.selectedAccentColor.opacity(0.1)
+				Color.defaultAccentColor.opacity(0.1)
 			}
 		@unknown default:
 			ZStack {
 				Color.white
-				accentPalette.selectedAccentColor.opacity(0.075)
+				Color.defaultAccentColor.opacity(0.075)
 			}
 		}
 	}

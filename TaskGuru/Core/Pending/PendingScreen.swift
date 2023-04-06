@@ -113,7 +113,7 @@ extension PendingScreen {
 			Section {
 				filteredList(of: pendings)
 			} header: {
-				Text("pending.sections.upcoming").bold().foregroundColor(.appTeal)
+				Text("pending.sections.upcoming").bold().foregroundColor(.appClover)
 			}
 		}
 	}
@@ -136,7 +136,7 @@ extension PendingScreen {
 			.swipeActions(edge: .leading) {
 				switch task.status {
 				case .new: markInProgressButton(for: task).tint(.appYellow)
-				case .inProgress: markNewButton(for: task).tint(.appTeal)
+				case .inProgress: markNewButton(for: task).tint(.appClover)
 				case .done: EmptyView()
 				}
 			}

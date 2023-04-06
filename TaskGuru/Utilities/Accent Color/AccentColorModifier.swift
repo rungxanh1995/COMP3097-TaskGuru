@@ -18,8 +18,8 @@ struct AccentColorModifier: ViewModifier {
 	private var accentColor: Int = AccentColorType.clover.rawValue
 
 	func body(content: Content) -> some View {
-		let accentPalette = AccentColorPalette(colorScheme: systemScheme)
+		let selectedAccentColor = AccentColorType(rawValue: self.accentColor)
 		content
-			.tint(accentPalette.selectedAccentColor)
+			.tint(selectedAccentColor?.associatedColor)
 	}
 }
