@@ -16,36 +16,39 @@ extension Color {
 		guard let accentColor = AccentColorType(rawValue: userAccentColor) else {
 			return Color("AccentColor")
 		}
-
+		
 		switch accentColor {
-		case .berry: return Color(hex: 0xE54545)
-		case .orange: return Color(hex: 0xE47101)
-		case .yellow: return Color(hex: 0xF0B302)
-		case .green: return Color(hex: 0xA3E547)
-		case .clover: return Color(hex: 0x02C564)
-		case .teal: return Color(hex: 0x00BBCC)
-		case .blue: return Color(hex: 0x0080FE)
-		case .indigo: return Color(hex: 0x5500FE)
-		case .purple: return Color(hex: 0xA901FF)
+		case .berry: return .appPink
+		case .orange: return .appOrange
+		case .yellow: return .appYellow
+		case .green: return .appGreen
+		case .clover: return .appClover
+		case .teal: return .appTeal
+		case .blue: return .appBlue
+		case .indigo: return .appIndigo
+		case .purple: return .appPurple
 		}
 	}
 
+	// MARK: - Using app specific color assets
 	/// The custom pink color specific to TaskGuru
-	static var appPink: Color {	Color(hex: 0xE54545) }
+	static var appPink: Color {	.init("Berry") }
 	/// The custom orange color specific to TaskGuru
-	static var appOrange: Color { Color(hex: 0xE47101) }
+	static var appOrange: Color { .init("Orange") }
 	/// The custom yellow color specific to TaskGuru
-	static var appYellow: Color { Color(hex: 0xF0B302) }
+	static var appYellow: Color { .init("Yellow") }
 	/// The custom green color specific to TaskGuru
-	static var appGreen: Color { Color(hex: 0xA3E547) }
+	static var appGreen: Color { .init("Green") }
+	/// The custom clover color specific to TaskGuru
+	static var appClover: Color { .init("Clover") }
 	/// The custom teal color specific to TaskGuru
-	static var appTeal: Color { Color(hex: 0x02C564) }
+	static var appTeal: Color { .init("Teal") }
 	/// The custom blue color specific to TaskGuru
-	static var appBlue: Color { Color(hex: 0x0080FE) }
+	static var appBlue: Color { .init("Blue") }
 	/// The custom indigo color specific to TaskGuru
-	static var appIndigo: Color { Color(hex: 0x5500FE) }
+	static var appIndigo: Color { .init("Indigo") }
 	/// The custom indigo color specific to TaskGuru
-	static var appPurple: Color { Color(hex: 0xA901FF) }
+	static var appPurple: Color { .init("Purple") }
 
 	/// Allows initializing color from hex code with format "0xABCDEF"
 	init(hex: UInt, alpha: Double = 1) {
