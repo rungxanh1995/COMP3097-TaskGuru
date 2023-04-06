@@ -87,7 +87,7 @@ private extension SettingsScreen {
 	
 	private var appearance: some View {
 		settingsRow {
-			SettingsIcon(icon: SFSymbols.paintbrush, accent: .appTeal)
+			SettingsIcon(icon: SFSymbols.paintbrush, accent: .appClover)
 		} content: {
 			NavigationLink {
 				AppearanceScreen()
