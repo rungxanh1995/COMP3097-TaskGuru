@@ -9,9 +9,9 @@
 import Foundation
 
 enum TaskType: String, Codable, CaseIterable {
-	case personal = "Personal"
-	case work = "Work"
-	case school = "School"
-	case coding = "Coding"
-	case other = "Other"
+	case personal = "taskItem.type.personal"
+	case work = "taskItem.type.work"
+	case school = "taskItem.type.school"
+	case coding = "taskItem.type.coding"
+	case other = "taskItem.type.other"
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 enum TaskStatus: String, Codable, CaseIterable {
-	case new = "New"
-	case inProgress = "In progress"
-	case done = "Done"
+	case new = "taskItem.status.new"
+	case inProgress = "taskItem.status.inProgress"
+	case done = "taskItem.status.done"
 }
