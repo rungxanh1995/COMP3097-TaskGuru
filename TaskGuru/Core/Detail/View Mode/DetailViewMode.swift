@@ -62,7 +62,7 @@ extension DetailScreen {
 
 					Button(action: {
 						isDeletingTask.toggle()
-						haptic(.warning)
+						haptic(.notification(.warning))
 					}) {
 						Label("Delete", systemImage: "trash")
 					}
@@ -73,7 +73,7 @@ extension DetailScreen {
 				Button("OK", action: {
 					vm.markTaskAsDone()
 					dismissThisView()
-					haptic(.success)
+					haptic(.notification(.success))
 				})
 			})
 			.alert("Delete Task?", isPresented: $isDeletingTask, actions: {
@@ -81,7 +81,7 @@ extension DetailScreen {
 				Button("OK", action: {
 					vm.deleteTask()
 					dismissThisView()
-					haptic(.success)
+					haptic(.notification(.success))
 				})
 			})
 			.sheet(isPresented: $isShowingEdit) {

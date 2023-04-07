@@ -59,14 +59,14 @@ final class HomeViewModel: ObservableObject {
 	func delete(_ task: TaskItem) {
 		guard let index = getIndex(of: task) else { return }
 		allTasks.remove(at: index)
-		haptic(.success)
+		haptic(.notification(.success))
 	}
 	
 	func markAsDone(_ task: TaskItem) {
 		// TODO: mark task as done in final implementation stage
 		// Unable to do now, as `TaskItem` is a struct, and a mutating func
 		// couldn't modify its `status` property either.
-		haptic(.success)
+		haptic(.notification(.success))
 	}
 	
 	
@@ -74,14 +74,14 @@ final class HomeViewModel: ObservableObject {
 		// TODO: mark task as in progress in final implementation stage
 		// Unable to do now, as `TaskItem` is a struct, and a mutating func
 		// couldn't modify its `status` property either.
-		haptic(.success)
+		haptic(.notification(.success))
 	}
 	
 	func markAsNew(_ task: TaskItem) {
 		// TODO: mark task as new in final implementation stage
 		// Unable to do now, as `TaskItem` is a struct, and a mutating func
 		// couldn't modify its `status` property either.
-		haptic(.success)
+		haptic(.notification(.success))
 	}
 	
 	func clearDoneTasks() {

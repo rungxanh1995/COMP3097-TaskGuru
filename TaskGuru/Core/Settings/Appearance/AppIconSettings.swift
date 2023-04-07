@@ -38,7 +38,7 @@ struct AppIconSettings: View {
 	private func updateAppIcon(from iconValue: Int) {
 		let iconName = AppIconType(rawValue: iconValue)?.assetName
 		UIApplication.shared.setAlternateIconName(iconName)
-		haptic(.success)
+		haptic(.notification(.success))
 	}
 }
 

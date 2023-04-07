@@ -165,7 +165,7 @@ extension PendingScreen {
 			}
 			Button(role: .destructive) {
 				withAnimation { vm.delete(task) }
-				haptic(.success)
+				haptic(.notification(.success))
 			} label: {
 				Label { Text("contextMenu.task.delete") } icon: { SFSymbols.trash }
 			}
@@ -194,7 +194,7 @@ extension PendingScreen {
 	private func markNewButton(for task: TaskItem) -> some View {
 		Button {
 			withAnimation { vm.markAsNew(task) }
-			haptic(.success)
+			haptic(.notification(.success))
 		} label: {
 			Label {
 				Text("contextMenu.task.markNew")
@@ -205,7 +205,7 @@ extension PendingScreen {
 	private func markInProgressButton(for task: TaskItem) -> some View {
 		Button {
 			withAnimation { vm.markAsInProgress(task) }
-			haptic(.success)
+			haptic(.notification(.success))
 		} label: {
 			Label {
 				Text("contextMenu.task.markInProgress")
@@ -217,7 +217,7 @@ extension PendingScreen {
 		Button {
 			withAnimation { vm.markAsDone(task) }
 			if isConfettiEnabled { confettiCounter += 1 }
-			haptic(.success)
+			haptic(.notification(.success))
 		} label: {
 			Label {
 				Text("contextMenu.task.markDone")
@@ -228,7 +228,7 @@ extension PendingScreen {
 	private func deleteButton(for task: TaskItem) -> some View {
 		Button(role: .destructive) {
 			withAnimation { vm.delete(task) }
-			haptic(.success)
+			haptic(.notification(.success))
 		} label: {
 			Label {
 				Text("contextMenu.task.delete")

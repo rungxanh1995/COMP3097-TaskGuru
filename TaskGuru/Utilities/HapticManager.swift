@@ -6,21 +6,48 @@
 //	Student ID: 101276573
 //
 
+import CoreHaptics
 import UIKit
 
-private final class HapticManager {
+public final class HapticManager {
 	static let shared: HapticManager = .init()
-	private let feedback: UINotificationFeedbackGenerator = .init()
-	
-	private init() { }
-	
-	func trigger(_ notifType: UINotificationFeedbackGenerator.FeedbackType) {
-		feedback.notificationOccurred(notifType)
+
+	public enum HapticType {
+		case buttonPress
+		case notification(_ type: UINotificationFeedbackGenerator.FeedbackType)
+		case tabSelection
+	}
+
+	private let selectionGenerator: UISelectionFeedbackGenerator = .init()
+	private let impactGenerator: UIImpactFeedbackGenerator = .init(style: .rigid)
+	private let feedbackGenerator: UINotificationFeedbackGenerator = .init()
+
+	private var supportsHaptics: Bool {
+		CHHapticEngine.capabilitiesForHardware().supportsHaptics
+	}
+
+	private init() {
+		selectionGenerator.prepare()
+		impactGenerator.prepare()
+		feedbackGenerator.prepare()
+	}
+
+	func trigger(_ type: HapticType) {
+		guard supportsHaptics else { return }
+		
+		switch type {
+		case .buttonPress:
+			impactGenerator.impactOccurred()
+		case let .notification(type):
+			feedbackGenerator.notificationOccurred(type)
+		case .tabSelection:
+			selectionGenerator.selectionChanged()
+		}
 	}
 }
 
-func haptic(_ notifType: UINotificationFeedbackGenerator.FeedbackType) {
-	if !UserDefaults.standard.bool(forKey: UserDefaultsKey.hapticsReduced) {
-		HapticManager.shared.trigger(notifType)
+public func haptic(_ type: HapticManager.HapticType) {
+	if UserDefaults.standard.bool(forKey: UserDefaultsKey.hapticsReduced) == false {
+		HapticManager.shared.trigger(type)
 	}
 }

@@ -199,7 +199,7 @@ extension HomeScreen {
 	private func markNewButton(for task: TaskItem) -> some View {
 		Button {
 			withAnimation { vm.markAsNew(task) }
-			haptic(.success)
+			haptic(.notification(.success))
 		} label: {
 			Label {
 				Text("contextMenu.task.markNew")
@@ -210,7 +210,7 @@ extension HomeScreen {
 	private func markInProgressButton(for task: TaskItem) -> some View {
 		Button {
 			withAnimation { vm.markAsInProgress(task) }
-			haptic(.success)
+			haptic(.notification(.success))
 		} label: {
 			Label {
 				Text("contextMenu.task.markInProgress")
@@ -222,7 +222,7 @@ extension HomeScreen {
 		Button {
 			withAnimation { vm.markAsDone(task) }
 			if isConfettiEnabled { confettiCounter += 1 }
-			haptic(.success)
+			haptic(.notification(.success))
 		} label: {
 			Label {
 				Text("contextMenu.task.markDone")
@@ -233,7 +233,7 @@ extension HomeScreen {
 	private func deleteButton(for task: TaskItem) -> some View {
 		Button(role: .destructive) {
 			withAnimation { vm.delete(task) }
-			haptic(.success)
+			haptic(.notification(.success))
 		} label: {
 			Label {
 				Text("contextMenu.task.delete")
@@ -264,7 +264,7 @@ extension HomeScreen {
 
 	private var clearDoneTasksButton: some View {
 		Button(role: .destructive) {
-			haptic(.warning)
+			haptic(.notification(.warning))
 			withAnimation { vm.isConfirmingClearDoneTasks.toggle() }
 		} label: {
 			Label { Text("contextMenu.clearDoneTasks") } icon: { SFSymbols.trash }
