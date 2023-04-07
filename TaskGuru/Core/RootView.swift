@@ -14,6 +14,7 @@ struct RootScreen: View {
 	@Preference(\.isShowingTabBadge) private var isShowingTabBadge
 	@Preference(\.isTabNamesEnabled) private var isTabNamesEnabled
 
+	@EnvironmentObject private var homeVM: HomeViewModel
 	@SceneStorage("selected-tab") private var selectedTab: Tab = .home
 	@State var pendingTasksCount: Int = 0
 
@@ -44,9 +45,8 @@ struct RootScreen: View {
 					if isTabNamesEnabled { Text("Settings") }
 				}
 		}
-		.onAppear {
-            // TODO: Use .onReceive ISO of .onAppear when persistence to get correct task count
-			// pendingTasksCount = TaskItem.mockData.filter{ $0.isNotDone }.count
+		.onReceive(homeVM.$isFetchingData) { _ in
+			pendingTasksCount = homeVM.pendingTasks.count
 		}
 	}
 }
