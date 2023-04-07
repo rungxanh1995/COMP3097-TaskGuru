@@ -14,10 +14,16 @@ struct RootScreen: View {
 	@Preference(\.isShowingTabBadge) private var isShowingTabBadge
 	@Preference(\.isTabNamesEnabled) private var isTabNamesEnabled
 
+	@SceneStorage("selected-tab") private var selectedTab: Tab = .home
 	@State var pendingTasksCount: Int = 0
 
 	var body: some View {
-		TabView {
+		TabView(selection: .init(get: {
+			selectedTab
+		}, set: { newTab in
+			haptic(.tabSelection)
+			selectedTab = newTab
+		})) {
 			HomeScreen()
 				.tag(Tab.home)
 				.tabItem {
