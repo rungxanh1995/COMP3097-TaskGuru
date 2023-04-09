@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct HomeListCell: View {
-	
-	var task: TaskItem
+	@ObservedObject var task: TaskItem
 	@Preference(\.isRelativeDateTime) private var isRelativeDateTime
 	@Environment(\.dynamicTypeSize) var dynamicTypeSize
 
