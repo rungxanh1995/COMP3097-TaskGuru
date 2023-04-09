@@ -47,13 +47,12 @@ extension View {
 	func makeCheerfulDecorativeImage() -> some View {
 		HStack {
 			Spacer()
-			Image("happy-sun")
+			Image(decorative: "happy-sun")
 				.resizable()
 				.scaledToFit()
 				.frame(width: 200, height: 200)
 			Spacer()
 		}
-		.accessibilityHidden(true)
 	}
 	
 	/// Configure the color theme of this application.
