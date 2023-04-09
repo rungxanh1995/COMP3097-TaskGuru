@@ -11,6 +11,7 @@ import SwiftUI
 struct HomeListCell: View {
 	@ObservedObject var task: TaskItem
 	@Preference(\.isRelativeDateTime) private var isRelativeDateTime
+	@Preference(\.isTodayDuesHighlighted) private var isCellHighlighted
 	@Environment(\.dynamicTypeSize) var dynamicTypeSize
 
 	private let columns = [
@@ -26,6 +27,7 @@ struct HomeListCell: View {
 
 		VStack(alignment: .leading) {
 			HStack(alignment: .top) {
+				if task.priority != .none { taskPriority }
 				taskName
 			}
 			.bold(task.isNotDone ? true : false)
@@ -58,13 +60,40 @@ extension HomeListCell {
 		}
 		.labelStyle(.titleAndIcon)
 		.font(.subheadline)
-		.foregroundStyle(task.colorForStatus())
+		.if(task.isNotDone) { dueDate in
+			dueDate.if(isCellHighlighted) { status in
+				// intentional accessibility decision
+				status.foregroundColor(.primary)
+			} elseCase: { status in
+				status.foregroundColor(task.colorForStatus())
+			}
+		} elseCase: { status in
+			status.foregroundColor(.secondary)
+		}
+	}
+
+	private var taskPriority: some View {
+		DynamicColorLabel {
+			Label {
+				Text(LocalizedStringKey(task.priority.rawValue))
+			} icon: {
+				ZStack {
+					switch task.priority {
+					case .none: EmptyView()
+					default: Text(task.priority.visualized)
+					}
+				}
+			}
+			.labelStyle(.iconOnly)
+		}
+		.font(.body)
+		.foregroundColor(task.isNotDone ? nil : .secondary)
 	}
 
 	private var taskName: some View {
 		Text(task.name)
 			.font(.body)
-			.foregroundColor(task.isNotDone ? nil : .secondary)
+			.foregroundColor(task.isNotDone ? .primary : .secondary)
 			.lineLimit(2).truncationMode(.tail)
 	}
 
@@ -84,7 +113,7 @@ extension HomeListCell {
 		}
 		.labelStyle(.titleAndIcon)
 		.font(.subheadline)
-		.foregroundColor(task.isNotDone ? nil : .secondary)
+		.foregroundColor(task.isNotDone ? .primary : .secondary)
 	}
 
 	private var taskDueDate: some View {
@@ -95,7 +124,16 @@ extension HomeListCell {
 		}
 		.labelStyle(.titleAndIcon)
 		.font(.subheadline)
-		.foregroundColor(task.isNotDone ? task.colorForDueDate() : .secondary)
+		.if(task.isNotDone) { dueDate in
+			dueDate.if(isCellHighlighted) { dueDate in
+				// intentional accessibility decision
+				dueDate.foregroundColor(.primary)
+			} elseCase: { dueDate in
+				dueDate.foregroundColor(task.colorForDueDate())
+			}
+		} elseCase: { dueDate in
+			dueDate.foregroundColor(.secondary)
+		}
 	}
 }
 
