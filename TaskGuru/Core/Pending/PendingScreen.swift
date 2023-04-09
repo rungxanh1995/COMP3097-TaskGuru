@@ -32,6 +32,7 @@ struct PendingScreen: View {
 						pendingFromTomorrowSection
 						encouragingMessage.listRowBackground(Color.clear)
 					}
+					.accessibilityElement(children: .contain)
 				}
 			}
 			.listStyle(.plain)
@@ -244,6 +245,7 @@ extension PendingScreen {
 		}
 		.buttonStyle(.bordered)
 		.buttonBorderShape(.capsule)
+		.accessibilityHint("Tap this button to toggle Add new task screen")
 	}
 }
 

@@ -11,6 +11,7 @@ import SwiftUI
 struct HomeListCell: View {
 	
 	var task: TaskItem
+	@Preference(\.isRelativeDateTime) private var isRelativeDateTime
 	@Environment(\.dynamicTypeSize) var dynamicTypeSize
 
 	private let columns = [
@@ -37,6 +38,9 @@ struct HomeListCell: View {
 			}
 		}
 		.strikethrough(task.isNotDone ? false : true)
+		.disableDefaultAccessibilityBehavior()
+		.accessibilityElement(children: .combine)
+		.accessibilityValue(accessibilityString)
 	}
 }
 
@@ -93,6 +97,18 @@ extension HomeListCell {
 		.labelStyle(.titleAndIcon)
 		.font(.subheadline)
 		.foregroundColor(task.isNotDone ? task.colorForDueDate() : .secondary)
+	}
+}
+
+extension HomeListCell {
+	private var accessibilityString: String {
+		var string = ""
+		string.append("Task name: \(task.name),")
+		string.append("\(task.priority.accessibilityString) priority,")
+		string.append("\(task.status.accessibilityString) status,")
+		string.append(isRelativeDateTime ? "Due \(task.relativeDueDate)," : "Due on \(task.shortDueDate),")
+		string.append("\(task.type.accessibilityString) type.")
+		return string
 	}
 }
 

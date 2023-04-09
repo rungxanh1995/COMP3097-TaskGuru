@@ -63,6 +63,7 @@ extension OnboardContainerView {
 		.buttonStyle(.borderedProminent)
 		.buttonBorderShape(.roundedRectangle(radius: 16))
 		.padding(.bottom)
+		.accessibilityHint("Tap this button to start using TaskGuru")
 	}
 
 	private var dataPrivacy: some View {
@@ -71,11 +72,14 @@ extension OnboardContainerView {
 				Image(systemSymbol: .personBadgeShieldCheckmarkFill)
 					.symbolRenderingMode(.hierarchical)
 					.asSettingsIcon()
+					.accessibilityHidden(true)
 			}
 			Text("onboarding.privacy")
 				.font(.caption2)
 				.foregroundColor(.secondary)
 				.multilineTextAlignment(.center)
+				.accessibilityLabel("Privacy acknowledgment")
+				.accessibilityValue(Text("onboarding.privacy"))
 		}
 	}
 }

@@ -53,6 +53,7 @@ extension View {
 				.frame(width: 200, height: 200)
 			Spacer()
 		}
+		.accessibilityHidden(true)
 	}
 	
 	/// Configure the color theme of this application.
@@ -99,8 +100,12 @@ extension View {
 		@ViewBuilder content: () -> Content
 	) -> some View {
 		HStack(spacing: 12) {
-			icon()
+			icon().accessibilityHidden(true)
 			content()
 		}
+	}
+
+	func disableDefaultAccessibilityBehavior() -> some View {
+		self.accessibilityElement(children: .ignore)
 	}
 }
