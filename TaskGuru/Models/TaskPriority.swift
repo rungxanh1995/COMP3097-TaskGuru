@@ -24,4 +24,13 @@ extension TaskPriority {
 		case .high: return "!!!"
 		}
 	}
+
+	var accessibilityString: String {
+		switch self {
+		case .none: return "No"
+		case .low: return "Low"
+		case .medium: return "Medium"
+		case .high: return "High"
+		}
+	}
 }

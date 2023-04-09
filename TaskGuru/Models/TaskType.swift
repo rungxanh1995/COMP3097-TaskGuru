@@ -15,3 +15,15 @@ enum TaskType: String, Codable, CaseIterable {
 	case coding = "taskItem.type.coding"
 	case other = "taskItem.type.other"
 }
+
+extension TaskType {
+	var accessibilityString: String {
+		switch self {
+		case .personal: return "Personal"
+		case .work: return "Work"
+		case .school: return "School"
+		case .coding: return "Coding"
+		case .other: return "Other"
+		}
+	}
+}
