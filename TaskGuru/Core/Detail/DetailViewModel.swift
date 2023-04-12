@@ -12,20 +12,18 @@ extension DetailScreen {
 	final class ViewModel: ObservableObject {
         @Published var task: TaskItem
 
-        let parentVM: HomeViewModel
-
-        init(for task: TaskItem, parentVM: HomeViewModel) {
+        init(for task: TaskItem) {
             self.task = task
-            self.parentVM = parentVM
         }
 
         func updateItemInItsSource() {
-            parentVM.updateTasks(with: task)
+						//TODO: logic to be implemented by OStap
+            //parentVM.updateTasks(with: task)
         }
 
         func deleteTask() {
             // TODO: implement when persistence is deployed
-            parentVM.delete(task)
+					// parentVM.delete(task)
         }
 
         func markTaskAsDone() {

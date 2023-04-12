@@ -22,10 +22,13 @@ extension AddTaskScreen {
 			listViewModel = parentVM
 		}
 
-		func addTask(name: inout String, dueDate: Date, type: TaskType,
-					 status: TaskStatus, notes: String) {
+		func addTask(
+			name: inout String, dueDate: Date, type: TaskType,
+			status: TaskStatus, notes: String
+		) {
 			assignDefaultTaskName(to: &name)
-			listViewModel.addTask(name: &name, type: type, dueDate: dueDate, status: status, notes: notes)
+			
+			// TODO: implement adding task to persistence
 		}
 
 		fileprivate func assignDefaultTaskName(to name: inout String) {

@@ -20,7 +20,7 @@ struct DetailScreen: View {
 struct DetailView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
-			DetailScreen(vm: .init(for: dev.task, parentVM: dev.homeVM))
+			DetailScreen(vm: .init(for: dev.task))
 		}
 	}
 }
