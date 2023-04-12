@@ -38,7 +38,7 @@ struct PendingScreen: View {
 			.listStyle(.plain)
 			.playConfetti($confettiCounter)
 			.navigationDestination(for: TaskItem.self) { task in
-				DetailScreen(vm: .init(for: task, parentVM: vm))
+				DetailScreen(vm: .init(for: task))
 			}
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
@@ -53,7 +53,7 @@ struct PendingScreen: View {
 				AddTaskScreen(vm: .init(parentVM: self.vm))
 			}
 			.fullScreenCover(item: $selectedTask) { task in
-				DetailScreen(vm: .init(for: task, parentVM: vm))
+				DetailScreen(vm: .init(for: task))
 			}
 		}
 		.environmentObject(tabState)
@@ -130,7 +130,7 @@ extension PendingScreen {
 					cell.contextMenu { makeContextMenu(for: task) }
 				} elseCase: { cell in
 					cell.contextMenu { makeContextMenu(for: task) } preview: {
-						DetailScreen(vm: .init(for: task, parentVM: vm))
+						DetailScreen(vm: .init(for: task))
 					}
 				}
 			}
