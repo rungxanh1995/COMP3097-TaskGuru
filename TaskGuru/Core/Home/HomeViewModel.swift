@@ -1,8 +1,9 @@
 //
 //  HomeViewModel.swift
-//  TaskGuru Self
+//  TaskGuru
 //
 //  Created by Marco Stevanella on 2023-04-12.
+//  Student ID: 101307949
 //
 
 import Foundation
