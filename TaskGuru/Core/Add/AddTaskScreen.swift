@@ -20,51 +20,33 @@ struct AddTaskScreen: View {
 		NavigationView {
 			Form {
 				Section {
-					TextField("addTask.input.name", text: $vm.taskName)
+					TextField("Name", text: $vm.taskName)
 						.focused($focusField, equals: .name)
 
-					VStack(alignment: .leading) {
-						Text("addTask.input.dueDate")
-						DatePicker("addTask.input.dueDate", selection: $vm.dueDate)
-							.datePickerStyle(.graphical)
-					}
-
-					Picker("addTask.input.type", selection: $vm.taskType) {
-						ForEach(TaskConstants.allTypes, id: \.self) {
-							Text(LocalizedStringKey($0.rawValue))
+					DatePicker("Due Date", selection: $vm.dueDate,
+										 displayedComponents: .date
+					)
+					
+					Picker("Type", selection: $vm.taskType) {
+						ForEach(TaskType.allCases, id: \.self) {
+							Text($0.rawValue)
 						}
 					}
 					
-					Picker("addTask.input.status", selection: $vm.taskStatus) {
-						ForEach(TaskConstants.allStatuses, id: \.self) {
-							Text(LocalizedStringKey($0.rawValue))
-						}
-					}
-					
-					Picker("addTask.input.priority", selection: $vm.taskPriority) {
-						ForEach(TaskPriority.allCases, id: \.self) {
-							Text(LocalizedStringKey($0.rawValue))
+					Picker("Status", selection: $vm.taskStatus) {
+						ForEach(TaskStatus.allCases, id: \.self) {
+							Text($0.rawValue)
 						}
 					}
 				} header: {
-					Label {
-						Text("addTask.sections.general")
-					} icon: {
-						SFSymbols.gridFilled
-					}
+					Label { Text("General") } icon: { SFSymbols.gridFilled }
 				}
 				
 				Section {
-					TextField("addTask.input.notes", text: $vm.taskNotes,
-								prompt: Text("addTask.input.placeholder.notes"),
-								axis: .vertical)
-					.focused($focusField, equals: .notes)
+					TextField("Notes", text: $vm.taskNotes, prompt: Text("Any extra notes..."), axis: .vertical)
+						.focused($focusField, equals: .notes)
 				} header: {
-					Label {
-						Text("addTask.sections.notes")
-					} icon: {
-						SFSymbols.gridFilled
-					}
+					Label { Text("Notes") } icon: { SFSymbols.pencilDrawing }
 				}
 			}
 			.onAppear {
@@ -73,28 +55,20 @@ struct AddTaskScreen: View {
 				}
 			}
 			.onSubmit { focusField = nil }
-			.navigationTitle("addTask.nav.title")
+			.navigationTitle("Add Task")
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
 				ToolbarItem(placement: .cancellationAction) {
-					Button("addTask.nav.button.cancel") {
-						haptic(.buttonPress)
+					Button("Cancel") {
 						dismissThisView()
 					}
 				}
 				
 				ToolbarItem(placement: .confirmationAction) {
-					Button("addTask.nav.button.add") {
+					Button("Add") {
 						addNewTask()
 						dismissThisView()
 					}
-				}
-
-				ToolbarItemGroup(placement: .keyboard) {
-					Spacer()
-					Button {
-						focusField = nil
-					} label: { SFSymbols.keyboardChevronDown }
 				}
 			}
 		}
@@ -104,8 +78,8 @@ struct AddTaskScreen: View {
 
 extension AddTaskScreen {
 	private func addNewTask() -> Void {
-		vm.addNewTask()
-		haptic(.notification(.success))
+		vm.addTask(name: &vm.taskName, dueDate: vm.dueDate, type: vm.taskType,
+							 status: vm.taskStatus, notes: vm.taskNotes)
 	}
 }
 
