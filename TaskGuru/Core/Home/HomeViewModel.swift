@@ -37,10 +37,6 @@ final class HomeViewModel: ObservableObject {
 	
 	// MARK: - CRUD Operations
 	
-	func fetchTasks() {
-		// TODO: To be implemented by Marco
-	}
-	
 	// ADD
 	
 	func addTask(name: inout String, type: TaskType, dueDate: Date, status: TaskStatus, notes: String) {
