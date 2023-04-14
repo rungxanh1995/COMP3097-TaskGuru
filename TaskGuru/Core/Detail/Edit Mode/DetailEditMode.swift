@@ -25,39 +25,51 @@ extension DetailScreen {
             NavigationView {
                 Form {
                     Section {
-                        TextField("Name", text: $vm.task.name)
+                        TextField("editTask.input.name", text: $vm.taskName)
                             .focused($focusField, equals: .name)
 
-                        DatePicker("Due Date", selection: $vm.task.dueDate,
-                                   displayedComponents: .date
-                        )
+                        VStack(alignment: .leading) {
+                            Text("editTask.input.dueDate")
+                            DatePicker("editTask.input.dueDate", selection: $vm.taskDueDate)
+                                .datePickerStyle(.graphical)
+                        }
 
-                        Picker("Type", selection: $vm.task.type) {
-                            ForEach(TaskConstants.allTypes, id: \.self) {
-                                Text($0.rawValue)
+                        Picker("editTask.input.type", selection: $vm.taskType) {
+                            ForEach(TaskType.allCases, id: \.self) {
+                                Text(LocalizedStringKey($0.rawValue))
                             }
                         }
 
-                        Picker("Status", selection: $vm.task.status) {
-                            ForEach(TaskConstants.allStatuses, id: \.self) {
-                                Text($0.rawValue)
+                        Picker("editTask.input.status", selection: $vm.taskStatus) {
+                            ForEach(TaskStatus.allCases, id: \.self) {
+                                Text(LocalizedStringKey($0.rawValue))
+                            }
+                        }
+
+                        Picker("editTask.input.priority", selection: $vm.taskPriority) {
+                            ForEach(TaskPriority.allCases, id: \.self) {
+                                Text(LocalizedStringKey($0.rawValue))
                             }
                         }
                     } header: {
-                        HStack {
+                        Label {
+                            Text("editTask.sections.general")
+                        } icon: {
                             SFSymbols.gridFilled
-                            Text("General")
                         }
                     }
 
                     Section {
-                        TextField("Notes", text: $vm.task.notes, prompt: Text("Any extra notes..."), axis: .vertical)
+                        TextField("editTask.input.notes", text: $vm.taskNotes,
+                                            prompt: Text("editTask.input.placeholder.notes"),
+                                            axis: .vertical)
                             .focused($focusField, equals: .notes)
 
                     } header: {
-                        HStack {
-                            SFSymbols.pencilDrawing
-                            Text("Notes")
+                        Label {
+                            Text("editTask.sections.notes")
+                        } icon: {
+                            SFSymbols.gridFilled
                         }
                     }
                 }
@@ -67,30 +79,39 @@ extension DetailScreen {
                     }
                 }
                 .onSubmit { focusField = nil }
-                .navigationTitle("Edit Task")
+                .navigationTitle("editTask.nav.title")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button("Cancel") {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("editTask.nav.button.cancel") {
+                            haptic(.buttonPress)
                             dismissThisView()
                         }
                     }
-                    
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Save") {
+
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("editTask.nav.button.save") {
                             didTapSaveButton()
                         }
                         .font(.headline)
                     }
+
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        Button {
+                            focusField = nil
+                        } label: { SFSymbols.keyboardChevronDown }
+                    }
                 }
-                .interactiveDismissDisabled()
             }
+            .interactiveDismissDisabled()
         }
 
         private func didTapSaveButton() -> Void {
-            vm.updateItemInItsSource()
+            vm.updateTask()
             dismissThisView()
             appState.popToRoot()
+            haptic(.notification(.success))
         }
     }
 }
