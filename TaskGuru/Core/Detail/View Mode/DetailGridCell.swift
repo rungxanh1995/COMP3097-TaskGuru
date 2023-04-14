@@ -13,26 +13,34 @@ struct DetailGridCell: View {
     let caption: LocalizedStringKey
     var titleColor: Color = .primary
     
-    var body: some View {
-        VStack {
-            Text(title)
-                .font(.system(.headline))
-                .multilineTextAlignment(.center)
-                .padding()
-                .foregroundColor(titleColor)
-
-            Spacer()
-
-            Text(caption)
-                .font(.system(.caption))
-                .padding(6)
-                .frame(maxWidth: .infinity)
-                .background(.thickMaterial)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.thinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 8))
-    }
+	var body: some View {
+		VStack {
+			Text(LocalizedStringKey(title))
+				.font(.headline)
+				.multilineTextAlignment(.center)
+				.padding()
+				.frame(maxWidth: .infinity)
+				.foregroundColor(titleColor)
+				.textSelection(.enabled)
+			
+			Spacer()
+			
+			Text(caption)
+				.font(.caption)
+				.padding(6)
+				.frame(maxWidth: .infinity)
+				.overlay(
+					Rectangle()
+						.fill(.gray.opacity(0.25).gradient)
+				)
+		}
+		.frame(maxWidth: .infinity, maxHeight: .infinity)
+		.clipShape(RoundedRectangle(cornerRadius: 12))
+		.overlay(
+			RoundedRectangle(cornerRadius: 12)
+				.stroke(.gray.opacity(0.5), lineWidth: 0.5)
+		)
+	}
 }
 
 struct DetailGridCell_Previews: PreviewProvider {
