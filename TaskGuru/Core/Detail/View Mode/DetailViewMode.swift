@@ -13,6 +13,7 @@ extension DetailScreen {
 		@ObservedObject var vm: DetailScreen.ViewModel
 
 		@Environment(\.dismiss) var dismissThisView
+		@Environment(\.displayScale) var displayScale
 
 		@State private var isShowingEdit: Bool = false
 		@State private var isMarkingAsDone: Bool = false
@@ -25,68 +26,122 @@ extension DetailScreen {
 
 		var body: some View {
 			ScrollView {
-				VStack(spacing: 8) {
-					LazyVGrid(columns: columns) {
-						DetailGridCell(title: vm.task.name, caption: "Name")
-						DetailGridCell(title: vm.task.status.rawValue, caption: "Status", titleColor: vm.task.colorForStatus())
-						DetailGridCell(title: vm.task.shortDueDate, caption: "Due date", titleColor: vm.task.colorForDueDate())
-						DetailGridCell(title: vm.task.type.rawValue, caption: "Type")
-					}
-
-					if vm.task.notes.isEmpty == false {
-						DetailGridCell(title: vm.task.notes, caption: "Notes")
-					}
-				}
-				.padding()
-
-				Text("Last updated on \(vm.task.formattedLastUpdated)")
-					.font(.system(.caption, design: .rounded))
-					.foregroundColor(.secondary)
-					.padding([.bottom])
+				details
 			}
-			.navigationTitle("Task Detail")
+			.navigationTitle("taskDetail.nav.title")
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
-				if vm.task.isNotDone {
-					ToolbarItemGroup(placement: .primaryAction) {
-						Button(action: {isMarkingAsDone.toggle()}) {
-							Label("Mark as Done", systemImage: "checkmark")
-						}
-					}
+				ToolbarItem(placement: .primaryAction) {
+					ShareLink(item: Image(uiImage: taskSnapshot),
+										preview: SharePreview(vm.task.name, image: Image(uiImage: taskSnapshot)))
+					.accessibilityHint("Tap this button to share a detailed snapshot of the task")
 				}
 
 				ToolbarItemGroup(placement: .secondaryAction) {
-					Button(action: { isShowingEdit.toggle() }) {
-						Label("Edit", systemImage: "square.and.pencil")
+					if vm.task.isNotDone {
+						Button {
+							haptic(.buttonPress)
+							isMarkingAsDone.toggle()
+						} label: {
+							Label { Text("contextMenu.task.markDone") } icon: { SFSymbols.checkmark }
+						}
 					}
 
-					Button(action: {
-						isDeletingTask.toggle()
+					Button {
+						haptic(.buttonPress)
+						isShowingEdit.toggle()
+					} label: {
+						Label { Text("contextMenu.task.edit") } icon: { SFSymbols.pencilSquare }
+					}
+
+					Button(role: .destructive) {
 						haptic(.notification(.warning))
-					}) {
-						Label("Delete", systemImage: "trash")
+						isDeletingTask.toggle()
+					} label: {
+						Label { Text("contextMenu.task.delete") } icon: { SFSymbols.trash }
 					}
 				}
 			}
-			.alert("Mark Task as Done?", isPresented: $isMarkingAsDone, actions: {
-				Button("Cancel", role: .cancel, action: {})
-				Button("OK", action: {
+			.alert("taskDetail.alert.markAsDone", isPresented: $isMarkingAsDone, actions: {
+				Button("contextMenu.cancel", role: .cancel) {
+					haptic(.buttonPress)
+				}
+				Button("contextMenu.ok") {
 					vm.markTaskAsDone()
 					dismissThisView()
 					haptic(.notification(.success))
-				})
+				}
 			})
-			.alert("Delete Task?", isPresented: $isDeletingTask, actions: {
-				Button("Cancel", role: .cancel, action: {})
-				Button("OK", action: {
+			.alert("taskDetail.alert.deleteTask", isPresented: $isDeletingTask) {
+				Button("contextMenu.cancel", role: .cancel) {
+					haptic(.buttonPress)
+				}
+				Button("contextMenu.ok") {
 					vm.deleteTask()
 					dismissThisView()
 					haptic(.notification(.success))
-				})
-			})
+				}
+			}
 			.sheet(isPresented: $isShowingEdit) {
 				DetailScreen.EditMode(vm: self.vm)
 			}
 		}
+
+		private var details: some View {
+			VStack {
+				VStack(spacing: 8) {
+					DetailGridCell(title: vm.task.name, caption: "taskDetail.cell.name.caption")
+
+					LazyVGrid(columns: columns) {
+						DetailGridCell(title: vm.task.priority.rawValue, caption: "taskDetail.cell.priority.caption",
+													 titleColor: vm.task.colorForPriority())
+						DetailGridCell(title: vm.task.status.rawValue, caption: "taskDetail.cell.status.caption",
+													 titleColor: vm.task.colorForStatus())
+						DetailGridCell(title: vm.task.numericDueDate, caption: "taskDetail.cell.dueDate.caption",
+													 titleColor: vm.task.colorForDueDate())
+						DetailGridCell(title: vm.task.type.rawValue, caption: "taskDetail.cell.type.caption")
+					}
+
+					if vm.task.notes.isEmpty == false {
+						DetailGridCell(title: vm.task.notes, caption: "taskDetail.cell.notes.caption")
+					}
+				}
+
+				Divider()
+
+				Text("Last updated at \(vm.task.formattedLastUpdated)")
+					.font(.footnote)
+					.foregroundColor(.secondary)
+			}
+			.padding()
+			.disableDefaultAccessibilityBehavior()
+			.accessibilityElement(children: .combine)
+			.accessibilityLabel(accessibilityString)
+		}
+
+		@MainActor private var taskSnapshot: UIImage {
+			let renderer = ImageRenderer(content: details)
+			renderer.scale = displayScale
+			// Convert image to JPEG, otherwise you'll encounter issues with transparency
+			guard let image = renderer.uiImage,
+						let jpegData = image.jpegData(compressionQuality: 1.0),
+						let jpegImage = UIImage(data: jpegData) else {
+				return UIImage()
+			}
+			return jpegImage
+		}
+	}
+}
+
+extension DetailScreen.ViewMode {
+	private var accessibilityString: String {
+		var accessibilityString = ""
+		accessibilityString.append("Name: \(vm.task.name),")
+		accessibilityString.append("\(vm.task.priority.accessibilityString) priorty,")
+		accessibilityString.append("Status: \(vm.task.status.accessibilityString),")
+		accessibilityString.append("Due date: \(vm.task.dueDate.formatted(date: .complete, time: .shortened)),")
+		accessibilityString.append("Type: \(vm.task.type.accessibilityString),")
+		accessibilityString.append("The task was last updated at \(vm.task.formattedLastUpdated).")
+		return accessibilityString
 	}
 }

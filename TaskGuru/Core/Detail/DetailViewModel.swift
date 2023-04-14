@@ -10,25 +10,52 @@ import Foundation
 
 extension DetailScreen {
 	final class ViewModel: ObservableObject {
-        @Published var task: TaskItem
+        var task: TaskItem
 
-        init(for task: TaskItem) {
+        // MARK: - Edit Mode
+        @Published var taskName: String
+        @Published var taskDueDate: Date
+        @Published var taskType: TaskType
+        @Published var taskStatus: TaskStatus
+        @Published var taskPriority: TaskPriority
+        @Published var taskNotes: String
+
+        private let storageProvider: StorageProvider
+
+        init(for task: TaskItem, storageProvider: StorageProvider = StorageProviderImpl.standard) {
             self.task = task
+            self.storageProvider = storageProvider
+
+            taskName = task.name
+            taskDueDate = task.dueDate
+            taskType = task.type
+            taskStatus = task.status
+            taskPriority = task.priority
+            taskNotes = task.notes
         }
 
-        func updateItemInItsSource() {
-						//TODO: logic to be implemented by OStap
-            //parentVM.updateTasks(with: task)
+        func updateTask() {
+            task.name = taskName
+            task.dueDate = taskDueDate
+            task.type = taskType
+            task.status = taskStatus
+            task.priority = taskPriority
+            task.notes = taskNotes
+            saveAndHandleError()
         }
 
         func deleteTask() {
-            // TODO: implement when persistence is deployed
-					// parentVM.delete(task)
+            storageProvider.context.delete(task)
+            saveAndHandleError()
+        }
+
+        private func saveAndHandleError() {
+            storageProvider.saveAndHandleError()
         }
 
         func markTaskAsDone() {
             task.status = .done
-            updateItemInItsSource()
+            saveAndHandleError()
         }
 	}
 }
