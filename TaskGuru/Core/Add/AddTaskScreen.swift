@@ -63,7 +63,11 @@ struct AddTaskScreen: View {
 					)
 					.focused($focusField, equals: .notes)
 				} header: {
-					Label { Text("Notes") } icon: { SFSymbols.pencilDrawing }
+					Label {
+						Text("addTask.sections.notes")
+					} icon: {
+						SFSymbols.pencilDrawing
+					}
 				}
 			}
 			.onAppear {
