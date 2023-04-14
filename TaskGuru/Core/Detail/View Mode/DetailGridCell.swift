@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct DetailGridCell: View {
-    let title: String
-    let caption: LocalizedStringKey
-    var titleColor: Color = .primary
-    
+	let title: String
+	let caption: LocalizedStringKey
+	var titleColor: Color = .primary
+
 	var body: some View {
 		VStack {
 			Text(LocalizedStringKey(title))
@@ -44,7 +44,7 @@ struct DetailGridCell: View {
 }
 
 struct DetailGridCell_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailGridCell(title: "Todo name", caption: "Name")
-    }
+	static var previews: some View {
+		DetailGridCell(title: "Todo name", caption: "Name")
+	}
 }
