@@ -88,6 +88,13 @@ struct AddTaskScreen: View {
 						dismissThisView()
 					}
 				}
+
+				ToolbarItemGroup(placement: .keyboard) {
+					Spacer()
+					Button {
+						focusField = nil
+					} label: { SFSymbols.keyboardChevronDown }
+				}
 			}
 		}
 		.interactiveDismissDisabled()
