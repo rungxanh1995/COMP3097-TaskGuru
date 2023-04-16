@@ -29,20 +29,20 @@ struct RootScreen: View {
 				.tag(Tab.home)
 				.tabItem {
 					SFSymbols.bulletList
-					if isTabNamesEnabled { Text("Home") }
+					if isTabNamesEnabled { Text("home.tab.title") }
 				}
 			PendingScreen()
 				.tag(Tab.pending)
 				.tabItem {
 					SFSymbols.clock
-					if isTabNamesEnabled { Text("Pending") }
+					if isTabNamesEnabled { Text("pending.tab.title") }
 				}
 				.badge(isShowingTabBadge ? pendingTasksCount : 0)
 			SettingsScreen()
 				.tag(Tab.settings)
 				.tabItem {
 					SFSymbols.gear
-					if isTabNamesEnabled { Text("Settings") }
+					if isTabNamesEnabled { Text("settings.tab.title") }
 				}
 		}
 		.onReceive(homeVM.$isFetchingData) { _ in
