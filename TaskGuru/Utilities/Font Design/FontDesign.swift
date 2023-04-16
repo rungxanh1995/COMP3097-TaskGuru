@@ -19,10 +19,10 @@ enum FontDesignType: Int, Identifiable, CaseIterable {
 extension FontDesignType {
 	var title: String {
 		switch self {
-		case .system: return "System"
-		case .rounded: return "Rounded"
-		case .monospaced: return "Monospaced"
-		case .serif: return "Serif"
+		case .system: return "fontDesign.system"
+		case .rounded: return "fontDesign.rounded"
+		case .monospaced: return "fontDesign.monospaced"
+		case .serif: return "fontDesign.serif"
 		}
 	}
 }
