@@ -14,6 +14,7 @@ extension DetailScreen {
 
 		@Environment(\.dismiss) var dismissThisView
 		@Environment(\.displayScale) var displayScale
+		@Environment(\.locale) private var userLocale
 
 		@State private var isShowingEdit: Bool = false
 		@State private var isMarkingAsDone: Bool = false
@@ -120,7 +121,9 @@ extension DetailScreen {
 		}
 
 		@MainActor private var taskSnapshot: UIImage {
-			let renderer = ImageRenderer(content: details)
+			let renderer = ImageRenderer(
+				content: details.environment(\.locale, userLocale) // so the content is localized
+			)
 			renderer.scale = displayScale
 			// Convert image to JPEG, otherwise you'll encounter issues with transparency
 			guard let image = renderer.uiImage,
