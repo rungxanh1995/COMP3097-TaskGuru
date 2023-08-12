@@ -12,7 +12,7 @@ struct HomeListCell: View {
 	@ObservedObject var task: TaskItem
 	@Preference(\.isRelativeDateTime) private var isRelativeDateTime
 	@Preference(\.isTodayDuesHighlighted) private var isCellHighlighted
-	@Environment(\.dynamicTypeSize) var dynamicTypeSize
+	@Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
 	private let columns = [
 		GridItem(.flexible(), alignment: .leading),
@@ -21,9 +21,13 @@ struct HomeListCell: View {
 	]
 
 	var body: some View {
-		let lowerLayout = dynamicTypeSize <= .xxLarge ?
+        let lowerLayout = dynamicTypeSize <= .xLarge ?
 		AnyLayout(HStackLayout(alignment: .center)) :
 		AnyLayout(VStackLayout(alignment: .leading))
+
+        let nestedLowerFirstHalfLayout = dynamicTypeSize <= .accessibility1 ?
+        AnyLayout(HStackLayout(alignment: .center)) :
+        AnyLayout(VStackLayout(alignment: .leading))
 
 		VStack(alignment: .leading) {
 			HStack(alignment: .top) {
@@ -33,8 +37,10 @@ struct HomeListCell: View {
 			.bold(task.isNotDone ? true : false)
 
 			lowerLayout {
-				taskStatus.padding(.trailing, 12)
-				taskDueDate.padding(.trailing, 12)
+                nestedLowerFirstHalfLayout {
+                    taskStatus.padding(.trailing, 12)
+                    taskDueDate.padding(.trailing, 12)
+                }
 				taskType
 			}
 		}
