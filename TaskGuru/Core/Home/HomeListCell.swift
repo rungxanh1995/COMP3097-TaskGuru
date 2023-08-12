@@ -21,9 +21,7 @@ struct HomeListCell: View {
 	]
 
 	var body: some View {
-        let lowerLayout = dynamicTypeSize <= .xLarge ?
-		AnyLayout(HStackLayout(alignment: .center)) :
-		AnyLayout(VStackLayout(alignment: .leading))
+        let lowerLayout = decideOutmostLowerLayout()
 
         let nestedLowerFirstHalfLayout = dynamicTypeSize <= .accessibility1 ?
         AnyLayout(HStackLayout(alignment: .center)) :
@@ -144,6 +142,28 @@ extension HomeListCell {
 }
 
 extension HomeListCell {
+	private func decideOutmostLowerLayout() -> AnyLayout {
+		var layout: AnyLayout
+		let preferredHorizontalLayout = AnyLayout(HStackLayout(alignment: .center))
+		let preferredVerticalLayout = AnyLayout(VStackLayout(alignment: .leading))
+
+		// When font size is larger than 120%
+		if dynamicTypeSize > .xxLarge {
+			layout = preferredVerticalLayout
+		} else {
+			layout = preferredHorizontalLayout
+		}
+
+		// When font size is larger than 100%, user turned on "Relative date time" mode, and task is in progress
+		if dynamicTypeSize > .large && isRelativeDateTime && task.status == .inProgress {
+			layout = preferredVerticalLayout
+		} else {
+			layout = preferredHorizontalLayout
+		}
+
+		return layout
+	}
+
 	private var accessibilityString: String {
 		var string = ""
 		string.append("Task name: \(task.name),")
