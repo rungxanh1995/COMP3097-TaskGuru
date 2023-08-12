@@ -122,7 +122,7 @@ extension HomeListCell {
 
 	private var taskDueDate: some View {
 		Label {
-			Text(task.shortDueDate)
+			Text(isRelativeDateTime ? task.relativeDueDate : task.shortDueDate)
 		} icon: {
 			SFSymbols.alarm.font(.caption)
 		}
