@@ -32,15 +32,15 @@ extension AppIconType {
 	/// Used as direct reference to icon image name in Assets catalog
 	var assetName: String {
 		switch self {
-		case .dew: return "Dew"
-		case .spring: return "Spring"
-		case .summer: return "Summer"
-		case .fall: return "Fall"
-		case .winter: return "Winter"
-		case .sky: return "Sky"
-		case .midnight: return "Midnight"
-		case .iris: return "Iris"
-		case .berry: return "Berry"
+		case .dew: return "AppIconDew"
+		case .spring: return "AppIconSpring"
+		case .summer: return "AppIconSummer"
+		case .fall: return "AppIconFall"
+		case .winter: return "AppIconWinter"
+		case .sky: return "AppIconSky"
+		case .midnight: return "AppIconMidnight"
+		case .iris: return "AppIconIris"
+		case .berry: return "AppIconBerry"
 		}
 	}
 
