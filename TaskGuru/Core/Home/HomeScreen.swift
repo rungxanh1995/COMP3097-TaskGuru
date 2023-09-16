@@ -58,7 +58,7 @@ struct HomeScreen: View {
 				}
 			}
 			.searchable(text: $vm.searchText)
-			.sheet(isPresented: $vm.isShowingAddTaskView) {
+			.fullScreenCover(isPresented: $vm.isShowingAddTaskView) {
 				AddTaskScreen(vm: .init(parentVM: self.vm))
 			}
 			.fullScreenCover(item: $selectedTask) { task in
