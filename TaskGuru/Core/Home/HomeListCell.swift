@@ -35,10 +35,10 @@ struct HomeListCell: View {
 			.bold(task.isNotDone ? true : false)
 
 			lowerLayout {
-                nestedLowerFirstHalfLayout {
-                    taskStatus.padding(.trailing, 12)
-                    taskDueDate.padding(.trailing, 12)
-                }
+				nestedLowerFirstHalfLayout {
+					taskStatus.padding(.trailing, 12)
+					taskDueDate.padding(.trailing, 12)
+				}
 				taskType
 			}
 		}
