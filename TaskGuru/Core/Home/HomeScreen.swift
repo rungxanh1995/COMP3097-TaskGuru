@@ -90,7 +90,7 @@ extension HomeScreen {
 			let emptyTaskListSentence = LocalizedStringKey("Nothing yet. Tap here or \(SFSymbols.plusCircled) to add more")
 			Text(emptyTaskListSentence)
 				.font(.callout)
-				.foregroundColor(.secondary)
+				.foregroundStyle(.secondary)
 		}
 		.onTapGesture { vm.isShowingAddTaskView.toggle() }
 	}
@@ -99,7 +99,7 @@ extension HomeScreen {
 		let emptyListSentence = LocalizedStringKey("home.info.sectionEmpty")
 		Text(emptyListSentence)
 			.font(.callout)
-			.foregroundColor(.secondary)
+			.foregroundStyle(.secondary)
 	}
 
 	@ViewBuilder private var overdueSection: some View {
@@ -112,7 +112,7 @@ extension HomeScreen {
 				filteredList(of: overdues)
 			}
 		} header: {
-			Text("home.sections.overdue").bold().foregroundColor(.appPink)
+			Text("home.sections.overdue").bold().foregroundStyle(Color.appPink)
 		}
 	}
 
@@ -130,7 +130,7 @@ extension HomeScreen {
 					}
 			}
 		} header: {
-			Text("home.sections.dueToday").bold().foregroundColor(.appYellow)
+			Text("home.sections.dueToday").bold().foregroundStyle(Color.appYellow)
 		}
 	}
 
@@ -144,7 +144,7 @@ extension HomeScreen {
 				filteredList(of: upcomings)
 			}
 		} header: {
-			Text("home.sections.upcoming").bold().foregroundColor(.appClover)
+			Text("home.sections.upcoming").bold().foregroundStyle(Color.appClover)
 		}
 	}
 
@@ -278,7 +278,7 @@ extension HomeScreen {
 			SFSymbols.calendarWithClock
 		}
 		.labelStyle(.titleAndIcon)
-		.foregroundColor(.appYellow)
+		.foregroundStyle(Color.appYellow)
 	}
 
 	private var addTaskButton: some View {

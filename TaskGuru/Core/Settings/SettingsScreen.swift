@@ -179,7 +179,7 @@ private extension SettingsScreen {
 				.tint(.primary)
 			Spacer()
 			SFSymbols.arrowUpForward
-				.foregroundColor(isShowingAppBadge ? .primary : .gray.opacity(0.5))
+				.foregroundStyle(isShowingAppBadge ? .primary : Color.gray.opacity(0.5))
 		}
 		.disabled(!isShowingAppBadge)
 	}
@@ -277,7 +277,7 @@ private extension SettingsScreen {
 				Spacer()
 				Text("TaskGuru \(vm.appVersionNumber) (\(vm.appBuildNumber))")
 					.font(.callout)
-					.foregroundColor(.secondary)
+					.foregroundStyle(.secondary)
 				Spacer()
 			}
 			

@@ -12,6 +12,7 @@ struct HomeListCell: View {
 	@ObservedObject var task: TaskItem
 	@Preference(\.isRelativeDateTime) private var isRelativeDateTime
 	@Preference(\.isTodayDuesHighlighted) private var isCellHighlighted
+	@Preference(\.isShowingTaskNotesInLists) private var isShowingTaskNotes
 	@Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
 	private let columns = [
@@ -35,11 +36,15 @@ struct HomeListCell: View {
 			.bold(task.isNotDone ? true : false)
 
 			lowerLayout {
-                nestedLowerFirstHalfLayout {
-                    taskStatus.padding(.trailing, 12)
-                    taskDueDate.padding(.trailing, 12)
-                }
+				nestedLowerFirstHalfLayout {
+					taskStatus.padding(.trailing, 12)
+					taskDueDate.padding(.trailing, 12)
+				}
 				taskType
+			}
+
+			if isShowingTaskNotes {
+				taskNotes
 			}
 		}
 		.strikethrough(task.isNotDone ? false : true)
@@ -67,12 +72,12 @@ extension HomeListCell {
 		.if(task.isNotDone) { dueDate in
 			dueDate.if(isCellHighlighted) { status in
 				// intentional accessibility decision
-				status.foregroundColor(.primary)
+				status.foregroundStyle(.primary)
 			} elseCase: { status in
-				status.foregroundColor(task.colorForStatus())
+				status.foregroundStyle(task.colorForStatus())
 			}
 		} elseCase: { status in
-			status.foregroundColor(.secondary)
+			status.foregroundStyle(.secondary)
 		}
 	}
 
@@ -91,13 +96,13 @@ extension HomeListCell {
 			.labelStyle(.iconOnly)
 		}
 		.font(.body)
-		.foregroundColor(task.isNotDone ? nil : .secondary)
+		.foregroundStyle(task.isNotDone ? Color.defaultAccentColor : .secondary)
 	}
 
 	private var taskName: some View {
 		Text(task.name)
 			.font(.body)
-			.foregroundColor(task.isNotDone ? .primary : .secondary)
+			.foregroundStyle(task.isNotDone ? .primary : .secondary)
 			.lineLimit(2).truncationMode(.tail)
 	}
 
@@ -117,7 +122,7 @@ extension HomeListCell {
 		}
 		.labelStyle(.titleAndIcon)
 		.font(.subheadline)
-		.foregroundColor(task.isNotDone ? .primary : .secondary)
+		.foregroundStyle(task.isNotDone ? .primary : .secondary)
 	}
 
 	private var taskDueDate: some View {
@@ -131,13 +136,24 @@ extension HomeListCell {
 		.if(task.isNotDone) { dueDate in
 			dueDate.if(isCellHighlighted) { dueDate in
 				// intentional accessibility decision
-				dueDate.foregroundColor(.primary)
+				dueDate.foregroundStyle(.primary)
 			} elseCase: { dueDate in
-				dueDate.foregroundColor(task.colorForDueDate())
+				dueDate.foregroundStyle(task.colorForDueDate())
 			}
 		} elseCase: { dueDate in
-			dueDate.foregroundColor(.secondary)
+			dueDate.foregroundStyle(.secondary)
 		}
+	}
+
+	private var taskNotes: some View {
+		Label {
+			Text(task.notes)
+		} icon: {
+			SFSymbols.noteText.font(.caption)
+		}
+		.labelStyle(.titleAndIcon)
+		.font(.subheadline)
+		.foregroundStyle(task.isNotDone ? .primary : .secondary)
 	}
 }
 
@@ -171,6 +187,10 @@ extension HomeListCell {
 		string.append("\(task.status.accessibilityString) status,")
 		string.append(isRelativeDateTime ? "Due \(task.relativeDueDate)," : "Due on \(task.shortDueDate),")
 		string.append("\(task.type.accessibilityString) type.")
+		if isShowingTaskNotes {
+			string.append("Notes: \(task.notes).")
+		}
+
 		return string
 	}
 }

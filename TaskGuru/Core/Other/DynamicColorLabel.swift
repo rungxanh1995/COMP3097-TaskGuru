@@ -20,7 +20,7 @@ import SwiftUI
 /// var body: some View {
 ///   DynamicColorLabel {
 ///     Text("Tap me!")
-///       .foregroundColor(.white)
+///       .foregroundStyle(.white)
 ///       .padding()
 ///   }
 /// }

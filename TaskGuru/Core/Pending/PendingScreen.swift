@@ -67,14 +67,14 @@ extension PendingScreen {
 			
 			Text("pending.info.listEmty")
 				.font(.callout)
-				.foregroundColor(.secondary)
+				.foregroundStyle(.secondary)
 		}
 	}
 	
 	private var encouragingMessage: some View {
 		Text("pending.info.listNotEmpty")
 			.font(.footnote)
-			.foregroundColor(.secondary)
+			.foregroundStyle(.secondary)
 	}
 	
 	@ViewBuilder private var pendingInThePastSection: some View {
@@ -84,7 +84,7 @@ extension PendingScreen {
 			Section {
 				filteredList(of: pendings)
 			} header: {
-				Text("pending.sections.overdue").bold().foregroundColor(.appPink)
+				Text("pending.sections.overdue").bold().foregroundStyle(Color.appPink)
 			}
 		}
 	}
@@ -103,7 +103,7 @@ extension PendingScreen {
 				emptyStateImage(alignment: .leading).listRowBackground(Color.clear)
 			}
 		} header: {
-			Text("pending.sections.dueToday").bold().foregroundColor(.appYellow)
+			Text("pending.sections.dueToday").bold().foregroundStyle(Color.appYellow)
 		}
 	}
 	
@@ -114,7 +114,7 @@ extension PendingScreen {
 			Section {
 				filteredList(of: pendings)
 			} header: {
-				Text("pending.sections.upcoming").bold().foregroundColor(.appClover)
+				Text("pending.sections.upcoming").bold().foregroundStyle(Color.appClover)
 			}
 		}
 	}

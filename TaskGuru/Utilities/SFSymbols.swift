@@ -57,4 +57,5 @@ enum SFSymbols {
 	static let dock: Image = .init(systemSymbol: .dockRectangle)
 	static let handTap: Image = .init(systemSymbol: .handTap)
 	static let keyboardChevronDown: Image = .init(systemSymbol: .keyboardChevronCompactDown)
+	static let noteText: Image = .init(systemSymbol: .noteText)
 }
