@@ -27,4 +27,5 @@ enum UserDefaultsKey {
 	static let isBoldFont: String = "is-bold-font"
 	static let isTodayDuesHighlighted: String = "is-today-dues-highlighted"
 	static let isRelativeDateTime: String = "is-relative-date-time"
+	static let isShowingTaskNotesInLists: String = "is-showing-task-notes-in-lists"
 }

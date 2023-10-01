@@ -74,4 +74,7 @@ final class Preferences {
 
 	@UserDefault(UserDefaultsKey.isRelativeDateTime)
 	var isRelativeDateTime: Bool = false
+
+	@UserDefault(UserDefaultsKey.isShowingTaskNotesInLists)
+	var isShowingTaskNotesInLists: Bool = false
 }
