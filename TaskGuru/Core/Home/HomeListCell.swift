@@ -72,12 +72,12 @@ extension HomeListCell {
 		.if(task.isNotDone) { dueDate in
 			dueDate.if(isCellHighlighted) { status in
 				// intentional accessibility decision
-				status.foregroundColor(.primary)
+				status.foregroundStyle(.primary)
 			} elseCase: { status in
-				status.foregroundColor(task.colorForStatus())
+				status.foregroundStyle(task.colorForStatus())
 			}
 		} elseCase: { status in
-			status.foregroundColor(.secondary)
+			status.foregroundStyle(.secondary)
 		}
 	}
 
@@ -96,13 +96,13 @@ extension HomeListCell {
 			.labelStyle(.iconOnly)
 		}
 		.font(.body)
-		.foregroundColor(task.isNotDone ? nil : .secondary)
+		.foregroundStyle(task.isNotDone ? Color.defaultAccentColor : .secondary)
 	}
 
 	private var taskName: some View {
 		Text(task.name)
 			.font(.body)
-			.foregroundColor(task.isNotDone ? .primary : .secondary)
+			.foregroundStyle(task.isNotDone ? .primary : .secondary)
 			.lineLimit(2).truncationMode(.tail)
 	}
 
@@ -122,7 +122,7 @@ extension HomeListCell {
 		}
 		.labelStyle(.titleAndIcon)
 		.font(.subheadline)
-		.foregroundColor(task.isNotDone ? .primary : .secondary)
+		.foregroundStyle(task.isNotDone ? .primary : .secondary)
 	}
 
 	private var taskDueDate: some View {
@@ -136,12 +136,12 @@ extension HomeListCell {
 		.if(task.isNotDone) { dueDate in
 			dueDate.if(isCellHighlighted) { dueDate in
 				// intentional accessibility decision
-				dueDate.foregroundColor(.primary)
+				dueDate.foregroundStyle(.primary)
 			} elseCase: { dueDate in
-				dueDate.foregroundColor(task.colorForDueDate())
+				dueDate.foregroundStyle(task.colorForDueDate())
 			}
 		} elseCase: { dueDate in
-			dueDate.foregroundColor(.secondary)
+			dueDate.foregroundStyle(.secondary)
 		}
 	}
 
@@ -153,7 +153,7 @@ extension HomeListCell {
 		}
 		.labelStyle(.titleAndIcon)
 		.font(.subheadline)
-		.foregroundColor(task.isNotDone ? .primary : .secondary)
+		.foregroundStyle(task.isNotDone ? .primary : .secondary)
 	}
 }
 

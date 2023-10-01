@@ -20,7 +20,7 @@ struct AccentColorSettings: View {
 							Text(LocalizedStringKey(accent.title))
 						} icon: {
 							SFSymbols.circleFilled
-								.foregroundColor(accent.associatedColor)
+								.foregroundStyle(accent.associatedColor)
 						}
 						.labelStyle(.titleAndIcon)
 						.tag(accent.rawValue)

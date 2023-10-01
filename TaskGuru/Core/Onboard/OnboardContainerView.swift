@@ -76,7 +76,7 @@ extension OnboardContainerView {
 			}
 			Text("onboarding.privacy")
 				.font(.caption2)
-				.foregroundColor(.secondary)
+				.foregroundStyle(.secondary)
 				.multilineTextAlignment(.center)
 				.accessibilityLabel("Privacy acknowledgment")
 				.accessibilityValue(Text("onboarding.privacy"))

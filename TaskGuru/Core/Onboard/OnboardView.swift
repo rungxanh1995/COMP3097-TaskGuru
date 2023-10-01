@@ -28,7 +28,7 @@ struct OnboardView: View {
 
 				Text(description)
 					.multilineTextAlignment(.leading)
-					.foregroundColor(.secondary)
+					.foregroundStyle(.secondary)
 			}
 			.accessibilityElement(children: .combine)
 		}

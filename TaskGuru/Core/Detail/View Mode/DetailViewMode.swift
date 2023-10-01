@@ -112,7 +112,7 @@ extension DetailScreen {
 
 				Text("Last updated at \(vm.task.formattedLastUpdated)")
 					.font(.footnote)
-					.foregroundColor(.secondary)
+					.foregroundStyle(.secondary)
 			}
 			.padding()
 			.disableDefaultAccessibilityBehavior()
