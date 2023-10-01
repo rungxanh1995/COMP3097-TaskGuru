@@ -178,6 +178,7 @@
 "settings.general.colorTheme" = "Color Theme";
 "settings.general.boldText" = "Bold Text";
 "settings.general.highlight" = "Highlight Today's Dues";
+"settings.general.showTaskNotesInLists" = "Show task notes in Home and Pending screens";
 
 "settings.general.relDateTime" = "Relative Time Format";
 "settings.general.relDateTime.footer" = "E.g. \"1 month ago\" instead of \"YYYY-MM-DD\"";

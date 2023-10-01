@@ -179,6 +179,7 @@
 "settings.general.colorTheme" = "Chủ đề";
 "settings.general.boldText" = "Chữ đậm";
 "settings.general.highlight" = "Tô nổi tác vụ đến hạn";
+"settings.general.showTaskNotesInLists" = "Hiện ghi chú của tác vụ trong tab Chính và Tác vụ Chưa H.thành";
 
 "settings.general.relDateTime" = "Định dạng t.gian tương đối";
 "settings.general.relDateTime.footer" = "Ví dụ: \"1 tháng trước\" thay vì \"ngày-tháng-năm\"";

@@ -16,6 +16,7 @@ struct AppearanceScreen: View {
 	@Preference(\.fontWidth) private var fontWidth
 	@Preference(\.isBoldFont) private var boldFont
 	@Preference(\.isTodayDuesHighlighted) private var duesHighlighted
+	@Preference(\.isShowingTaskNotesInLists) private var isShowingTaskNotesInLists
 	
 	@Preference(\.isTabNamesEnabled) private var isTabNamesEnabled
 	@Preference(\.isConfettiEnabled) private var isConfettiEnabled
@@ -40,7 +41,11 @@ struct AppearanceScreen: View {
 			
 			Section { boldText }
 			
-			highlightDues
+			Section {
+				highlightDues
+				showTaskNotes
+			}
+
 			
 			miscSection
 		}
@@ -131,6 +136,13 @@ extension AppearanceScreen {
 	
 	private var highlightDues: some View {
 		Toggle("settings.general.highlight", isOn: $duesHighlighted)
+	}
+
+	private var showTaskNotes: some View {
+		Toggle(
+			"settings.general.showTaskNotesInLists",
+			isOn: $isShowingTaskNotesInLists
+		)
 	}
 	
 	private var miscSection: some View {
