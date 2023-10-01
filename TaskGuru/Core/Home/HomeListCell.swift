@@ -12,6 +12,7 @@ struct HomeListCell: View {
 	@ObservedObject var task: TaskItem
 	@Preference(\.isRelativeDateTime) private var isRelativeDateTime
 	@Preference(\.isTodayDuesHighlighted) private var isCellHighlighted
+	@Preference(\.isShowingTaskNotesInLists) private var isShowingTaskNotes
 	@Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
 	private let columns = [
@@ -40,6 +41,10 @@ struct HomeListCell: View {
 					taskDueDate.padding(.trailing, 12)
 				}
 				taskType
+			}
+
+			if isShowingTaskNotes {
+				taskNotes
 			}
 		}
 		.strikethrough(task.isNotDone ? false : true)
@@ -139,6 +144,17 @@ extension HomeListCell {
 			dueDate.foregroundColor(.secondary)
 		}
 	}
+
+	private var taskNotes: some View {
+		Label {
+			Text(task.notes)
+		} icon: {
+			SFSymbols.noteText.font(.caption)
+		}
+		.labelStyle(.titleAndIcon)
+		.font(.subheadline)
+		.foregroundColor(task.isNotDone ? .primary : .secondary)
+	}
 }
 
 extension HomeListCell {
@@ -171,6 +187,10 @@ extension HomeListCell {
 		string.append("\(task.status.accessibilityString) status,")
 		string.append(isRelativeDateTime ? "Due \(task.relativeDueDate)," : "Due on \(task.shortDueDate),")
 		string.append("\(task.type.accessibilityString) type.")
+		if isShowingTaskNotes {
+			string.append("Notes: \(task.notes).")
+		}
+
 		return string
 	}
 }
