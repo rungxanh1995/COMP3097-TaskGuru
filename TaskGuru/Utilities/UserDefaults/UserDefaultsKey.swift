@@ -12,7 +12,7 @@ enum UserDefaultsKey {
 	static let hapticsReduced: String = "haptics-reduced"
 	static let systemTheme: String = "system-theme"
 	static let isOnboarding: String = "is-onboarding"
-	static let iShowingAppBadge: String = "is-showing-app-badge"
+	static let isShowingAppBadge: String = "is-showing-app-badge"
 	static let isShowingTabBadge: String = "is-showing-tab-badge"
 	static let isLockedInPortrait: String = "is-locked-in-portrait"
 	static let isPreviewEnabled: String = "is-preview-enabled"
